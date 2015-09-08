@@ -1,15 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>博主日志</title>
+		<meta name="description" content="Grid Loading and Hover Effect: Recreating Samsung's grid loading effect" />
+		<meta name="keywords" content="grid loading, swipe, effect, slide, masonry, web design, tutorial" />
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" href="http://dreamsky.github.io/main/blog/common/init.css">
+		<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>博主信息</title>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-<link type="text/css" href="css/css.css" rel="stylesheet" />
+		<style>
+		/*分类按钮css开始*/
+		.classification{
+			margin-top: 50px;
+			padding-left:15%;
+			padding: 15px 10px;
+			border: solid 2px  #db6d4c;
+			width: 74%;
+			margin-left: 13%;
+			border-radius: 15px;
+			float: left;
+			margin-bottom: 20px;
+		}
+		.cif{
+			margin-left: 10px;
+			float: left;
+		}
+		/*分类按钮css结束*/
 
-<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
-  <style>
-  /*导航的css&js开始*/
+		body {
+			background: #9AE7E2;
+		}
+		/*#9AE7E2*/
+		.codrops-demos a.current-demo {
+			color: #999;
+		}
+		.codrops-header h1 {
+			margin-top: 50px;
+			font-family: 'Microsoft Yahei';
+			color: black;
+		}
+		
+		/*导航的css&js开始*/
         @import url("http://www.w3cplus.com/demo/css3/base.css");
         /*任务一：引入本地字体文件*/
         @font-face {
@@ -22,23 +66,16 @@
     font-weight: normal;
     font-style: normal;
 }
-        body {
-          background-color:#edecec;
-          background-image: url('img/1.jpg');
-          background-position: center;
-          background-repeat:repeat;
-          background-attachment: fixed;
-          background-size: 100%,auto;
-        }
+       
         
         /* basic menu styles */
         .nav-menu {
           display: block;
          /* background: #74adaa;*/
-          width:950px;
-          margin: 50px auto 150px;
-          position: fixed;
-          padding-left: 18%;
+          width:1000px;
+          margin: 20px auto 0px;
+          padding-left: 5%;
+		  padding-top:3%;
           z-index: 2;
         }
         .nav-menu > li {
@@ -217,17 +254,31 @@
            transform: rotateX(0deg);
          }
  /*导航的css&js结束*/
-  </style>
-</head>
-<body>
-    <!--导航开始-->
+ /*搜寻框start*/
+ 	.form{
+ 		float: right;
+ 	}
+ 	.form-submit{
+ 		float: right;
+ 	}
+ 	.form-control{
+ 		width: 70%;
+ 		float: left;
+ 	}
+ 	
+ /*搜寻框end*/
+		</style>
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+	<!--导航开始-->
   <div id="nav">
     <ul class="nav-menu clearfix unstyled">
-      <li><a href="../nav/index.html" class="three-d">
+      <li><a href="../nav/index.html" class="three-d ">
         主页
         <span class="three-d-box"><span class="front">主页</span><span class="back">主页</span></span>
       </a></li>
-      <li><a href="../Journal/Journal.html" class="three-d">
+      <li><a href="#" class="three-d active">
         日志
         <span class="three-d-box"><span class="front">日志</span><span class="back">日志</span></span>
       </a></li>
@@ -235,7 +286,7 @@
         TA
         <span class="three-d-box"><span class="front">TA</span><span class="back">TA</span></span>
       </a></li>
-      <li><a href="../information/information.html" class="three-d active">
+      <li><a href="../information/information.html" class="three-d">
         博主
         <span class="three-d-box"><span class="front">博主</span><span class="back">博主</span></span>
       </a></li>
@@ -268,138 +319,85 @@
     </ul>
   </div>
 <!--导航结束-->
-<!--个人信息start-->
-    <div class="history">
-        <div class="start-history">
-            <p class="cc_history">个人信息</p>
-            <p class="next_history">INFORMATIONS</p>
-            <div class="history_left">
-                <p class="history_L year2006">
-                    <span class="history_2006_span">姓名</span>
-                    <b class="history_2006_b">
-                        <span class="history_l_month"><br/></span>
-                        <span class="history_l_text">勾&nbsp&nbsp&nbsp&nbsp超</span>
-                    </b>
-                </p>
-                <p class="history_L year2009">
-                    <span class="history_2006_span">出生年</span>
-                    <b class="history_2006_b">
-                        <span class="history_l_month"><br/></span>
-                        <span class="history_l_text">1995&nbsp&nbsp年</span>
-                    </b>
-                </p>
-                <p class="history_L yearalmost">
-                    <span class="history_2006_span">血型</span>
-                    <b class="history_2006_b">
-                        <span class="history_l_month"><br/></span>
-                        <span class="history_l_text">待鉴定</span>
-                    </b>
-                </p>
-                <p class="history_L yearalmost">
-                    <span class="history_2006_span blue">职业</span>
-                    <b class="history_2006_b blue">
-                        <span class="history_l_month"><br/></span>
-                        <span class="history_l_text">学&nbsp&nbsp生</span>
-                    </b>
-                </p>
-                <p class="history_L yearalmost">
-                    <span class="history_2006_span blue">婚姻</span>
-                    <b class="history_2006_b blue">
-                        <span class="history_l_month"><br/></span>
-                        <span class="history_l_text">未&nbsp&nbsp婚</span>
-                    </b>
-                </p>
-                <p class="history_L year2011">
-                    <span class="history_2006_span blue">留白</span>
-                    <b class="history_2006_b blue">
-                        <span class="history_l_month"><br/></span>
-                        <span class="history_l_text">。。。</span>
-                    </b>
-                </p>
-               
-            </div>
-            <div class="history-img">
-                <img class="history_img" src="images/history.png" alt="">
-            </div>
-            <div class="history_right">
-                <p class="history_R history_r_2005">
-                    <span class="history_2005_span">英文名</span>
-                    <b class="history_2005_b">
-                        <span class="history_r_month"><br/></span>
-                        <span class="history_r_text">G&nbsp&nbsp&nbsp&nbspC</span>
-                    </b>
-                </p>
-                <p class="history_R yearalmostr">
-                    <span class="history_2005_span">星座</span>
-                    <b class="history_2005_b">
-                        <span class="history_r_month"><br/></span>
-                        <span class="history_r_text">待&nbsp&nbsp查</span>
-                    </b>
-                </p>
-                <p class="history_R yearalmostr">
-                    <span class="history_2005_span">爱好</span>
-                    <b class="history_2005_b">
-                        <span class="history_r_month"><br/></span>
-                        <span class="history_r_text">计算机,Run</span>
-                    </b>
-                </p>
-                <p class="history_R yearalmostr">
-                    <span class="history_2005_span">出生地</span>
-                    <b class="history_2005_b">
-                        <span class="history_r_month"><br/></span>
-                        <span class="history_r_text">辽宁-朝阳</span>
-                    </b>
-                </p>
-                <p class="history_R yearalmostr">
-                    <span class="history_2005_span blue">学校</span>
-                    <b class="history_2005_b blue_R">
-                        <span class="history_r_month"><br/></span>
-                        <span class="history_r_text">沈阳工业大学</span>
-                    </b>
-                </p>
-                <p class="history_R yearalmostr">
-                    <span class="history_2005_span blue">留白</span>
-                    <b class="history_2005_b blue_R">
-                        <span class="history_r_month"><br/></span>
-                        <span class="history_r_text">。。。</span>
-                    </b>
-                </p>
-                <p class="history_R year211">
-                    <span class="history_2005_span blue">留白</span>
-                    <b class="history_2005_b blue_R">
-                        <span class="history_r_month"><br/></span>
-                        <span class="history_r_text">。。。</span>
-                    </b>
-                </p>
-            </div>
-
-        </div>
-		
-    </div>
-
-<script type="text/javascript" src="js/new_file.js"></script>
-<script type="text/javascript">
-$(window).scroll(function(){
-	var msg = $(".history-img");
-	var item = $(".history_L");
-	var items = $(".history_R");
-	var windowHeight = $(window).height();
-	var Scroll = $(document).scrollTop();
-	if((msg.offset().top - Scroll -windowHeight)<=0){
-		msg.fadeIn(1500);
-	}
-	for(var i=0;i<item.length;i++){
-		if(($(item[i]).offset().top - Scroll - windowHeight)<= -100){
-			$(item[i]).animate({marginRight:'0px'},'50','swing');
-		}
-	}
-	for(var i=0;i<items.length;i++){
-		if(($(items[i]).offset().top - Scroll - windowHeight)<= -100){
-			$(items[i]).animate({marginLeft:'0px'},'50','swing');
-		}
-	}
-});
-</script>
-<!--个人信息end-->
-</body>
+<!--分类按钮start-->
+	<div class="classification">
+		<button class="btn btn-primary cif" type="button">
+	  		Messages1
+		</button>
+		<button class="btn btn-success cif" type="button">
+	  		Messages2
+		</button>
+		<button class="btn btn-info cif" type="button">
+	  		Messages3
+		</button>
+		<button class="btn btn-warning cif" type="button">
+	  		Messages4
+		</button>
+		<button class="btn btn-danger cif" type="button">
+	  		Messages5
+		</button>
+		<button class="btn btn-primary cif" type="button">
+	  		Messages6
+		</button>
+		<form class="form">
+		   	<input type="text" class="form-control" placeholder="输入可能存在的标题">
+			<inpute type="submit" class="btn btn-default form-submit">Select!</button>
+		</form>
+		<!--
+		<form class="navbar-form navbar-right" role="search">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search">
+	        </div>
+        	<button type="submit" class="btn btn-default">Submit</button>
+      	</form>
+      	-->
+	</div>
+<!--分类按钮end-->
+		<div class="container">
+			<section class="grid-wrap">
+				<ul class="grid swipe-down" id="grid">
+					<li><a href="https://www.baidu.com"><img src="img/1.jpg" alt="img01"><h3>这是文章的名字这是文章的名字这是文章的名字这是文章的名字这是文章的名字这是文章的名字这是文章的名字这是文章的名字</h3></a></li>
+					<li><a href="#/15758125/SQUET-April-2014-issue"><img src="img/2.jpg" alt="img02"><h3>SQUET April 2014 issue</h3></a></li>
+					<li><a href="#/15586227/MONOCLE-issue-72"><img src="img/3.jpg" alt="img03"><h3>MONOCLE issue 72</h3></a></li>
+					<li><a href="#/11880495/TOWN-Winter-2013"><img src="img/4.jpg" alt="img04"><h3>TOWN Winter 2013</h3></a></li>
+					<li><a href="#/11455333/Quarterly-Musashino-autumn-of-2013-issue"><img src="img/5.jpg" alt="img05"><h3>Quarterly Musashino autumn of 2013 issue</h3></a></li>
+					<li><a href="#/12866129/MONOCLE-issue-69"><img src="img/6.jpg" alt="img06"><h3>MONOCLE issue 69</h3></a></li>
+					<li><a href="#/16631085/Real-Simple-May-2014"><img src="img/7.jpg" alt="img07"><h3>Real Simple May 2014</h3></a></li>
+					<li><a href="#/11727343/The-65th-Book-Week"><img src="img/8.jpg" alt="img08"><h3>The 65th Book Week</h3></a></li>
+					<li><a href="#/16631085/Real-Simple-May-2014"><img src="img/9.jpg" alt="img09"><h3>Real Simple May 2014</h3></a></li>
+					<li><a href="#/15566747/Quarterly-Musashino-spring-of-2014-issue"><img src="img/10.jpg" alt="img10"><h3>Quarterly Musashino spring of 2014 issue</h3></a></li>
+					<li><a href="#/11134427/MAJESTY-express-vol-01"><img src="img/11.jpg" alt="img11"><h3>MAJESTY express vol. 01</h3></a></li>
+					<li><a href="#/13329103/Shitamachi-Rocket"><img src="img/12.jpg" alt="img12"><h3>Shitamachi Rocket</h3></a></li>
+					<li><a href="#/13285315/Quarterly-Musashino-winter-of-2013-issue"><img src="img/13.jpg" alt="img13"><h3>Quarterly Musashino winter of 2013 issue</h3></a></li>
+					<li><a href="#/16541811/MAINICHI-CHUUGOKUGO-May-2014"><img src="img/14.jpg" alt="img14"><h3>MAINICHI CHUUGOKUGO April 2014</h3></a></li>
+					<li><a href="#/15944679/Kenpo-News-April-2014-issue"><img src="img/1.jpg" alt="img01"><h3>Kenpo News April 2014 issue</h3></a></li>
+					<li><a href="#/15758125/SQUET-April-2014-issue"><img src="img/2.jpg" alt="img02"><h3>SQUET April 2014 issue</h3></a></li>
+					<li><a href="#/15586227/MONOCLE-issue-72"><img src="img/3.jpg" alt="img03"><h3>MONOCLE issue 72</h3></a></li>
+					<li><a href="#/11880495/TOWN-Winter-2013"><img src="img/4.jpg" alt="img04"><h3>TOWN Winter 2013</h3></a></li>
+					<li><a href="#/11455333/Quarterly-Musashino-autumn-of-2013-issue"><img src="img/5.jpg" alt="img05"><h3>Quarterly Musashino autumn of 2013 issue</h3></a></li>
+					<li><a href="#/12866129/MONOCLE-issue-69"><img src="img/6.jpg" alt="img06"><h3>MONOCLE issue 69</h3></a></li>
+					<li><a href="#/16631085/Real-Simple-May-2014"><img src="img/7.jpg" alt="img07"><h3>Real Simple May 2014</h3></a></li>
+					<li><a href="#/11727343/The-65th-Book-Week"><img src="img/8.jpg" alt="img08"><h3>The 65th Book Week</h3></a></li>
+					<li><a href="#/16631085/Real-Simple-May-2014"><img src="img/9.jpg" alt="img09"><h3>Real Simple May 2014</h3></a></li>
+					<li><a href="#/15566747/Quarterly-Musashino-spring-of-2014-issue"><img src="img/10.jpg" alt="img10"><h3>Quarterly Musashino spring of 2014 issue</h3></a></li>
+					<li><a href="#/11134427/MAJESTY-express-vol-01"><img src="img/11.jpg" alt="img11"><h3>MAJESTY express vol. 01</h3></a></li>
+					<li><a href="#/13329103/Shitamachi-Rocket"><img src="img/12.jpg" alt="img12"><h3>Shitamachi Rocket</h3></a></li>
+					<li><a href="#/13285315/Quarterly-Musashino-winter-of-2013-issue"><img src="img/13.jpg" alt="img13"><h3>Quarterly Musashino winter of 2013 issue</h3></a></li>
+					<li><a href="#/16541811/MAINICHI-CHUUGOKUGO-May-2014"><img src="img/14.jpg" alt="img14"><h3>MAINICHI CHUUGOKUGO April 2014</h3></a></li>
+				</ul>
+			</section>
+		</div><!-- /container -->
+		<div class="footer-banner" style="width:728px; margin:160px auto 100px"></div>
+		<script src="js/masonry.pkgd.min.js"></script>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/colorfinder-1.1.js"></script>
+		<script src="js/gridScrollFx.js"></script>
+		<script>
+			new GridScrollFx( document.getElementById( 'grid' ), {
+				viewportFactor : 0.4
+			} );
+		</script>
+		<script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+	</body>
 </html>
