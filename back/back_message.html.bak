@@ -54,7 +54,7 @@
                   <li><a href="../information/information.html">个人资料</a></li>
                   <li><a href="back_admin.html">账户中心</a></li>
                   <li class="divider"></li>
-                  <li><a href="../nav/index.html">退出登录</a></li>
+                  <li><a href="../nav/index">退出登录</a></li>
                 </ul>
               </li>
             </ul>
