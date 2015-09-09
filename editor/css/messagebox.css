@@ -1,6 +1,6 @@
 .messagebox{
 	border: solid 1px #999;
-	margin-top: 15%;
+	margin-top: 10%;
 	margin-left: 10%;
 	margin-right: 10%;
 	margin-bottom: 10%;
@@ -70,4 +70,8 @@
 }
 .messagebox-nav{
 	padding-left: 65%;
+}
+
+.b{
+	background-color: #DDDDDD;
 }

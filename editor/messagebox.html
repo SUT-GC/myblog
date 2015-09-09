@@ -3,7 +3,8 @@
 <head>
     <title>留言板</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+    <!--引入导航栏nav.css-->
+    <link href="css/nav.css" rel="stylesheet">
     <!--引入 fontawesom-4.2.0-->
     <link rel="stylesheet" type="text/css" href="fontawesome-4.2.0/css/font-awesome.min.css">
     <!--[if IE]>
@@ -22,10 +23,6 @@
     <script src="js/bootstrap.min.js"></script>
 
     <style type="text/css">
-        body{
-            padding: 0px 10px 0px 10px;
-            color:#333333;
-        }
     </style>
 
     <!--引入 jquery.js-->
@@ -60,7 +57,56 @@
         });
     </script>
 </head>
-<body>
+<body class="b">
+<div class="all">
+<!--导航开始-->
+  <div id="nav">
+    <ul class="nav-menu clearfix unstyled">
+      <li><a href="../nav/index.html" class="three-d">
+        主页
+        <span class="three-d-box"><span class="front">主页</span><span class="back">主页</span></span>
+      </a></li>
+      <li><a href="../Journal/Journal.html" class="three-d">
+        日志
+        <span class="three-d-box"><span class="front">日志</span><span class="back">日志</span></span>
+      </a></li>
+      <li><a href="#" class="three-d">
+        TA
+        <span class="three-d-box"><span class="front">TA</span><span class="back">TA</span></span>
+      </a></li>
+      <li><a href="../information/information.html" class="three-d">
+        博主
+        <span class="three-d-box"><span class="front">博主</span><span class="back">博主</span></span>
+      </a></li>
+      <li><a href="#" class="three-d">
+        空间
+        <span class="three-d-box"><span class="front">空间</span><span class="back">空间</span></span>
+      </a></li>
+      <li><a href="../editor/messagebox.html" class="three-d active">
+        留言板
+        <span class="three-d-box"><span class="front">留言板</span><span class="back">留言板</span></span>
+      </a></li>
+      <li><a href="#" class="three-d">
+        后台
+        <span class="three-d-box"><span class="front">后台</span><span class="back">后台</span></span>
+      </a></li>
+      <li><a href="#" class="three-d">
+        登陆/注册
+        <span class="three-d-box"><span class="front">登陆/注册</span><span class="back">登陆/注册</span></span></a>
+        <ul class="clearfix unstyled drop-menu">
+          <li><a href="../login/login.html" class="three-d">
+              登陆
+              <span class="three-d-box"><span class="front">登陆</span><span class="back">登陆</span></span>
+          </a></li>
+          <li><a href="../registered/registered.html" class="three-d">
+            注册
+            <span class="three-d-box"><span class="front">注册</span><span class="back">注册</span></span>
+          </a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+<!--导航结束-->
 <!--留言板start-->
     <div class="messagebox">
         <h2 class="messgebox-zh">留言板:</h2>
@@ -141,9 +187,11 @@
                             <span class="floornum">第1080楼</span>
                         </div>
                         <div class="floor-content">
-                            <pre class="content">你好 这是一段文章内容
-                                #include <iostream>
-                                using namespace std;
+                           <pre>你好 这是一段文章内容
+                                #include "stdio.h"
+                                int main(){
+                                    ******;
+                                }
                             </pre>
                         </div>
                         <div class="floor-right-bottom">
@@ -325,5 +373,6 @@
         </div>
     </div>
 <!--留言板end-->
+</div>
 </body>
 </html>
