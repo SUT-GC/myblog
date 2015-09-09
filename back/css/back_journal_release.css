@@ -24,8 +24,8 @@
 }
 .is_private{
 	font-size: 20px;
-	margin-left: 60px;
-	margin-right: 20px;
+	margin-left:20px;
+	margin-right:10px;
 }
 .input_password{
 	border: solid 1px #999;
