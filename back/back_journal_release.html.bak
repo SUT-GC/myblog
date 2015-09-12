@@ -59,7 +59,7 @@
                   <li><a href="../information/information.html">个人资料</a></li>
                   <li><a href="back_admin.html">账户中心</a></li>
                   <li class="divider"></li>
-                  <li><a href="../nav/index">退出登录</a></li>
+                  <li><a href="../nav/index.html">退出登录</a></li>
                 </ul>
               </li>
             </ul>
@@ -153,11 +153,19 @@
                         </div>
                         <hr/>
                         <div class="input_submit">
+                            <span class="input_title_label">Classification:</span>
+                            <select id="select_classify">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="...">...</option>
+                            </select>   
                             <span class="is_private">is private ?</span>
                             <input class="is_private_check"type="checkbox" name="isprivate" value="1"/>
                             <span class="is_private">if this is private, please input your password !</span>
                             <input class="input_password" type="text">
                         </div>
+                         
                         <hr/>
                         <div>
                             <span class="input_title_label">The location of the file upload.....</span>
