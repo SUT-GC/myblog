@@ -138,7 +138,7 @@
                                 <div class="text-muted bootstrap-admin-box-title"><a href="back_journal_admin.html">日志管理</a> >> <a href="#">edit</a></div>
                             </div>
                         </div>
-                        <h3 class="journal_release_title">Please edit informations of the article:</h3>
+                        <h3 class="journal_release_title">Please input informations of the article:</h3>
                     <hr/>
                     <form id="journal_release_form_id" class="journal_release_form_class" method="post" action="#">
                         <div class="input_title">
