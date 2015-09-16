@@ -8,7 +8,7 @@
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-
+        <link rel="stylesheet" type="text/css" href="css/back_user_edit.css">
         <!-- Bootstrap Admin Theme -->
         <link href="css/bootstrap-admin-theme.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" type="text/css" href="css/back_journal_admin.css">
@@ -136,6 +136,46 @@
                             <div class="panel-heading">
                                 <div class="text-muted bootstrap-admin-box-title"><a href="back_users.html">用户管理</a> >> <a href="#">edit</a></div>
                             </div>
+                            <!--form start-->
+                            <form>
+                            <div class="user_edit">
+                                <div class="user_edit_id">
+                                    <span class="user_edit_id_label">user_id (can't edit)</span>
+                                    <input type="text" class="form-control input_title_content " readonly value="1">
+                                </div>
+                                <hr/>
+                                <div class="user_edit_email">
+                                    <span class="user_edit_email_label">user_email</span>
+                                    <input type="text" class="form-control input_title_content" value="gouchao2008@qq.com">
+                                </div>
+                                <hr/>
+                                <div class="user_edit_pass">
+                                    <span class="user_edit_pass_label">user_pass</span>
+                                    <input type="text" class="form-control input_title_content" value="">
+                                </div>
+                                <hr/>
+                                <div class="user_edit_nick">
+                                    <span class="user_edit_nick_label">user_nick</span>
+                                    <input type="text" class="form-control input_title_content" value="Gc">
+                                </div>
+                                <hr/>
+                                <div class="user_edit_imagepath">
+                                    <span class="user_edit_imagepath_label">user_imagepath</span>
+                                    <input type="text" class="form-control input_title_content" value="01.jpg">
+                                </div>
+                                <hr/>
+                                 <div class="user_edit_isadmin">
+                                    <span class="user_edit_isadmin_label">user_isadmin</span>
+                                    <input class="is_admin"type="checkbox" checked name="isadmin" value="1"/>
+                                </div>
+                                <hr/>
+                                <div class="edit_buttons">
+                                    <input type="submit" value ="OK_Edit"class="btn btn-success input_buttons_submit"/>
+                                    <input type="reset" value ="Reset"class="btn btn-primary input_buttons_reset"/>
+                                </div>
+                            </div>
+                            </form>
+                            <!--form end-->
                         </div>
                     </div>
                     <!--这里填写内容-->
