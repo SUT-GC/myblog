@@ -69,7 +69,7 @@
                 <!-- left, vertical navbar -->
                 <div class="col-md-2 bootstrap-admin-col-left">
                      <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
-                         <li class="active">
+                         <li >
                             <a href="back_index.html"><i class="glyphicon glyphicon-chevron-right"></i> 首页</a>
                         </li>
                         <li >
@@ -96,7 +96,7 @@
                         <li>
                             <a href="back_image.html"><i class="glyphicon glyphicon-chevron-right"></i> 图片管理</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="back_admin_information.html"><i class="glyphicon glyphicon-chevron-right"></i> 账户中心</a>
                         </li>
                         <li>
@@ -126,29 +126,25 @@
                                       <thead>
                                           <tr>
                                               <th>#</th>
-                                              <th>First Name</th>
-                                              <th>Last Name</th>
-                                              <th>Username</th>
+                                              <th>user_name</th>
+                                              <th>passwords</th>
+                                              <th>edit/delete</th>
                                           </tr>
                                       </thead>
                                       <tbody>
                                           <tr>
                                               <td>1</td>
-                                              <td>Mark</td>
-                                              <td>Otto</td>
-                                              <td>@mdo</td>
+                                              <td>Gc</td>
+                                              <td>******</td>
+                                              <td><a href="back_admin_edit.html"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
+                                              <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
                                           </tr>
                                           <tr>
                                               <td>2</td>
-                                              <td>Jacob</td>
-                                              <td>Thornton</td>
-                                              <td>@fat</td>
-                                          </tr>
-                                          <tr>
-                                              <td>3</td>
-                                              <td>Larry</td>
-                                              <td>the Bird</td>
-                                              <td>@twitter</td>
+                                              <td>Tian</td>
+                                              <td>******</td>
+                                              <td><a href="back_admin_edit.html"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
+                                              <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
                                           </tr>
                                       </tbody>
                                   </table>

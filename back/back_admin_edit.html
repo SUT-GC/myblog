@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>空白页面_Bootstrap3响应式后台主题模板Boot3Admin - JS代码网</title>
+        <title>日志管理界面</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-
+        <link rel="stylesheet" type="text/css" href="css/back_user_edit.css">
         <!-- Bootstrap Admin Theme -->
         <link href="css/bootstrap-admin-theme.css" rel="stylesheet" media="screen">
-
-        <!-- Vendors -->
-        <!-- (...) -->
+        <link rel="stylesheet" type="text/css" href="css/back_journal_admin.css">
+        <!-- Custom styles -->
+        <style type="text/css">
+            .buttons-title{
+                margin-top: 20px
+            }
+            .buttons-group{
+                margin-top: 10px;
+            }
+            .the-icons{
+                margin-left: 0;
+                list-style: none;
+            }
+            .the-icons li {
+                float: left;
+                width: 25%;
+                line-height: 25px;
+            }
+        </style>
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -22,7 +38,7 @@
         <![endif]-->
     </head>
     <body class="bootstrap-admin-with-small-navbar">
-       <nav class="navbar navbar-default navbar-inverse navbar-fixed-top " role="navigation">
+      <nav class="navbar navbar-default navbar-inverse navbar-fixed-top " role="navigation">
      <div class="container">
        <div class="row">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -54,7 +70,7 @@
                   <li><a href="../information/information.html">个人资料</a></li>
                   <li><a href="back_admin.html">账户中心</a></li>
                   <li class="divider"></li>
-                  <li><a href="../nav/index">退出登录</a></li>
+                  <li><a href="../nav/index.html">退出登录</a></li>
                 </ul>
               </li>
             </ul>
@@ -62,14 +78,13 @@
           </div>
           </div>
         </nav>
-
         <div class="container">
             <!-- left, vertical navbar & content -->
             <div class="row">
                 <!-- left, vertical navbar -->
                 <div class="col-md-2 bootstrap-admin-col-left">
                      <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
-                         <li class="active">
+                         <li >
                             <a href="back_index.html"><i class="glyphicon glyphicon-chevron-right"></i> 首页</a>
                         </li>
                         <li >
@@ -84,7 +99,7 @@
                         <li>
                             <a href="back_journal_release.html"><i class="glyphicon glyphicon-chevron-right"></i> 日志发布</a>
                         </li>
-                        <li>
+                        <li >
                             <a href="back_journal_admin.html"><i class="glyphicon glyphicon-chevron-right"></i> 日志管理</a>
                         </li>
                         <li>
@@ -96,7 +111,7 @@
                         <li>
                             <a href="back_image.html"><i class="glyphicon glyphicon-chevron-right"></i> 图片管理</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="back_admin_information.html"><i class="glyphicon glyphicon-chevron-right"></i> 账户中心</a>
                         </li>
                         <li>
@@ -114,30 +129,57 @@
                     </ul>
                 </div>
 
-                <!-- content -->
+                <!-- content start -->
                 <div class="col-md-10">
                     <div class="row">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <div class="text-muted bootstrap-admin-box-title">标题</div>
+                                <div class="text-muted bootstrap-admin-box-title"><a href="back_admin_information.html">admin账户管理中心</a> >> <a href="#">edit</a></div>
                             </div>
-                            <div class="bootstrap-admin-panel-content text-muted" style="padding: 60px 0; text-align: center">
-                                这里是你要显示的内容
+                            <!--form start-->
+                            <form>
+                            <div class="user_edit">
+                                <div class="user_edit_id">
+                                    <span class="user_edit_id_label">user_id (can't edit)</span>
+                                    <input type="text" class="form-control input_title_content " readonly value="1">
+                                </div>
+                                <hr/>
+                                <div class="user_edit_nick">
+                                    <span class="user_edit_nick_label">user_nick</span>
+                                    <input type="text" class="form-control input_title_content" value="Gc">
+                                </div>
+                                <hr/>
+                                <div class="user_edit_pass">
+                                    <span class="user_edit_pass_label">user_pass</span>
+                                    <input type="text" class="form-control input_title_content" value="">
+                                </div>
+                                <hr/>
+                                <div class="edit_buttons">
+                                    <input type="submit" value ="OK_Edit"class="btn btn-success input_buttons_submit"/>
+                                    <input type="reset" value ="Reset"class="btn btn-primary input_buttons_reset"/>
+                                </div>
                             </div>
+                            </form>
+                            <!--form end-->
                         </div>
                     </div>
+                    <!--这里填写内容-->
                 </div>
+                <!-- content end-->
             </div>
 
             <div class="row">
                 <hr>
                 <footer role="contentinfo">
-                    <p>&copy; 2013 <a href="#" target="_blank">Boot3Admin</a></p>
+                    <p>&copy; 2015 <a href="#" target="_blank">Gc</a></p>
                 </footer>
             </div>
         </div>
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/twitter-bootstrap-hover-dropdown.min.js"></script>
+        <script type="text/javascript" src="vendors/datatables/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="js/DT_bootstrap.js"></script>
     </body>
 </html>
