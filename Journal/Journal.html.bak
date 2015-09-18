@@ -321,23 +321,29 @@
 <!--导航结束-->
 <!--分类按钮start-->
 	<div class="classification">
-		<button class="btn btn-primary cif" type="button">
-	  		Messages1
+		<button class="btn btn-primary cif" id="java" type="button">
+	  		Java
 		</button>
-		<button class="btn btn-success cif" type="button">
-	  		Messages2
+		<button class="btn btn-success cif" id="algo" type="button">
+	  		算法
 		</button>
-		<button class="btn btn-info cif" type="button">
-	  		Messages3
+		<button class="btn btn-info cif" id="hcj" type="button">
+	  		Html/css/js
 		</button>
-		<button class="btn btn-warning cif" type="button">
-	  		Messages4
+		<button class="btn btn-warning cif" id="life" type="button">
+	  		生活随笔
 		</button>
-		<button class="btn btn-danger cif" type="button">
-	  		Messages5
+		<button class="btn btn-danger cif" id="other" type="button">
+	  		其他
 		</button>
-		<button class="btn btn-primary cif" type="button">
-	  		Messages6
+		<button class="btn btn-primary cif" id="rese1" type="button">
+	  		预留
+		</button>
+		<button class="btn btn-success cif" type="rese2">
+	  		预留
+		</button>
+		<button class="btn btn-info cif" type="rese3">
+	  		预留
 		</button>
 		<form class="form">
 		   	<input type="text" class="form-control" placeholder="输入可能存在的标题">
@@ -356,7 +362,7 @@
 		<div class="container">
 			<section class="grid-wrap">
 				<ul class="grid swipe-down" id="grid">
-					<li><a href="journal_each.html"><img src="img/1.jpg" alt="img01"><h3>我的未来不是梦</h3></a></li>
+					<li><a href="journal_each.html"><img src="img/1.jpg" alt="img01"><h3>我的未来不是梦歌词</h3></a></li>
 					<li><a href="#/15758125/SQUET-April-2014-issue"><img src="img/2.jpg" alt="img02"><h3>这是文章的名字</h3></a></li>
 					<li><a href="#/15586227/MONOCLE-issue-72"><img src="img/3.jpg" alt="img03"><h3>MONOCLE issue 72</h3></a></li>
 					<li><a href="#/11880495/TOWN-Winter-2013"><img src="img/4.jpg" alt="img04"><h3>TOWN Winter 2013</h3></a></li>
