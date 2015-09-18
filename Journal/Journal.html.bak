@@ -334,7 +334,7 @@
 	  		生活随笔
 		</button>
 		<button class="btn btn-danger cif" id="other" type="button">
-	  		其他
+	  		读书笔记
 		</button>
 		<button class="btn btn-primary cif" id="rese1" type="button">
 	  		预留
