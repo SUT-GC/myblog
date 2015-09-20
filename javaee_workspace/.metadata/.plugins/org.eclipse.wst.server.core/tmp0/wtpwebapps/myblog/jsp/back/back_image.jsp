@@ -143,7 +143,7 @@
                                 <div>
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/1.jpg">
+                                        <img class="img_border" src="../Journal/img/1.jpg">
                                       
                                         <div class="img_id_journal_id">img_id<span>1</span>-- journal_id<span>1</span></div>
                                         <div class="img_button">
@@ -154,7 +154,7 @@
                                     <!--一个img元素end-->
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/2.jpg">
+                                        <img class="img_border" src="../Journal/img/2.jpg">
                                         <div class="img_id_journal_id">img_id<span>2</span>-- journal_id<span>2</span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
@@ -164,7 +164,7 @@
                                     <!--一个img元素end-->
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/3.jpg">
+                                        <img class="img_border" src="../Journal/img/3.jpg">
                                         <div class="img_id_journal_id">img_id<span>3</span>-- journal_id<span>3</span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
@@ -174,7 +174,7 @@
                                     <!--一个img元素end-->
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/4.jpg">
+                                        <img class="img_border" src="../Journal/img/4.jpg">
                                         <div class="img_id_journal_id">img_id<span>4</span>-- journal_id<span>4</span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
@@ -184,7 +184,7 @@
                                     <!--一个img元素end-->
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/5.jpg">
+                                        <img class="img_border" src="../Journal/img/5.jpg">
                                         <div class="img_id_journal_id">img_id<span>5</span>-- journal_id<span>5</span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
@@ -194,7 +194,7 @@
                                     <!--一个img元素end-->
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/6.jpg">
+                                        <img class="img_border" src="../Journal/img/6.jpg">
                                         <div class="img_id_journal_id">img_id<span>6</span>-- journal_id<span>6</span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
@@ -204,7 +204,7 @@
                                     <!--一个img元素end-->
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/7.jpg">
+                                        <img class="img_border" src="../Journal/img/7.jpg">
                                         <div class="img_id_journal_id">img_id<span>7</span>-- journal_id<span>7</span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
@@ -214,7 +214,7 @@
                                     <!--一个img元素end-->
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/8.jpg">
+                                        <img class="img_border" src="../Journal/img/8.jpg">
                                         <div class="img_id_journal_id">img_id<span>8</span>-- journal_id<span>8</span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
@@ -224,7 +224,7 @@
                                     <!--一个img元素end-->
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/9.jpg">
+                                        <img class="img_border" src="../Journal/img/9.jpg">
                                         <div class="img_id_journal_id">img_id<span>9</span>-- journal_id<span>9</span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
@@ -234,7 +234,7 @@
                                     <!--一个img元素end-->
                                     <!--一个img元素start-->
                                     <div class="img">
-                                        <img class="img_border" src="../journal/img/10.jpg">
+                                        <img class="img_border" src="../Journal/img/10.jpg">
                                         <div class="img_id_journal_id">img_id<span>10</span>-- journal_id<span>10</span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
