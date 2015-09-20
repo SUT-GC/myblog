@@ -1,0 +1,149 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>发展简史jQuery时间轴特效</title>
+
+<link type="text/css" href="css/css.css" rel="stylesheet" />
+
+<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+
+</head>
+<body>
+
+    <div class="history">
+        <div class="start-history">
+            <p class="cc_history">个人信息</p>
+            <p class="next_history">INFORMATIONS</p>
+            <div class="history_left">
+                <p class="history_L year2006">
+                    <span class="history_2006_span">姓名</span>
+                    <b class="history_2006_b">
+                        <span class="history_l_month"><br/></span>
+                        <span class="history_l_text">勾&nbsp&nbsp&nbsp&nbsp超</span>
+                    </b>
+                </p>
+                <p class="history_L year2009">
+                    <span class="history_2006_span">出生年</span>
+                    <b class="history_2006_b">
+                        <span class="history_l_month"><br/></span>
+                        <span class="history_l_text">1995&nbsp&nbsp年</span>
+                    </b>
+                </p>
+                <p class="history_L yearalmost">
+                    <span class="history_2006_span">血型</span>
+                    <b class="history_2006_b">
+                        <span class="history_l_month"><br/></span>
+                        <span class="history_l_text">待鉴定</span>
+                    </b>
+                </p>
+                <p class="history_L yearalmost">
+                    <span class="history_2006_span blue">职业</span>
+                    <b class="history_2006_b blue">
+                        <span class="history_l_month"><br/></span>
+                        <span class="history_l_text">学&nbsp&nbsp生</span>
+                    </b>
+                </p>
+                <p class="history_L yearalmost">
+                    <span class="history_2006_span blue">婚姻</span>
+                    <b class="history_2006_b blue">
+                        <span class="history_l_month"><br/></span>
+                        <span class="history_l_text">未&nbsp&nbsp婚</span>
+                    </b>
+                </p>
+                <p class="history_L year2011">
+                    <span class="history_2006_span blue">留白</span>
+                    <b class="history_2006_b blue">
+                        <span class="history_l_month"><br/></span>
+                        <span class="history_l_text">。。。</span>
+                    </b>
+                </p>
+               
+            </div>
+            <div class="history-img">
+                <img class="history_img" src="images/history.png" alt="">
+            </div>
+            <div class="history_right">
+                <p class="history_R history_r_2005">
+                    <span class="history_2005_span">英文名</span>
+                    <b class="history_2005_b">
+                        <span class="history_r_month"><br/></span>
+                        <span class="history_r_text">G&nbsp&nbsp&nbsp&nbspC</span>
+                    </b>
+                </p>
+                <p class="history_R yearalmostr">
+                    <span class="history_2005_span">星座</span>
+                    <b class="history_2005_b">
+                        <span class="history_r_month"><br/></span>
+                        <span class="history_r_text">待&nbsp&nbsp查</span>
+                    </b>
+                </p>
+                <p class="history_R yearalmostr">
+                    <span class="history_2005_span">爱好</span>
+                    <b class="history_2005_b">
+                        <span class="history_r_month"><br/></span>
+                        <span class="history_r_text">计算机,Run</span>
+                    </b>
+                </p>
+                <p class="history_R yearalmostr">
+                    <span class="history_2005_span">出生地</span>
+                    <b class="history_2005_b">
+                        <span class="history_r_month"><br/></span>
+                        <span class="history_r_text">辽宁-朝阳</span>
+                    </b>
+                </p>
+                <p class="history_R yearalmostr">
+                    <span class="history_2005_span blue">学校</span>
+                    <b class="history_2005_b blue_R">
+                        <span class="history_r_month"><br/></span>
+                        <span class="history_r_text">沈阳工业大学</span>
+                    </b>
+                </p>
+                <p class="history_R yearalmostr">
+                    <span class="history_2005_span blue">留白</span>
+                    <b class="history_2005_b blue_R">
+                        <span class="history_r_month"><br/></span>
+                        <span class="history_r_text">。。。</span>
+                    </b>
+                </p>
+                <p class="history_R year211">
+                    <span class="history_2005_span blue">留白</span>
+                    <b class="history_2005_b blue_R">
+                        <span class="history_r_month"><br/></span>
+                        <span class="history_r_text">。。。</span>
+                    </b>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+	<div class="words">My future is not a dream</div>
+
+<script type="text/javascript" src="js/new_file.js"></script>
+<script type="text/javascript">
+$(window).scroll(function(){
+	var msg = $(".history-img");
+	var item = $(".history_L");
+	var items = $(".history_R");
+	var windowHeight = $(window).height();
+	var Scroll = $(document).scrollTop();
+	if((msg.offset().top - Scroll -windowHeight)<=0){
+		msg.fadeIn(1500);
+	}
+	for(var i=0;i<item.length;i++){
+		if(($(item[i]).offset().top - Scroll - windowHeight)<= -100){
+			$(item[i]).animate({marginRight:'0px'},'50','swing');
+		}
+	}
+	for(var i=0;i<items.length;i++){
+		if(($(items[i]).offset().top - Scroll - windowHeight)<= -100){
+			$(items[i]).animate({marginLeft:'0px'},'50','swing');
+		}
+	}
+});
+</script>
+
+</body>
+</html>
