@@ -11,7 +11,7 @@
     <meta name="author" content="Gc">
     <!-- CSS -->
     <link rel="stylesheet" href="css/journal_each.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet"
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>

@@ -1,0 +1,8 @@
+package dao;
+
+import empty.Journal;
+
+public class JournalDao {
+	private Journal journal;
+	
+}

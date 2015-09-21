@@ -129,41 +129,45 @@
                     </div>
                     <h3 class="journal_release_title">Please input informations of the article:</h3>
                     <hr/>
-                    <form id="journal_release_form_id" class="journal_release_form_class" method="post" action="#">
+                    <form id="journal_release_form_id" class="journal_release_form_class" method="post" action="/myblog/ReleaseJournal">
                         <div class="input_title">
                             <span class="input_title_label">the title of your article:</span>
-                            <input type="text" class="form-control input_title_content" placeholder="title...">
+                            <input name="article_title" type="text" class="form-control input_title_content" placeholder="title...">
                         </div>
                         <hr/>
                         <div class="input_title">
                             <span class="input_title_label">the author of your article:</span>
-                            <input type="text" class="form-control input_title_content" placeholder="author...">
+                            <input name="article_author" type="text" class="form-control input_title_content" placeholder="author...">
                         </div>
                         <hr/>
                         <div class="input_summary">
                             <span class="input_title_label">the summary of your article:</span>
-                            <textarea class="input_summary_textarea" cols="65" rows="3;">
+                            <textarea name="article_summary" class="input_summary_textarea" cols="65" rows="3;">
                             </textarea><br/><br/><br/><br/><br/>
                         </div>
                         <hr/>
                         <div class="input_content">
                             <span class="input_title_label">the content of your article:</span>
-                            <textarea class="input_content_textarea" cols="77" rows="10;">
+                            <textarea name="article_content" class="input_content_textarea" cols="77" rows="10;">
                             </textarea><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                         </div>
                         <hr/>
                         <div class="input_submit">
                             <span class="input_title_label">Classification:</span>
-                            <select id="select_classify">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="...">...</option>
+                            <select name="article_classify" id="select_classify">
+                                <option value="1">java</option>
+                                <option value="2">算法</option>
+                                <option value="3">Html/css/js</option>
+                                <option value="4">生活随笔</option>
+                                <option value="5">读书笔记</option>
+                                <option value="6">其他</option>
+                                <option value="7">预留</option>
+                                <option value="8">预留</option>
                             </select>   
                             <span class="is_private">is private ?</span>
                             <input class="is_private_check"type="checkbox" name="isprivate" value="1"/>
                             <span class="is_private">if this is private, please input your password !</span>
-                            <input class="input_password" type="text">
+                            <input name="private_pass" class="input_password" type="text">
                         </div>
                          
                         <hr/>
