@@ -69,7 +69,7 @@ public class ReleaseJournal extends HttpServlet {
 		//System.out.println(journal);
 		JournalDao.journalInsert(journal);
 		
-		response.sendRedirect("jsp/back/back_journal_release.jsp");
+		request.getRequestDispatcher("/myblog/jsp/back/back_journal_release.jsp").forward(request, response);
 	}
 
 }
