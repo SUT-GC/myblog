@@ -1,9 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -68,10 +70,23 @@ public class ReleaseJournal extends HttpServlet {
 		journal.setDatetime(new Date());
 		//System.out.println(journal);
 		int result = JournalDao.journalInsert(journal);
-		
-//		request.getRequestDispatcher("jsp/back/back_journal_release.jsp").forward(request, response);
-		response.sendRedirect("jsp/back/back_journal_release.jsp");
-		
+		if(result == 1){
+	//		request.getRequestDispatcher("jsp/back/back_journal_release.jsp").forward(request, response);
+			response.sendRedirect("jsp/back/back_journal_release.jsp");
+		}else{
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<html><head><title>");
+			out.println("</title></head><body>");
+			out.println("<h1>發表失敗</h1>");
+			if(result == 2)
+				out.println("<h1>title不能為空</h1>");
+			if(result == 3)
+				out.println("<h1>summary不能為空</h1>");
+			if(result == 4)
+				out.println("<h1>content不能為空</h1>");
+			out.println("</body></html>");
+		}
 	}
 
 }
