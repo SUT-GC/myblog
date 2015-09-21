@@ -14,9 +14,9 @@ public class JournalDao {
 	private static String user ="root";
 	private static String password ="gc";
 	
-	public static int journalInsert(Journal journal) {
+	public static void journalInsert(Journal journal) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		int a = 0;
+		
 		String sql = "insert into " + "wb_article(article_title, article_author, "
 				+ "article_content, article_summary, article_classify,"
 				+ "sarticle_image, article_date, article_private_is, article_private_pass)" + "values('"
@@ -29,13 +29,11 @@ public class JournalDao {
 			Connection conn = DriverManager.getConnection(url, user, password);
 			Statement stmt = conn.createStatement();
 //			System.out.println(journal);
-			a = stmt.executeUpdate(sql);
+			int a = stmt.executeUpdate(sql);
 			System.out.println(a);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return a;
 	}
 	
 }

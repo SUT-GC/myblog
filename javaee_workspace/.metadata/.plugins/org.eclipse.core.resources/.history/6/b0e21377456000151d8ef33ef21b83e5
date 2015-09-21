@@ -69,6 +69,8 @@ public class ReleaseJournal extends HttpServlet {
 		//System.out.println(journal);
 		int result = JournalDao.journalInsert(journal);
 		
+		request.setAttribute("release_result", result);
+		
 //		request.getRequestDispatcher("jsp/back/back_journal_release.jsp").forward(request, response);
 		response.sendRedirect("jsp/back/back_journal_release.jsp");
 		

@@ -67,11 +67,9 @@ public class ReleaseJournal extends HttpServlet {
 		
 		journal.setDatetime(new Date());
 		//System.out.println(journal);
-		int result = JournalDao.journalInsert(journal);
+		JournalDao.journalInsert(journal);
 		
-//		request.getRequestDispatcher("jsp/back/back_journal_release.jsp").forward(request, response);
 		response.sendRedirect("jsp/back/back_journal_release.jsp");
-		
 	}
 
 }
