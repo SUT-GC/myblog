@@ -10,7 +10,7 @@ import empty.Journal;
 
 public class JournalDao {
 	private static String driver = "com.mysql.jdbc.Driver";
-	private static String url ="jdbc:mysql://localhost:3306/wb";
+	private static String url ="jdbc:mysql://localhost:3306/wb?useUnicode=true&characterEncoding=utf-8";
 	private static String user ="root";
 	private static String password ="gc";
 	
@@ -40,6 +40,7 @@ public class JournalDao {
 			System.out.println(a);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return 5;
 		}
 		
 		return a;
