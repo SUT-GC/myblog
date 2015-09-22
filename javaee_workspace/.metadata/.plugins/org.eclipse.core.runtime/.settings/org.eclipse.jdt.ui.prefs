@@ -13,7 +13,7 @@ org.eclipse.jdt.ui.text.code_templates_migrated=true
 org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 org.eclipse.jdt.ui.text.templates_migrated=true
-org.eclipse.jface.textfont=1|Times New Roman|15.75|0|WINDOWS|1|-21|0|0|0|400|0|0|0|0|3|2|1|18|Times New Roman;
+org.eclipse.jface.textfont=1|Times New Roman|15.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2|1|18|Times New Roman;
 proposalOrderMigrated=true
 spelling_locale_initialized=true
 tabWidthPropagated=true
