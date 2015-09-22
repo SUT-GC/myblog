@@ -3,6 +3,7 @@ package empty;
 import java.util.Date;
 
 public class Journal {
+	private int journal_id;
 	private String title;
 	private String author;
 	private String summary;
@@ -12,6 +13,14 @@ public class Journal {
 	private Date datetime;
 	private int private_is;
 	private int private_pass;
+
+	public int getJournal_id() {
+		return journal_id;
+	}
+
+	public void setJournal_id(int journal_id) {
+		this.journal_id = journal_id;
+	}
 
 	public String getTitle() {
 		return title;
@@ -86,7 +95,7 @@ public class Journal {
 	}
 
 	public Journal() {
-
+		journal_id = 0;
 	}
 
 	public Journal(String title, String author, String summary, String content, int classify, String imgpath,
@@ -102,10 +111,11 @@ public class Journal {
 		this.private_pass = private_pass;
 	}
 
+	@Override
 	public String toString() {
-		return "Journal [title=" + title + ", author=" + author + ", summary=" + summary + ", content=" + content
-				+ ", classify=" + classify + ", imgpath=" + imgpath + ", datetime=" + datetime + ", private_is="
-				+ private_is + ", private_pass=" + private_pass + "]";
+		return "Journal [journal_id=" + journal_id + ", title=" + title + ", author=" + author + ", summary=" + summary
+				+ ", content=" + content + ", classify=" + classify + ", imgpath=" + imgpath + ", datetime=" + datetime
+				+ ", private_is=" + private_is + ", private_pass=" + private_pass + "]";
 	}
 
 }

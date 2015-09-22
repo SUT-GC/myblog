@@ -2,9 +2,12 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import empty.Journal;
 
@@ -13,7 +16,14 @@ public class JournalDao {
 	static {
 		stmt = new DB_Data().getStmt();
 	}
-	
+	/*
+	 * 插入wb_article表函数
+	 * 		接受journal参数，把journal相关数据插入到数据库里
+	 * 		插入之间判断journal里title属性，summary属性，content属性是否为空
+	 * 		如果为空，分别返回2,3,4
+	 * 		如果插入成功，会返回有效插入的条数
+	 * 		如果插入故障，返回5
+	 */
 	public static int journalInsert(Journal journal) {
 		if (journal.getTitle().equals("")) {
 			return 2;
@@ -40,5 +50,36 @@ public class JournalDao {
 			return 5;
 		}
 		return a;
+	}
+	
+	/*
+	 * 查询函数，返回ArrayList<Journal>  list
+	 * 返回查询的结果
+	 */
+	public static ArrayList journalSelect(){
+		ArrayList <Journal> list = new ArrayList<>();
+		try {
+			ResultSet rs = stmt.executeQuery("select * from wb_article");
+			while(rs.next()){
+				Journal journal = new Journal();
+				journal.setJournal_id(rs.getInt(1));
+				journal.setTitle(rs.getString(2));
+				journal.setAuthor(rs.getString(3));
+				journal.setContent(rs.getString(4));
+				journal.setSummary(rs.getString(5));
+				journal.setClassify(rs.getInt(6));
+				journal.setImgpath(rs.getString(7));
+				journal.setDatetime(rs.getTimestamp(8));
+				journal.setPrivate_is(rs.getInt(9));
+				journal.setPrivate_pass(rs.getInt(10));
+				list.add(journal);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		for(Journal a: list){
+			System.out.println(a);
+		}
+		return list;
 	}
 }

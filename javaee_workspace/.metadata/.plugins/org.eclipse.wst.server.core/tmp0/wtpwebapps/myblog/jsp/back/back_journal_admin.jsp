@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@page import="dao.JournalDao" %>
+<%@page import="empty.Journal" %>
+<%@page import=" java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -129,7 +132,9 @@
                         </li>
                     </ul>
                 </div>
-
+				<%
+					ArrayList<Journal> list = JournalDao.journalSelect();
+				%>
                 <!-- content start -->
                 <div class="col-md-10">
                     <div class="row">
@@ -141,175 +146,48 @@
                                 <table class="table table-striped table-bordered" id="example">
                                     <thead>
                                         <tr class="table_head">
-                                            <th>article_id</th>
+                                            <th class="table_id_label">article_id</th>
                                             <th>article_title</th>
-                                            <th>article_date</th>
+                                            <th>article_create_date</th>
+                                            <th>classify</th>
                                             <th>private</th>
 											<th>pass</th>
-                                            <th>edit/delete</th>
+                                            <th>edit/delete_buttons</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table_content">
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>这是文章的标题</td>
-                                            <td>2015-09-11 18:40</td>
-                                            <td class="center">yes</td>
-											<td class="center">12345</th>
-                                            <td class="center">
-                                             <a href="back_journal_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td class="center">522.1</td>
-											<td class="center">0</th>
-                                            <td class="center">
-                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i> Edit</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
+	                                    <%for(Journal journal:list) {%>
+	                                        <tr class="gradeA">
+		                                    <td><%=journal.getJournal_id()%></td>
+		                                    <td><%=journal.getTitle() %></td>
+		                                    <td><%=journal.getDatetime() %></td>
+		                                    <td>
+		                                    <% 
+		                                    	switch(journal.getClassify()){
+		                                    	case 1:out.print("java");
+		                                    	case 2:out.print("算法");
+		                                    	case 3:out.print("html/css/js");
+		                                    	case 4:out.print("生活随笔");
+		                                    	case 5:out.print("读书笔记");
+		                                    	case 6:out.print("其他");
+		                                    	}
+		                                    %>
+		                                    <td class="center">
+		                                        	<% if(journal.getPrivate_is() == 1){
+		                                          				out.print("true");
+		                                           			}else{
+		                                           				out.print("false");
+		                                           			}
+		                                           	%>
+		                           	        </td>
+											<td class="center">
+													<%=journal.getPrivate_pass()%>
+											</th>
+		                                    <td class="center">
+		                                    <a href="back_journal_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
+		                                    <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
+	                                        </tr>
+                                        <%} %>
                                     </tbody>
                                 </table>
                             </div>

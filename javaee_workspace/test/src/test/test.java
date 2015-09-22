@@ -20,13 +20,14 @@ public class test {
 			Statement stmt = conn.createStatement();
 			
 			stmt.executeUpdate("insert into wb_article(article_title, article_author, article_content, article_summary, article_classify,article_image, article_date, article_private_is, article_private_pass)"
-				+"values('我','我','我','我','1','我','2015-08-09 21:22:22','1','1234');");
+				+"values('我','我','我','我','1','我','2015-08-09 21:22:22','0','0');");
 			
 //			stmt.executeUpdate("insert into test2(name) values('勾超');");
 			ResultSet rs =  stmt.executeQuery("select * from wb_article");
 			List <Journal> list = new ArrayList<Journal>();
 			while(rs.next()){
 				Journal journal = new Journal();
+				journal.setJournal_id(rs.getInt(1));
 				journal.setTitle(rs.getString(2));
 				journal.setAuthor(rs.getString(3));
 				journal.setContent(rs.getString(4));
