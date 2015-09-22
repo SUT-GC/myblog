@@ -10,10 +10,18 @@ import empty.Journal;
 
 public class JournalDao {
 	private static Statement stmt;
+	private static DB_Data db_data;
 	static {
-		stmt = new DB_Data().getStmt();
+		stmt = db_data.getStmt();
 	}
 	
+	public static void close(){
+		try {
+			db_data.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public static int journalInsert(Journal journal) {
 		if (journal.getTitle().equals("")) {
 			return 2;

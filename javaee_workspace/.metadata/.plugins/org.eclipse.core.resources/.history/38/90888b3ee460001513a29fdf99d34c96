@@ -15,8 +15,7 @@ public class test {
 	public static void main(String[] args) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/wb?useUnicode=true&characterEncoding=utf-8", "root", "gc");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/wb?useUnicode=true&characterEncoding=utf-8", "root", "gc");
 			Statement stmt = conn.createStatement();
 			
 			stmt.executeUpdate("insert into wb_article(article_title, article_author, article_content, article_summary, article_classify,article_image, article_date, article_private_is, article_private_pass)"

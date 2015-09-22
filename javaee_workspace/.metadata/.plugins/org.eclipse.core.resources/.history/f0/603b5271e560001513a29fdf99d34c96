@@ -31,5 +31,13 @@ public class DB_Data {
 		return stmt;
 	}
 	
+	public void close(){
+		try {
+			stmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

@@ -15,7 +15,7 @@ public class DB_Data {
 
 	public DB_Data() {
 		driver = "com.mysql.jdbc.Driver";
-		url = "jdbc:mysql://localhost:3306/wb?useUnicode=true&characterEncoding=utf-8";
+		url = "jdbc:mysql://localhost:3306/wb";
 		user = "root";
 		password = "gc";
 		try {
@@ -30,6 +30,5 @@ public class DB_Data {
 	public Statement getStmt() {
 		return stmt;
 	}
-	
 
 }

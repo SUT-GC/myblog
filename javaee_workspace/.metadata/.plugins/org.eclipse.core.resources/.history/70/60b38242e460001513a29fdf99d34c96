@@ -12,12 +12,11 @@ public class DB_Data {
 	private String password;
 	private Connection conn;
 	private Statement stmt;
-
 	public DB_Data() {
 		driver = "com.mysql.jdbc.Driver";
-		url = "jdbc:mysql://localhost:3306/wb?useUnicode=true&characterEncoding=utf-8";
-		user = "root";
-		password = "gc";
+		url="jdbc:mysql://localhost:3306/wb";
+		user="root";
+		password="gc";
 		try {
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, password);
@@ -26,10 +25,8 @@ public class DB_Data {
 			e.printStackTrace();
 		}
 	}
-
 	public Statement getStmt() {
 		return stmt;
 	}
 	
-
 }
