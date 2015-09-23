@@ -53,6 +53,7 @@ public class JournalDao {
 	}
 	
 	/*
+	 * select *from wb_article
 	 * 查询函数，返回ArrayList<Journal>  list
 	 * 返回查询的结果
 	 */
@@ -81,5 +82,34 @@ public class JournalDao {
 			System.out.println(a);
 		}
 		return list;
+	}
+	
+	/*
+	 * sql: select * from wb_article where article_id = id;
+	 * 函数名 selectByID
+	 * 参数int id
+	 * 返回值 Journal的一个对象
+	 */
+	public static Journal selectByID(int id){
+		Journal journal = new Journal();
+		String sql = "select * from wb_article where article_id = "+id;
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			journal.setJournal_id(id);
+			journal.setTitle(rs.getString(2));
+			journal.setAuthor(rs.getString(3));
+			journal.setContent(rs.getString(4));
+			journal.setSummary(rs.getString(5));
+			journal.setClassify(rs.getInt(6));
+			journal.setImgpath(rs.getString(7));
+			journal.setDatetime(rs.getDate(8));
+			journal.setPrivate_is(rs.getInt(9));
+			journal.setPrivate_pass(rs.getInt(10));
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return journal;
 	}
 }

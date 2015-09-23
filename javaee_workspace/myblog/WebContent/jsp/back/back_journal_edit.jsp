@@ -1,3 +1,5 @@
+<%@page import="dao.JournalDao"%>
+<%@page import="empty.Journal" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -131,6 +133,10 @@
                 </div>
 
                 <!-- content start -->
+                <%
+                	int id = Integer.parseInt(request.getParameter("id"));
+        		  	Journal journal = JournalDao.selectByID(id);
+                %>
                 <div class="col-md-10">
                     <div class="row">
                         <div class="panel panel-default">
@@ -143,95 +149,35 @@
                     <form id="journal_release_form_id" class="journal_release_form_class" method="post" action="#">
                         <div class="input_title">
                             <span class="input_title_label">the title of your article:</span>
-                            <input type="text" class="form-control input_title_content" value="我的未来不是梦">
+                            <input name="new_title" type="text" class="form-control input_title_content" value="<%=journal.getTitle() %> " />
                         </div>
                         <hr/>
                         <div class="input_title">
                             <span class="input_title_label">the author of your article:</span>
-                            <input type="text" class="form-control input_title_content" value="张雨生">
+                            <input name="new_author" type="text" class="form-control input_title_content" value="<%=journal.getAuthor() %>" />
                         </div>
                         <hr/>
                         <div class="input_summary">
                             <span class="input_title_label">the summary of your article:</span>
-                            <textarea class="input_summary_textarea" cols="65" rows="3;">这是张雨生的一首歌，名字叫做《我的未来不是梦》
-                            </textarea><br/><br/><br/><br/><br/>
+                            <textarea name = "new_summary" class="input_summary_textarea" cols="65" rows="3;"><%=journal.getSummary() %></textarea><br/><br/><br/><br/><br/>
                         </div>
                         <hr/>
                         <div class="input_content">
                             <span class="input_title_label">the content of your article:</span>
-                            <textarea class="input_content_textarea" cols="77" rows="10;"> 
-    你是不是像我在太阳下低头
-    流着汗水默默辛苦的工作
-    你是不是像我就算受了冷漠
-    也不放弃自己想要的生活
-
-    你是不是像我整天忙着追求
-    追求一种意想不到的温柔
-    你是不是像我曾经茫然失措
-    一次一次徘徊在十字街头
-
-    因为我不在乎 别人怎么说
-    我从来没有忘记我
-    对自己的承诺 对爱的执著
-
-    我知道我的未来不是梦
-    我认真的过每一分钟
-    我的未来不是梦
-    我的心跟着希望在动
-    我的未来不是梦
-    我认真的过每一分钟
-    我的未来不是梦
-    我的心跟着希望在动
-    跟着希望在动
-    {Music}
-    你是不是像我整天忙着追求
-    追求一种意想不到的温柔
-    你是不是像我曾经茫然失措
-    一次一次徘徊在十字街头
-
-    因为我不在乎 别人怎么说
-    我从来没有忘记我
-    对自己的承诺 对爱的执著
-
-    我知道我的未来不是梦
-    我认真的过每一分钟
-    我的未来不是梦
-    我的心跟着希望在动
-    我的未来不是梦
-    我认真的过每一分钟
-    我的未来不是梦
-    我的心跟着希望在动
-    跟着希望在动 
-    #include &ltiostream>
-    using namespace std;
-
-    int main(){
-        int n;
-        int sum;
-        int m;
-        while(cin>>n){
-            sum = 0;
-            for(int i = 0; i < n; i++){
-                cin>>m;
-                sum += m;   
-            }
-            if(sum%4 == 0){
-                cout&lt&ltsum/4&lt&ltendl;
-            }else{
-                cout&lt&lt(sum/4)+1&lt&ltendl;
-            }
-        }
-    }
-                            </textarea><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <textarea name="new_content" class="input_content_textarea" cols="77" rows="10;"><%=journal.getContent() %> </textarea><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                         </div>
                         <hr/>
                         <div class="input_submit">
                             <span class="input_title_label">Classification:</span>
-                            <select id="select_classify">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3" >3</option>
-                                <option value="...">...</option>
+                            <select name="new_classify" id="select_classify">
+                               <option value="1">java</option>
+                                <option value="2">算法</option>
+                                <option value="3">Html/css/js</option>
+                                <option value="4">生活随笔</option>
+                                <option value="5">读书笔记</option>
+                                <option value="6">其他</option>
+                                <option value="7" disabled>预留</option>
+                                <option value="8" disabled>预留</option>
                             </select>   
                             <span class="is_private">is private ?</span>
                             <input class="is_private_check"type="checkbox" checked name="isprivate" value="1"/>

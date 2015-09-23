@@ -164,12 +164,12 @@
 		                                    <td>
 		                                    <% 
 		                                    	switch(journal.getClassify()){
-		                                    	case 1:out.print("java");
-		                                    	case 2:out.print("算法");
-		                                    	case 3:out.print("html/css/js");
-		                                    	case 4:out.print("生活随笔");
-		                                    	case 5:out.print("读书笔记");
-		                                    	case 6:out.print("其他");
+		                                    	case 1:out.print("java"); break;
+		                                    	case 2:out.print("算法");break;
+		                                    	case 3:out.print("html/css/js");break;
+		                                    	case 4:out.print("生活随笔");break;
+		                                    	case 5:out.print("读书笔记");break;
+		                                    	case 6:out.print("其他");break;
 		                                    	}
 		                                    %>
 		                                    <td class="center">
@@ -184,8 +184,12 @@
 													<%=journal.getPrivate_pass()%>
 											</th>
 		                                    <td class="center">
-		                                    <a href="back_journal_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-		                                    <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
+		                                    <!-- 
+		                                    <button class="btn btn-primary button_edit"  ><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
+		                                    <button class="btn btn-danger button_delete" ><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
+		                                     -->
+		                                     <a href="/myblog/JournalEditOrDelete?id=<%=journal.getJournal_id()%>&do=edit"><input type="submit"  name ="button" value="edit" class="btn btn-primary button_edit"/></a>
+		                                     <a href="/myblog/JournalEditOrDelete?id=<%=journal.getJournal_id()%>&do=delete"><input type="submit" name="button" value="delete" class="btn btn-danger button_delete"/></a>
 	                                        </tr>
                                         <%} %>
                                     </tbody>
@@ -194,6 +198,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- content end-->
             </div>
 
@@ -210,5 +215,6 @@
         <script type="text/javascript" src="js/twitter-bootstrap-hover-dropdown.min.js"></script>
         <script type="text/javascript" src="vendors/datatables/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/DT_bootstrap.js"></script>
+        
     </body>
 </html>

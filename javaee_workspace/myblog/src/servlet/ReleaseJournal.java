@@ -65,8 +65,24 @@ public class ReleaseJournal extends HttpServlet {
 		Journal journal = new Journal();
 		journal.setTitle(request.getParameter("article_title"));
 		journal.setAuthor(request.getParameter("article_author"));
+
+		/*
+		 * 将接收进来的的summary中所有的'<'转为'&lt';
+		 */
+		String article_summary = "";
+		article_summary = request.getParameter("article_summary").replace("<", "&lt");
 		journal.setSummary(request.getParameter("article_summary"));
-		journal.setContent(request.getParameter("article_content"));
+
+		/*
+		 * 将接收进来的文章内容中所有的'<'转换成'&lt';
+		 */
+		String article_content = "";
+		article_content = request.getParameter("article_content");
+		article_content = article_content.replace("<", "&lt");
+		System.out.println(article_content);
+		journal.setContent(article_content);
+		// journal.setContent(request.getParameter("article_content"));
+
 		journal.setClassify(Integer.parseInt(request.getParameter("article_classify")));
 		journal.setImgpath("111");
 		// 判斷isprivate的值，如果值為1，則private_pass有效，否則無效

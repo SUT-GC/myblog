@@ -1,0 +1,15 @@
+.center{
+	width: 180px;
+}
+.table_head >th{
+	font-size: 20px;
+}
+.table_content{
+	
+}
+.table_id_label{
+	width:10px;
+}
+.button_delete{
+	back_color:red;
+}
