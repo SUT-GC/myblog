@@ -180,22 +180,9 @@
                                 <option value="8" disabled>预留</option>
                             </select>   
                             <span class="is_private">is private ?</span>
-                            <%
-                            	int isprivate = journal.getPrivate_is();
-                            	int private_pass = journal.getPrivate_pass();
-                            	String private_passS = "";
-                            	if(private_pass!=-1){
-                            		private_passS = ""+private_pass;
-                            	}
-                            	
-                            	if(isprivate==0){
-                            %>
-                            <input class="is_private_check"type="checkbox" name="isprivate" value="1"/>
-                            <%}else{ %>
                             <input class="is_private_check"type="checkbox" checked name="isprivate" value="1"/>
-                            <%} %>
                             <span class="is_private">if this is private, please input your password !</span>
-                            <input class="input_password" type="text" value="<%=private_passS%> ">
+                            <input class="input_password" type="text" value="12345">
                         </div>
                          
                         <hr/>

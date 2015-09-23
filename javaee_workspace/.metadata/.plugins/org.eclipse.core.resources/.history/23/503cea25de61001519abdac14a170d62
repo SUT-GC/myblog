@@ -187,15 +187,10 @@
                             	if(private_pass!=-1){
                             		private_passS = ""+private_pass;
                             	}
-                            	
-                            	if(isprivate==0){
                             %>
-                            <input class="is_private_check"type="checkbox" name="isprivate" value="1"/>
-                            <%}else{ %>
-                            <input class="is_private_check"type="checkbox" checked name="isprivate" value="1"/>
-                            <%} %>
+                            <input class="is_private_check"type="checkbox" checked name="isprivate" value="<%=isprivate%>"/>
                             <span class="is_private">if this is private, please input your password !</span>
-                            <input class="input_password" type="text" value="<%=private_passS%> ">
+                            <input class="input_password" type="text" value="12345">
                         </div>
                          
                         <hr/>
