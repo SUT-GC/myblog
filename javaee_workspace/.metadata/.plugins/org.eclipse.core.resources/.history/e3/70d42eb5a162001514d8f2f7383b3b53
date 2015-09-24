@@ -91,13 +91,12 @@ public class JournalDao {
 	 * id 返回值 Journal的一个对象
 	 */
 	public static Journal selectByID(int id) {
-		Journal journal = null;
+		Journal journal = new Journal();
 		String sql = "select * from wb_article where article_id = " + id;
 		try {
 			ResultSet rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				journal = new Journal();
 				journal.setJournal_id(id);
 				journal.setTitle(rs.getString(2));
 				journal.setAuthor(rs.getString(3));

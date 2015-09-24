@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -56,7 +57,7 @@ public class EditJournalRelease extends HttpServlet {
 		
 		
 		/*
-		 * 創建Journal對象，別且將request帶來的值付給此對象
+		 * 創建Journal對象，且將request帶來的值付給此對象
 		 */
 		Journal journal = new Journal();
 		journal.setTitle(request.getParameter("new_title"));
@@ -100,21 +101,25 @@ public class EditJournalRelease extends HttpServlet {
 		journal.setDatetime(new Date());
 		System.out.println(journal);
 
-		// 將journal插入數據庫并且接受返回值
-		System.out.println("这是后更改的journal"+journal);
-
-		result2 = JournalDao.journalInsert(journal);
-		
 		/*
 		 * 根据journal_id删除已有的journal
 		 * 因为request.getParameter("old_id") 得到的是id+" ";
 		 * 用String的split方法将id截开并且取出" "之前的数转为int
+		 * 按id查询数据库，如果存在该id，择插入新的并且删除旧的
 		 * 调用delete方法
 		 */
 		String[] delete_idS;
 		delete_idS = request.getParameter("old_id").split(" ");
 		int delete_idI = Integer.parseInt(delete_idS[0]);
-		result3 = JournalDao.deleteJournal(delete_idI);
+		
+		Journal select_journal = null;
+		select_journal = JournalDao.selectByID(delete_idI);
+		System.out.println("搜出的select_journal"+select_journal);
+		if(select_journal != null){
+			// 將journal插入數據庫并且接受返回值
+			result2 = JournalDao.journalInsert(journal);
+			result3 = JournalDao.deleteJournal(delete_idI);
+		}
 
 		// 判斷返回值，如果無誤，轉回日志發布頁面，否則跳到錯誤頁面
 		if (result2 == 1 && result1 != 1 &&result3 == 1) {
@@ -125,19 +130,23 @@ public class EditJournalRelease extends HttpServlet {
 			out.println("<html><head><title>");
 			out.println("</title></head><body>");
 			out.println("<h1>修改失敗</h1>");
-			if(result3 != 1)
-				out.println("<h1>删除旧用户失败</h1>");
-			if (result1 == 1)
-				out.println("<h1>密码不能为非数字字符</h1>");
-			if (result2 == 2)
-				out.println("<h1>title不能為空</h1>");
-			if (result2 == 3)
-				out.println("<h1>summary不能為空</h1>");
-			if (result2 == 4)
-				out.println("<h1>content不能為空</h1>");
-			if (result2 == 0)
-				out.println("<h1>添加数据给有效记录为0</h1>");
-
+			if(result2 == 0 && result3 == 0){
+				out.println("<h1>不存在该id的文章</h1>");
+			}
+			else{
+				if(result3 != 1)
+					out.println("<h1>删除旧用户失败</h1>");
+				if (result1 == 1)
+					out.println("<h1>密码不能为非数字字符</h1>");
+				if (result2 == 2)
+					out.println("<h1>title不能為空</h1>");
+				if (result2 == 3)
+					out.println("<h1>summary不能為空</h1>");
+				if (result2 == 4)
+					out.println("<h1>content不能為空</h1>");
+				if (result2 == 0)
+					out.println("<h1>添加数据给有效记录为0</h1>");
+			}
 			out.println("<a href=\"javascript:history.go(-1)\">返回日志修改頁面</a>");
 			out.println("</body></html>");
 		}

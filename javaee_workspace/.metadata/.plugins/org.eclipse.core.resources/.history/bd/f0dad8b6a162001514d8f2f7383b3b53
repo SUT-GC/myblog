@@ -97,7 +97,7 @@ public class JournalDao {
 			ResultSet rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				journal = new Journal();
+				journal = new Journal()
 				journal.setJournal_id(id);
 				journal.setTitle(rs.getString(2));
 				journal.setAuthor(rs.getString(3));
