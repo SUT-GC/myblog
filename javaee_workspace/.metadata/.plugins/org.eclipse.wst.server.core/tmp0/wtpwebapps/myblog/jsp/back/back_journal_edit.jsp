@@ -147,7 +147,11 @@
                         <h3 class="journal_release_title">Please edit informations of the article:</h3>
                     <hr/>
                     <form id="journal_release_form_id" class="journal_release_form_class" method="post" action="/myblog/EditJournalRelease">
-                    	<%request.setAttribute("id", journal.getJournal_id()); %>
+                    	<div class="input_id">
+                    		<span class="input_title_label">the id of your article:</span>
+                            <input name="old_id" type="text" readonly class="form-control input_title_content" value="<%=id%>"/>
+                          </div>
+                          <hr/>
                         <div class="input_title">
                             <span class="input_title_label">the title of your article:</span>
                             <input name="new_title" type="text" class="form-control input_title_content" value="<%=journal.getTitle() %> " />
@@ -196,7 +200,7 @@
                             <input class="is_private_check"type="checkbox" checked name="isprivate" value="1"/>
                             <%} %>
                             <span class="is_private">if this is private, please input your password !</span>
-                            <input name="private_pass" class="input_password" type="text" value="<%=private_passS%> ">
+                            <input name="private_pass" class="input_password" type="text" value="<%=private_passS%>">
                         </div>
                         <hr/>
                         <div>
