@@ -55,8 +55,7 @@ public class JournalDao {
 	}
 
 	/*
-	 * select *from wb_article 查询函数
-	 * 返回ArrayList<Journal> list 返回查询的结果
+	 * select *from wb_article 查询函数，返回ArrayList<Journal> list 返回查询的结果
 	 */
 	public static ArrayList journalSelect() {
 		ArrayList<Journal> list = new ArrayList<>();
@@ -123,11 +122,13 @@ public class JournalDao {
 	public static int deleteJournal(int id) {
 		int result = 0;
 		String sql = "delete  from wb_article where article_id = " + id;
+
 		try {
 			result = stmt.executeUpdate(sql);
 		} catch (SQLException e) {
 			return result;
 		}
+
 		return result;
 	}
 }

@@ -48,14 +48,13 @@ public class JournalEditOrDelete extends HttpServlet {
 			response.sendRedirect("jsp/back/back_journal_edit.jsp?id="+journalID);
 		}else if(journalDo.equals("delete")){
 			r = JournalDao.deleteJournal(Integer.parseInt(journalID));
-			if(r == 1){
-				response.sendRedirect("jsp/back/back_journal_admin.jsp");
-			}else {
+			if(r == 0){
 				response.setContentType("text/html;charset=utf-8");
 				PrintWriter out = response.getWriter();
 				out.println("<html><head><title>");
 				out.println("</title></head><body>");
 				out.println("<h1>删除失败</h1>");
+			
 				out.println("<a href=\"javascript:history.go(-1)\">返回日志查询頁面</a>");
 				out.println("</body></html>");
 			}

@@ -13,18 +13,16 @@ import empty.Journal;
 
 public class JournalDao {
 	private static Statement stmt;
-
-	/*
-	 * 静态初始化框
-	 */
 	static {
 		stmt = new DB_Data().getStmt();
 	}
-
 	/*
-	 * 插入wb_article表函数 接受journal参数，把journal相关数据插入到数据库里
-	 * 插入之间判断journal里title属性，summary属性，content属性是否为空 如果为空，分别返回2,3,4
-	 * 如果插入成功，会返回有效插入的条数 如果插入故障，返回5
+	 * 插入wb_article表函数
+	 * 		接受journal参数，把journal相关数据插入到数据库里
+	 * 		插入之间判断journal里title属性，summary属性，content属性是否为空
+	 * 		如果为空，分别返回2,3,4
+	 * 		如果插入成功，会返回有效插入的条数
+	 * 		如果插入故障，返回5
 	 */
 	public static int journalInsert(Journal journal) {
 		if (journal.getTitle().equals("")) {
@@ -53,16 +51,17 @@ public class JournalDao {
 		}
 		return a;
 	}
-
+	
 	/*
-	 * select *from wb_article 查询函数
-	 * 返回ArrayList<Journal> list 返回查询的结果
+	 * select *from wb_article
+	 * 查询函数，返回ArrayList<Journal>  list
+	 * 返回查询的结果
 	 */
-	public static ArrayList journalSelect() {
-		ArrayList<Journal> list = new ArrayList<>();
+	public static ArrayList journalSelect(){
+		ArrayList <Journal> list = new ArrayList<>();
 		try {
 			ResultSet rs = stmt.executeQuery("select * from wb_article");
-			while (rs.next()) {
+			while(rs.next()){
 				Journal journal = new Journal();
 				journal.setJournal_id(rs.getInt(1));
 				journal.setTitle(rs.getString(2));
@@ -79,24 +78,25 @@ public class JournalDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		for (Journal a : list) {
+		for(Journal a: list){
 			System.out.println(a);
 		}
 		return list;
 	}
-
+	
 	/*
-	 * sql: select * from wb_article where article_id = id; 
-	 * 函数名 selectByID 参数int
-	 * id 返回值 Journal的一个对象
+	 * sql: select * from wb_article where article_id = id;
+	 * 函数名 selectByID
+	 * 参数int id
+	 * 返回值 Journal的一个对象
 	 */
-	public static Journal selectByID(int id) {
+	public static Journal selectByID(int id){
 		Journal journal = new Journal();
-		String sql = "select * from wb_article where article_id = " + id;
+		String sql = "select * from wb_article where article_id = "+id;
 		try {
 			ResultSet rs = stmt.executeQuery(sql);
-
-			while (rs.next()) {
+			
+			while(rs.next()){
 				journal.setJournal_id(id);
 				journal.setTitle(rs.getString(2));
 				journal.setAuthor(rs.getString(3));
@@ -108,26 +108,17 @@ public class JournalDao {
 				journal.setPrivate_is(rs.getInt(9));
 				journal.setPrivate_pass(rs.getInt(10));
 			}
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return journal;
 	}
-
+	
 	/*
-	 * sql: delete from wb_article where article_id = id; 
-	 * 函数名字 deleteJournal 参数
-	 * int id 返回值，删除之后的结果 1
+	 * sql: delete  from wb_article where article_id = id;
+	 * 函数名字 deleteJournal
+	 * 参数 int id
+	 * 返回值，删除之后的结果
 	 */
-	public static int deleteJournal(int id) {
-		int result = 0;
-		String sql = "delete  from wb_article where article_id = " + id;
-		try {
-			result = stmt.executeUpdate(sql);
-		} catch (SQLException e) {
-			return result;
-		}
-		return result;
-	}
 }

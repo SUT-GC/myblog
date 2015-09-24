@@ -55,8 +55,7 @@ public class JournalDao {
 	}
 
 	/*
-	 * select *from wb_article 查询函数
-	 * 返回ArrayList<Journal> list 返回查询的结果
+	 * select *from wb_article 查询函数，返回ArrayList<Journal> list 返回查询的结果
 	 */
 	public static ArrayList journalSelect() {
 		ArrayList<Journal> list = new ArrayList<>();

@@ -55,8 +55,7 @@ public class JournalDao {
 	}
 
 	/*
-	 * select *from wb_article 查询函数
-	 * 返回ArrayList<Journal> list 返回查询的结果
+	 * select *from wb_article 查询函数，返回ArrayList<Journal> list 返回查询的结果
 	 */
 	public static ArrayList journalSelect() {
 		ArrayList<Journal> list = new ArrayList<>();
@@ -86,8 +85,7 @@ public class JournalDao {
 	}
 
 	/*
-	 * sql: select * from wb_article where article_id = id; 
-	 * 函数名 selectByID 参数int
+	 * sql: select * from wb_article where article_id = id; 函数名 selectByID 参数int
 	 * id 返回值 Journal的一个对象
 	 */
 	public static Journal selectByID(int id) {
@@ -116,18 +114,19 @@ public class JournalDao {
 	}
 
 	/*
-	 * sql: delete from wb_article where article_id = id; 
-	 * 函数名字 deleteJournal 参数
+	 * sql: delete from wb_article where article_id = id; 函数名字 deleteJournal 参数
 	 * int id 返回值，删除之后的结果 1
 	 */
 	public static int deleteJournal(int id) {
 		int result = 0;
 		String sql = "delete  from wb_article where article_id = " + id;
+
 		try {
 			result = stmt.executeUpdate(sql);
 		} catch (SQLException e) {
 			return result;
 		}
+
 		return result;
 	}
 }
