@@ -60,7 +60,6 @@ public class UserDao {
 	 * 返回值: ArrayList<User> list
 	 * null:如果没有搜索到结果，则返回null
 	 */
-	
 	public static ArrayList<User> selectUser(){
 		ArrayList<User> list = new ArrayList<>();
 		String sql = "select * from wb_user";
@@ -83,6 +82,37 @@ public class UserDao {
 		}
 		
 		return list;
+	}
+	
+	/*
+	 * 功能:能完成按user_id查询表wb_user的功能,并返回一个User对象
+	 * sql: select * from wb_user where user_id = 'id';
+	 * 函数名:selectUserByID
+	 * 参数:int user_id;
+	 * 返回值:User user;
+	 * null:没有找到该id的user;
+	 */
+	public static User selectUserByID(int user_id){
+		User user = null;
+		String sql = "select * from wb_user where user_id = '"+user_id+"';";
+		
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				user = new User();
+				
+				user.setUser_id(rs.getInt(1));
+				user.setUser_email(rs.getString(2));
+				user.setUser_pass(rs.getString(3));
+				user.setUser_nick(rs.getString(4));
+				user.setUser_imagepath(rs.getString(5));
+				user.setUser_isadmin(rs.getInt(6));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
 	}
 	
 	/*

@@ -159,7 +159,7 @@
                                             	}
                                             %></td>
                                             <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
+                                             <a href="back_user_edit.jsp?id=<%=user.getUser_id()%>"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
                                             <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
                                         </tr>
                                         <%} %>

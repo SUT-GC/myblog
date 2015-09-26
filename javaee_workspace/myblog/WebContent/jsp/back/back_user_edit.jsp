@@ -1,5 +1,8 @@
+<%@page import="dao.UserDao"%>
+<%@page import = "empty.User" %>
+<%@page import = "dao.UserDao" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -128,14 +131,21 @@
                         </li>
                     </ul>
                 </div>
-
+			
                 <!-- content start -->
+            	<!-- java start -->
+            		<%
+            			User user = null;
+            			user = UserDao.selectUserByID(Integer.parseInt(request.getParameter("id")));
+            		%>
+            	<!-- java end -->
                 <div class="col-md-10">
                     <div class="row">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="text-muted bootstrap-admin-box-title"><a href="back_users.jsp">用户管理</a> >> <a href="#">edit</a></div>
                             </div>
+                  			<% if(user != null) {%>
                             <!--form start-->
                             <form>
                             <div class="user_edit">
@@ -176,6 +186,9 @@
                             </div>
                             </form>
                             <!--form end-->
+                            <%}else{ %>
+                            <h1>抱歉，没有搜索到该id的用户</h1>
+                            <%} %>
                         </div>
                     </div>
                     <!--这里填写内容-->
