@@ -147,7 +147,7 @@
                             </div>
                   			<% if(user != null) {%>
                             <!--form start-->
-                            <form method="post" action="/myblog/UserEdit">
+                            <form>
                             <div class="user_edit">
                                 <div class="user_edit_id">
                                     <span class="user_edit_id_label">user_id (can't edit)</span>
@@ -176,11 +176,7 @@
                                 <hr/>
                                  <div class="user_edit_isadmin">
                                     <span class="user_edit_isadmin_label">user_isadmin</span>
-                                    <%if(user.getUser_isadmin() == 1) {%>
-                                    <input name="new_user_isadmin" class="is_admin"type="checkbox" checked name="isadmin" value="1"/>
-                                    <%}else{ %>
-                                    <input name="new_user_isadmin" class="is_admin"type="checkbox" name="isadmin" value="1"/>
-                                    <%}%>
+                                    <input class="is_admin"type="checkbox" checked name="isadmin" value="1"/>
                                 </div>
                                 <hr/>
                                 <div class="edit_buttons">

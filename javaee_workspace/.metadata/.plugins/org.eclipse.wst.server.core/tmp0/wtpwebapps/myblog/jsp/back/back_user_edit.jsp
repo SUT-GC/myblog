@@ -147,36 +147,40 @@
                             </div>
                   			<% if(user != null) {%>
                             <!--form start-->
-                            <form>
+                            <form method="post" action="/myblog/UserEdit">
                             <div class="user_edit">
                                 <div class="user_edit_id">
                                     <span class="user_edit_id_label">user_id (can't edit)</span>
-                                    <input type="text" class="form-control input_title_content " readonly value="1">
+                                    <input name="new_user_id" type="text" class="form-control input_title_content " readonly value="<%=user.getUser_id()%>">
                                 </div>
                                 <hr/>
                                 <div class="user_edit_email">
                                     <span class="user_edit_email_label">user_email</span>
-                                    <input type="text" class="form-control input_title_content" value="gouchao2008@qq.com">
+                                    <input name="new_user_email" type="text" class="form-control input_title_content" value="<%=user.getUser_email()%>">
                                 </div>
                                 <hr/>
                                 <div class="user_edit_pass">
                                     <span class="user_edit_pass_label">user_pass</span>
-                                    <input type="text" class="form-control input_title_content" value="">
+                                    <input name="new_user_pass" type="text" class="form-control input_title_content" value="">
                                 </div>
                                 <hr/>
                                 <div class="user_edit_nick">
                                     <span class="user_edit_nick_label">user_nick</span>
-                                    <input type="text" class="form-control input_title_content" value="Gc">
+                                    <input name="new_user_nick" type="text" class="form-control input_title_content" value="<%=user.getUser_nick()%>">
                                 </div>
                                 <hr/>
                                 <div class="user_edit_imagepath">
                                     <span class="user_edit_imagepath_label">user_imagepath</span>
-                                    <input type="text" class="form-control input_title_content" value="01.jpg">
+                                    <input name="new_user_imagepath" type="text" class="form-control input_title_content" value="<%=user.getUser_imagepath()%>">
                                 </div>
                                 <hr/>
                                  <div class="user_edit_isadmin">
                                     <span class="user_edit_isadmin_label">user_isadmin</span>
-                                    <input class="is_admin"type="checkbox" checked name="isadmin" value="1"/>
+                                    <%if(user.getUser_isadmin() == 1) {%>
+                                    <input name="new_user_isadmin" class="is_admin"type="checkbox" checked name="isadmin" value="1"/>
+                                    <%}else{ %>
+                                    <input name="new_user_isadmin" class="is_admin"type="checkbox" name="isadmin" value="1"/>
+                                    <%}%>
                                 </div>
                                 <hr/>
                                 <div class="edit_buttons">

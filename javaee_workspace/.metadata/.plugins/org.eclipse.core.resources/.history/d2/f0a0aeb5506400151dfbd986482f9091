@@ -83,9 +83,9 @@ public class UserDao {
 	 * 功能:能完成按user_id查询表wb_user的功能,并返回一个User对象 
 	 * sql: select * from wb_user where
 	 * user_id = 'id';
-	 * 函数名:selectUserByID 
-	 * 参数:int user_id; 
-	 * 返回值:User user;
+	 *  函数名:selectUserByID 
+	 *  参数:int user_id; 
+	 *  返回值:User user;
 	 * null:没有找到该id的user;
 	 */
 	public static User selectUserByID(int user_id) {
