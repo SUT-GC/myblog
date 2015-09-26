@@ -1,3 +1,6 @@
+<%@page import="dao.UserDao"%>
+<%@page import="empty.User"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -118,7 +121,13 @@
                 <!-- content -->
                 <div class="col-md-10">
                    
-
+				<!-- 用UserDao.selectUser()查出所有的用户,存到list中 -->
+					<!-- java start -->
+					<% 
+						ArrayList <User> list = null;
+        		  		list = UserDao.selectUser();
+					%>
+					<!-- java end -->
                     <div class="row">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -136,150 +145,24 @@
                                         </tr>
                                     </thead>
                                     <tbody class="table_content">
+                                    	<%for(User user:list) {%>
                                         <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>gouchao2008@qq.com</td>
-                                            <td>SUT-GC</td>
-                                            <td class="center">yes</td>
+                                            <td><%=user.getUser_id()%></td>
+                                            <td><%=user.getUser_email()%></td>
+                                            <td><%=user.getUser_nick()%></td>
+                                            <td class="center"><%
+                                            	int isadmin = user.getUser_isadmin();
+                                            	if(isadmin == 1){
+                                            		out.print("Yes");
+                                            	}else{
+                                            		out.print("No");
+                                            	}
+                                            %></td>
                                             <td class="center">
                                              <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
                                             <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
                                         </tr>
-                                        <tr class="gradeA">
-                                            <td>2</td>
-                                            <td>tian2008@qq.com</td>
-                                            <td>SUT-Tian</td>
-                                            <td class="center">yes</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>3</td>
-                                            <td>lr2008@qq.com</td>
-                                            <td>我是路人</td>
-                                            <td class="center">no</td>
-                                            <td class="center">
-                                             <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
+                                        <%} %>
                                     </tbody>
                                 </table>
                             </div>

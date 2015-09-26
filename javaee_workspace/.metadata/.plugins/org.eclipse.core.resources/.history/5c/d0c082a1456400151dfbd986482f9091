@@ -147,17 +147,10 @@
                                     <tbody class="table_content">
                                     	<%for(User user:list) {%>
                                         <tr class="gradeA">
-                                            <td><%=user.getUser_id()%></td>
-                                            <td><%=user.getUser_email()%></td>
-                                            <td><%=user.getUser_nick()%></td>
-                                            <td class="center"><%
-                                            	int isadmin = user.getUser_isadmin();
-                                            	if(isadmin == 1){
-                                            		out.print("Yes");
-                                            	}else{
-                                            		out.print("No");
-                                            	}
-                                            %></td>
+                                            <td><%=user.getUser_id() %></td>
+                                            <td>gouchao2008@qq.com</td>
+                                            <td>SUT-GC</td>
+                                            <td class="center">yes</td>
                                             <td class="center">
                                              <a href="back_user_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
                                             <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>

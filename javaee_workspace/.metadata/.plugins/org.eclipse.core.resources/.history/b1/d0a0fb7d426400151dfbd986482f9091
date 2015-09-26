@@ -1,6 +1,5 @@
 package dao;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class UserDao {
 	 * 静态初始化框初始化db_date,stmt两个对象
 	 */
 	static{
-		db_date = new DB_Data("wb");
+		db_date = new DB_Data("wb_user");
 		stmt = db_date.getStmt();
 	}
 	
@@ -62,27 +61,7 @@ public class UserDao {
 	 */
 	
 	public static ArrayList<User> selectUser(){
-		ArrayList<User> list = new ArrayList<>();
-		String sql = "select * from wb_user";
-		try {
-			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()){
-				User user = new User();
-				
-				user.setUser_id(rs.getInt(1));
-				user.setUser_email(rs.getString(2));
-				user.setUser_pass(rs.getString(3));
-				user.setUser_nick(rs.getString(4));
-				user.setUser_imagepath(rs.getString(5));
-				user.setUser_isadmin(rs.getInt(6));
-				
-				list.add(user);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return list;
+		ArrayList<User> list;
 	}
 	
 	/*
