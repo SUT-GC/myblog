@@ -15,11 +15,11 @@
 <fullyQualifiedTypeName name="empty.Journal"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="sun.awt.dnd.SunDragSourceContextPeer"/>
-<fullyQualifiedTypeName name="dao.JournalDao"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="dao.DB_Data"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.sun.crypto.provider.RSACipher"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="empty.User"/>
+<fullyQualifiedTypeName name="dao.JournalDao"/>
 </qualifiedTypeNameHistroy>

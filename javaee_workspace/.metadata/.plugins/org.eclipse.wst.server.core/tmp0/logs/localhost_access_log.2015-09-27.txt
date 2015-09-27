@@ -58,3 +58,9 @@
 0:0:0:0:0:0:0:1 - - [27/Sep/2015:22:14:43 +0800] "GET /myblog/jsp/back/back_journal_edit.jsp?id=0 HTTP/1.1" 200 11809
 0:0:0:0:0:0:0:1 - - [27/Sep/2015:22:14:45 +0800] "POST /myblog/EditJournalRelease HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [27/Sep/2015:22:14:45 +0800] "GET /myblog/jsp/back/back_journal_admin.jsp HTTP/1.1" 200 11735
+0:0:0:0:0:0:0:1 - - [27/Sep/2015:22:17:17 +0800] "GET /myblog/jsp/back/back_users.jsp HTTP/1.1" 200 10007
+0:0:0:0:0:0:0:1 - - [27/Sep/2015:22:17:17 +0800] "GET /myblog/jsp/back/css/DT_bootstrap.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Sep/2015:22:17:17 +0800] "GET /myblog/jsp/back/vendors/datatables/images/sort_asc.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Sep/2015:22:17:17 +0800] "GET /myblog/jsp/back/vendors/datatables/images/sort_both.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Sep/2015:22:17:23 +0800] "GET /myblog/jsp/back/back_user_edit.jsp?id=0 HTTP/1.1" 200 10926
+0:0:0:0:0:0:0:1 - - [27/Sep/2015:22:17:23 +0800] "GET /myblog/jsp/back/css/back_user_edit.css HTTP/1.1" 304 -
