@@ -107,7 +107,7 @@ public class EditJournalRelease extends HttpServlet {
 		old_idS = request.getParameter("old_id").split(" ");
 		int old_idI = Integer.parseInt(old_idS[0]);
 		journal.setJournal_id(old_idI);
-		result2 = JournalDao.updateJournal(journal);
+		JournalDao.updateJournal(journal);
 		
 
 		// 判斷返回值，如果無誤，轉回日志發布頁面，否則跳到錯誤頁面
@@ -125,6 +125,7 @@ public class EditJournalRelease extends HttpServlet {
 				out.println("<h1>没有执行sql或执行异常</h1>");
 			if (result1 == 1)
 				out.println("<h1>密码不能为非数字字符</h1>");
+
 			out.println("<a href=\"javascript:history.go(-1)\">返回日志修改頁面</a>");
 			out.println("</body></html>");
 		}

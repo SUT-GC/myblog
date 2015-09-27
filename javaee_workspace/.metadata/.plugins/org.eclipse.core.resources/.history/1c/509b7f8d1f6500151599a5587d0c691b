@@ -143,26 +143,9 @@ public class JournalDao {
 	 * -1:执行sql语句失败
 	 */
 	public static int updateJournal(Journal journal){
-		//把Date对象进行格式转换
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		int result = -1;
-		String sql = "update wb_article set "
-							+ "article_title = '"+journal.getTitle()+"',"
-							+ "article_author = '"+journal.getAuthor()+"',"
-							+ "article_content = '"+journal.getContent()+"',"
-							+ "article_summary = '"+journal.getSummary()+"',"
-							+ "article_classify = '"+journal.getClassify()+"',"
-							+ " article_image = '"+journal.getImgpath()+"',"
-							+ "article_date = '"+sdf.format(journal.getDatetime())+"',"
-							+ "article_private_is = '"+journal.getPrivate_is()+"',"
-							+ "article_private_pass = '"+journal.getPrivate_pass()+"'"
-							+ "where article_id = '"+journal.getJournal_id()+"';";
-		try {
-			result = stmt.executeUpdate(sql);
-			System.out.println(result);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		result = stmt.executeUpdate(sql);
 		return result;
+		
 	}
 }

@@ -131,38 +131,4 @@ public class JournalDao {
 		}
 		return result;
 	}
-	
-	/*
-	 * 作用:根据article_id 来更新wb_article中的数据
-	 * sql:update wb_article set article_title = '123', article_author = '123', article_content = '123', article_summary = '123', article_classify = '123', article_image='123', article_date='2015-01-01 23:20', article_private_is ='1', article_private_pass='123' where article_id = '0';
-	 * 函数名: updateJournal
-	 * 参数:Journal journal
-	 * 返回值:int result
-	 * 0:更新失败,受影响0行
-	 * 1:更新成功，受影响1行
-	 * -1:执行sql语句失败
-	 */
-	public static int updateJournal(Journal journal){
-		//把Date对象进行格式转换
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		int result = -1;
-		String sql = "update wb_article set "
-							+ "article_title = '"+journal.getTitle()+"',"
-							+ "article_author = '"+journal.getAuthor()+"',"
-							+ "article_content = '"+journal.getContent()+"',"
-							+ "article_summary = '"+journal.getSummary()+"',"
-							+ "article_classify = '"+journal.getClassify()+"',"
-							+ " article_image = '"+journal.getImgpath()+"',"
-							+ "article_date = '"+sdf.format(journal.getDatetime())+"',"
-							+ "article_private_is = '"+journal.getPrivate_is()+"',"
-							+ "article_private_pass = '"+journal.getPrivate_pass()+"'"
-							+ "where article_id = '"+journal.getJournal_id()+"';";
-		try {
-			result = stmt.executeUpdate(sql);
-			System.out.println(result);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
 }

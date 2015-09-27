@@ -159,10 +159,10 @@ public class JournalDao {
 							+ "where article_id = '"+journal.getJournal_id()+"';";
 		try {
 			result = stmt.executeUpdate(sql);
-			System.out.println(result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
+		
 	}
 }
