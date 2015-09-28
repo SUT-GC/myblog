@@ -189,7 +189,7 @@
 		                                    <button class="btn btn-danger button_delete" ><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
 		                                     -->
 		                                     <a href="/myblog/JournalEditOrDelete?id=<%=journal.getJournal_id()%>&do=edit"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-		                                     <a href="/myblog/JournalEditOrDelete?id=<%=journal.getJournal_id()%>&do=delete"><button onclick="return confirm('您确定要删除该文章么？')"class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></a>
+		                                     <a href="/myblog/JournalEditOrDelete?id=<%=journal.getJournal_id()%>&do=delete"><button onclick="return confirm('您确定要删除该用户么？')"class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></a>
 	                                        </tr>
                                         <%} %>
                                     </tbody>
