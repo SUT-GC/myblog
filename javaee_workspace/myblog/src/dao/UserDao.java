@@ -110,6 +110,54 @@ public class UserDao {
 	}
 
 	/*
+	 * 功能: 根据user_id删除记录
+	 * sql: delete from wb_user where user_id = '1'
+	 * 函数名: deleteUser
+	 * 参数: int user_id
+	 * 返回值: int result
+	 * -1:没有执行sql或者执行错误
+	 * 0: 执行sql且受影响行数为0
+	 * 1:执行sql且受影响函数为1
+	 */
+	public static int deleteUser(int user_id){
+		int result = -1;
+		String sql = "delete from wb_user where user_id = '"+user_id+"';";
+		try {
+			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/*
+	 * 作用:根据user_id查询并且更新数据库
+	 * sql: update wb_user set user_email = '123',user_pass='123', user_nick='123', user_imagepath='123',user_isadmin='1' where user_id = '1';
+	 * 函数名: updateUser
+	 * 参数: User user
+	 * 返回值: int result
+	 * -1:没有执行sql或者执行错误
+	 * 0: 执行sql且受影响行数为0
+	 * 1:执行sql且受影响函数为1
+	 */
+	public static int updateUser(User user){
+		int result = 1;
+		String sql = "update wb_user set "
+						+ "user_email = '"+user.getUser_email()+"',"
+						+ "user_pass='"+Md5.md5Encode(user.getUser_pass())+"',"
+						+ "user_nick='"+user.getUser_nick()+"',"
+						+ "user_imagepath='"+user.getUser_imagepath()+"',"
+						+ "user_isadmin='" +user.getUser_isadmin()+"'"
+						+ "where user_id = '"+user.getUser_id()+"';";
+		try {
+			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/*
 	 * 无参数构造器
 	 */
 	public UserDao() {

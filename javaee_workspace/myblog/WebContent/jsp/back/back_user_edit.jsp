@@ -147,7 +147,7 @@
                             </div>
                   			<% if(user != null) {%>
                             <!--form start-->
-                            <form method="post" action="/myblog/UserEdit">
+                            <form method="post" action="/myblog/UserEditOrDelete">
                             <div class="user_edit">
                                 <div class="user_edit_id">
                                     <span class="user_edit_id_label">user_id (can't edit)</span>

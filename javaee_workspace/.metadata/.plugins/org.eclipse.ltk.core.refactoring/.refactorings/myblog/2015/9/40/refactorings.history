@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;servlet.UserEdit&apos; to &apos;UserEditOrDelete&apos;&#x0D;&#x0A;- Original project: &apos;myblog&apos;&#x0D;&#x0A;- Original element: &apos;servlet.UserEdit&apos;&#x0D;&#x0A;- Renamed element: &apos;servlet.UserEditOrDelete&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;UserEdit&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;servlet{UserEdit.java[UserEdit" matchStrategy="1" name="UserEditOrDelete" qualified="false" references="true" similarDeclarations="false" stamp="1443441020579" textual="false" version="1.0"/>
+</session>
