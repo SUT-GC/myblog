@@ -119,7 +119,7 @@ public class ReleaseJournal extends HttpServlet {
 			out.println("</title></head><body>");
 			out.println("<h1>發表失敗</h1>");
 			if (result1 == 1)
-				out.println("<h1>密码不能为非数字字符，但是发表成功。你可以选择修改已发表的文章，也可以重新发表文章</h1>");
+				out.println("<h1>密码不能为非数字字符</h1>");
 			if (result2 == 2)
 				out.println("<h1>title不能為空</h1>");
 			if (result2 == 3)
