@@ -1,0 +1,18 @@
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class MDTest {
+
+
+	public static void main(String[] args) {
+		String src = "12345";
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] md5bytes = md.digest(src.getBytes());
+			System.out.println(md5bytes);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
