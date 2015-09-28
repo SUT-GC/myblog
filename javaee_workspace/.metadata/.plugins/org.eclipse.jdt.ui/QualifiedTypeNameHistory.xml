@@ -27,7 +27,7 @@
 <fullyQualifiedTypeName name="sun.misc.BASE64Decoder"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="Encryption.Base64"/>
-<fullyQualifiedTypeName name="Encryption.Md5"/>
-<fullyQualifiedTypeName name="empty.User"/>
 <fullyQualifiedTypeName name="dao.UserDao"/>
+<fullyQualifiedTypeName name="empty.User"/>
+<fullyQualifiedTypeName name="Encryption.Md5"/>
 </qualifiedTypeNameHistroy>
