@@ -111,7 +111,7 @@ public class ReleaseJournal extends HttpServlet {
 
 		// 判斷返回值，如果無誤，轉回日志發布頁面，否則跳到錯誤頁面
 		if (result2 == 1 && result1 != 1) {
-			response.sendRedirect("jsp/back/back_journal_admin.jsp");
+			response.sendRedirect("jsp/back/back_journal_release.jsp");
 		} else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
