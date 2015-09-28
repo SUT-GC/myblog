@@ -174,8 +174,8 @@
                         </div>
                         <hr/>
                         <div class="input_buttons">
-                            <input type="submit" value ="Release"class="btn btn-success input_buttons_submit"/>
-                            <input type="reset" value ="Reset"class="btn btn-primary input_buttons_reset"/>
+                            <input type="submit" onclick="return confirm('是否发布该文章？');" value ="Release"class="btn btn-success input_buttons_submit"/>
+                            <input type="reset"  onclick="return confirm('是否清空您输入的所有？');"value ="Reset"class="btn btn-primary input_buttons_reset"/>
                         </div>
                     </form>
                 </div>

@@ -184,8 +184,8 @@
                                 </div>
                                 <hr/>
                                 <div class="edit_buttons">
-                                    <input type="submit" value ="OK_Edit"class="btn btn-success input_buttons_submit"/>
-                                    <input type="reset" value ="Reset"class="btn btn-primary input_buttons_reset"/>
+                                    <input type="submit" value ="OK_Edit" onclick="return confirm('是否提交修改内容？')"class="btn btn-success input_buttons_submit"/>
+                                    <input type="reset" value ="Reset" onclick="return confirm('是否重置修改内容？')" class="btn btn-primary input_buttons_reset"/>
                                 </div>
                             </div>
                             </form>
