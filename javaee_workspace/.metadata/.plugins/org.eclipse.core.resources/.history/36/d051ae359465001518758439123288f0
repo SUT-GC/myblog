@@ -8,8 +8,5 @@ public class Test {
 		String src = "12345";
 		String result = "";
 		result = Base64.base64Encoder(src);
-		System.out.println(result);
-		result = Base64.base64Decoder(result);
-		System.out.println(result);
 	}
 }
