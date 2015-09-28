@@ -20,6 +20,14 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.sun.crypto.provider.RSACipher"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="empty.User"/>
 <fullyQualifiedTypeName name="dao.JournalDao"/>
+<fullyQualifiedTypeName name="java.security.MessageDigest"/>
+<fullyQualifiedTypeName name="org.bouncycastle.util.encoders.Hex"/>
+<fullyQualifiedTypeName name="sun.misc.BASE64Encoder"/>
+<fullyQualifiedTypeName name="sun.misc.BASE64Decoder"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="Encryption.Base64"/>
+<fullyQualifiedTypeName name="Encryption.Md5"/>
+<fullyQualifiedTypeName name="empty.User"/>
+<fullyQualifiedTypeName name="dao.UserDao"/>
 </qualifiedTypeNameHistroy>
