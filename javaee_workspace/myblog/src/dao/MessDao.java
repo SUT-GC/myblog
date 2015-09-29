@@ -71,4 +71,27 @@ public class MessDao {
 		}
 		return message;
 	}
+	
+	/*
+	 * 功能:根据messbox_id删除留言记录
+	 * sql: delete from wb_messbox where messbox_id = '3';
+	 * 方法名: deleteMessByID
+	 * 参数:int messbox_id
+	 * 返回值: int result
+	 * -1:执行sql失败或者没执行sql
+	 * 0:数据库受影响行数为0
+	 * 1:数据库受影响行数为1
+	 */
+	public static int deleteMessByID(int messbox_id){
+		int result = -1;
+		String sql ="delete from wb_messbox where messbox_id = '"+messbox_id+"';";
+		try {
+			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
 }

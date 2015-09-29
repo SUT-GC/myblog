@@ -153,13 +153,12 @@
                                             <td class="center"><%=UserDao.selectUserByID(message.getTouser_id()).getUser_nick()%></td>
                                             <td class="center"><%=message.getMessbox_date()%></td>
                                             <td class="center">
-                                             <a href="back_message_show.jsp?messid=<%=message.getMessbox_id()%>"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
+                                             <a href="back_message_show.jsp?showmessid=<%=message.getMessbox_id()%>"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
+                                            <a href="/myblog/MessageDo?deletemessid=<%=message.getMessbox_id()%>"><button class="btn btn-danger button_delete" onclick = "return confirm('确认删除该留言记录么？')"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td></a>
                                         </tr>
                                         <%} %>
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
@@ -182,5 +181,8 @@
         <script type="text/javascript" src="js/twitter-bootstrap-hover-dropdown.min.js"></script>
         <script type="text/javascript" src="vendors/datatables/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/DT_bootstrap.js"></script>
+        <script type="text/javascript" >
+
+        </script>
     </body>
 </html>

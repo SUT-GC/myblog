@@ -136,8 +136,8 @@
                 <!-- java start -->
                 	<%
                 		Message message = null;
-        		  		if(request.getParameter("messid") != null)
-        		  			message = MessDao.selectMessByID(Integer.parseInt(request.getParameter("messid")));
+        		  		if(request.getParameter("showmessid") != null)
+        		  			message = MessDao.selectMessByID(Integer.parseInt(request.getParameter("showmessid")));
                 	%>
                 <!-- java end -->
                 <div class="col-md-10">
