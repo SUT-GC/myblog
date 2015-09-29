@@ -3,7 +3,7 @@
 <%@page import="empty.Message"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -153,7 +153,7 @@
                                             <td class="center"><%=UserDao.selectUserByID(message.getTouser_id()).getUser_nick()%></td>
                                             <td class="center"><%=message.getMessbox_date()%></td>
                                             <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
+                                             <a href="back_message_show.jsp?messid=<%=message.getMessbox_id()%>"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
                                             <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
                                         </tr>
                                         <%} %>

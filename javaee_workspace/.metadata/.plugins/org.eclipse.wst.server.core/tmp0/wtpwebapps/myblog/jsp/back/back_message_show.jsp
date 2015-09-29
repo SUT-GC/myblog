@@ -1,5 +1,8 @@
+<%@page import="dao.UserDao"%>
+<%@page import="dao.MessDao"%>
+<%@page import="empty.Message"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -130,6 +133,13 @@
                 </div>
 
                 <!-- content start -->
+                <!-- java start -->
+                	<%
+                		Message message = null;
+        		  		if(request.getParameter("messid") != null)
+        		  			message = MessDao.selectMessByID(Integer.parseInt(request.getParameter("messid")));
+                	%>
+                <!-- java end -->
                 <div class="col-md-10">
                     <div class="row">
                         <div class="panel panel-default">
@@ -137,13 +147,12 @@
                                 <div class="text-muted bootstrap-admin-box-title"><a href="back_message.jsp">留言管理</a> >> <a href="#">show</a></div>
                             </div>
                             <div class="message_show">
+                            <%if(message != null) {%>
                                 <div class="msg_id">
                                     <span class="message_show_label">
                                        message_id:
                                     </span>
-                                    <span class="message_show_content">
-                                        1
-                                    </span>
+                                    <span class="message_show_content"><%=message.getMessbox_id()%></span>
                                 </div>
                                 <hr/>
                                 <div class="user_nick">
@@ -151,7 +160,7 @@
                                        user_nick:
                                     </span>
                                     <span class="message_show_content">
-                                        <a href="user_show_information.jsp">SUT-Gc</a>
+                                        <a href="user_show_information.jsp"><%=UserDao.selectUserByID(message.getUser_id()).getUser_nick()%></a>
                                     </span>
                                 </div>
                                 <hr/>
@@ -160,7 +169,7 @@
                                        touser_nick:
                                     </span>
                                     <span class="message_show_content">
-                                       <a href="user_show_information.jsp">SUT-Tian</a>
+                                       <a href="user_show_information.jsp"><%=UserDao.selectUserByID(message.getTouser_id()).getUser_nick()%></a>
                                     </span>
                                 </div>
                                 <hr/>
@@ -168,9 +177,7 @@
                                     <span class="message_show_label">
                                        create_date:
                                     </span>
-                                    <span class="message_show_content">
-                                        2015-09-14 20:22
-                                    </span>
+                                    <span class="message_show_content"><%=message.getMessbox_date()%></span>
                                 </div>
                                 <hr/>
                                 <div class="msg_content">
@@ -178,17 +185,13 @@
                                        msg_content:
                                     </span>
                                     <div class="msg_content_pre">
-                                        <pre class="msg_pre_content">
-#include &ltiostream>
-using namespace std;
-
-int main(){
-    cout &lt&ltendl;
-}
-                                        </pre>  
+                                        <pre class="msg_pre_content"><%=message.getMessbox_reply()%></pre>  
                                     </div>
                                 </div>
                                 <hr/>
+                                <%}else{ %>
+                                	<h1>没有搜索到该id的留言记录！(^_^)</h1>
+                                <%} %>
                             </div>
                         </div>
                     </div>
