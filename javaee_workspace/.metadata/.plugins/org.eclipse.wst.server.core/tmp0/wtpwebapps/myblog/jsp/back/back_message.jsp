@@ -1,3 +1,7 @@
+<%@page import="dao.UserDao"%>
+<%@page import="dao.MessDao"%>
+<%@page import="empty.Message"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -115,6 +119,12 @@
                 </div>
 
                 <!-- content start-->
+                <!-- java start -->
+                <%
+                	ArrayList<Message> list = null;
+        		  	list = MessDao.selectMess();
+                %>
+                <!-- java end -->
                 <div class="col-md-10">
                     <div class="row">
                         <div class="panel panel-default">
@@ -122,6 +132,7 @@
                                 <div class="text-muted bootstrap-admin-box-title"><a href="#">留言管理</a></div>
                             </div>
                             <div class="bootstrap-admin-panel-content">
+
                                 <table class="table table-striped table-bordered" id="example">
                                     <thead>
                                         <tr>
@@ -134,138 +145,21 @@
                                         </tr>
                                     </thead>
                                     <tbody class="table_content">
+                                    <%for(Message message: list){ %>
                                         <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1080</td>
-                                            <td>SUT-Gc</td>
-                                            <td class="center">SUT-Tian</td>
-                                            <td class="center">2015-09-14 20:22</td>
+                                            <td><%=message.getMessbox_id()%></td>
+                                            <td><%=message.getFloor_id()%></td>
+                                            <td><%=UserDao.selectUserByID(message.getUser_id()).getUser_nick()%></td>
+                                            <td class="center"><%=UserDao.selectUserByID(message.getTouser_id()).getUser_nick()%></td>
+                                            <td class="center"><%=message.getMessbox_date()%></td>
                                             <td class="center">
                                              <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
                                             <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
                                         </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1079</td>
-                                            <td>SUT-Tian</td>
-                                            <td class="center">SUT-Gc</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1078</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1077</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1076</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1075</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1074</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1073</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1072</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1071</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1070</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1069</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td>1</td>
-                                            <td>1068</td>
-                                            <td>路人甲</td>
-                                            <td class="center">0</td>
-                                            <td class="center">2015-09-13 20:22</td>
-                                            <td class="center">
-                                             <a href="back_message_show.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>show</button></a>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                        </tr>
+                                        <%} %>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
