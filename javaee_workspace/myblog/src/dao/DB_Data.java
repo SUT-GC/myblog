@@ -13,9 +13,9 @@ public class DB_Data {
 	private Connection conn;
 	private Statement stmt;
 
-	public DB_Data(String table) {
+	public DB_Data(String datebase) {
 		driver = "com.mysql.jdbc.Driver";
-		url = "jdbc:mysql://localhost:3306/"+table+"?useUnicode=true&characterEncoding=utf-8";
+		url = "jdbc:mysql://localhost:3306/"+datebase+"?useUnicode=true&characterEncoding=utf-8";
 		user = "root";
 		password = "gc";
 		try {

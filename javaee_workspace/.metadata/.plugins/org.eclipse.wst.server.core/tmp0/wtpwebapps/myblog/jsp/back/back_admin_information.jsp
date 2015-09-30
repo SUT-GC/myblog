@@ -1,3 +1,6 @@
+<%@page import="dao.AdminDao"%>
+<%@page import="empty.Admin"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -114,6 +117,12 @@
                 </div>
 
                 <!-- content -->
+                <!-- java start -->
+                <%
+                    ArrayList<Admin> list = null;
+        		    list = AdminDao.selectAdmins();
+                %>
+                <!-- java end -->
                 <div class="col-md-10">
                     <div class="row">
                         <div class="panel panel-default">
@@ -131,20 +140,15 @@
                                           </tr>
                                       </thead>
                                       <tbody>
+                                       <%for(Admin admin:list) {%>
                                           <tr>
-                                              <td>1</td>
-                                              <td>Gc</td>
+                                              <td><%=admin.getAdmin_id()%></td>
+                                              <td><%=admin.getAdmin_username()%></td>
                                               <td>******</td>
                                               <td><a href="back_admin_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
                                               <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
                                           </tr>
-                                          <tr>
-                                              <td>2</td>
-                                              <td>Tian</td>
-                                              <td>******</td>
-                                              <td><a href="back_admin_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                              <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
-                                          </tr>
+                                       <%} %>
                                       </tbody>
                                   </table>
                                 </div>

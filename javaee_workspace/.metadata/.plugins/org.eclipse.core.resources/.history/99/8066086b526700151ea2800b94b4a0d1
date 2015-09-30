@@ -1,0 +1,15 @@
+package dao;
+
+import java.sql.Statement;
+
+public class AdminDao {
+    private static DB_Data db_data;
+    private static Statement stmt;
+    
+    static{
+    	db_data = new DB_Data("wb");
+    	stmt = db_data.getStmt();
+    }
+    
+    
+}
