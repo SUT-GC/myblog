@@ -357,3 +357,8 @@
 0:0:0:0:0:0:0:1 - - [30/Sep/2015:19:49:14 +0800] "GET /favicon.ico HTTP/1.1" 404 973
 0:0:0:0:0:0:0:1 - - [30/Sep/2015:19:49:14 +0800] "GET /myblog/jsp/back/back_admin_edit.jsp?editadminid=1 HTTP/1.1" 200 9924
 0:0:0:0:0:0:0:1 - - [30/Sep/2015:19:49:15 +0800] "GET /favicon.ico HTTP/1.1" 404 973
+0:0:0:0:0:0:0:1 - - [30/Sep/2015:19:53:08 +0800] "GET /myblog/jsp/back/back_admin_information.jsp HTTP/1.1" 200 8473
+0:0:0:0:0:0:0:1 - - [30/Sep/2015:19:53:08 +0800] "GET /favicon.ico HTTP/1.1" 404 973
+0:0:0:0:0:0:0:1 - - [30/Sep/2015:19:53:09 +0800] "GET /myblog/AdminDo?do=delete&deleteid=1 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [30/Sep/2015:19:53:09 +0800] "GET /myblog/jsp/back/back_admin_information.jsp HTTP/1.1" 200 7697
+0:0:0:0:0:0:0:1 - - [30/Sep/2015:19:53:10 +0800] "GET /favicon.ico HTTP/1.1" 404 973
