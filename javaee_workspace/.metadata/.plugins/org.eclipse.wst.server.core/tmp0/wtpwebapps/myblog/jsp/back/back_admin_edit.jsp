@@ -1,3 +1,6 @@
+<%@page import="Encryption.Base64"%>
+<%@page import="dao.AdminDao"%>
+<%@page import="empty.Admin"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -130,6 +133,15 @@
                 </div>
 
                 <!-- content start -->
+                <!-- java start -->
+                    <%
+                        Admin admin = null;
+                        if(request.getParameter("editadminid") != null){
+                        	 int editadminid = Integer.parseInt(request.getParameter("editadminid")) ;
+                        	 admin = AdminDao.selectAdminByID(editadminid);
+                        }
+                    %>
+                <!-- java end -->
                 <div class="col-md-10">
                     <div class="row">
                         <div class="panel panel-default">
@@ -139,25 +151,29 @@
                             <!--form start-->
                             <form>
                             <div class="user_edit">
+                              <%if(admin != null){ %>
                                 <div class="user_edit_id">
                                     <span class="user_edit_id_label">user_id (can't edit)</span>
-                                    <input type="text" class="form-control input_title_content " readonly value="1">
+                                    <input type="text" class="form-control input_title_content " readonly value='<%=admin.getAdmin_id()%>'>
                                 </div>
                                 <hr/>
                                 <div class="user_edit_nick">
                                     <span class="user_edit_nick_label">user_nick</span>
-                                    <input type="text" class="form-control input_title_content" value="Gc">
+                                    <input type="text" class="form-control input_title_content" value="<%=admin.getAdmin_username()%>">
                                 </div>
                                 <hr/>
                                 <div class="user_edit_pass">
                                     <span class="user_edit_pass_label">user_pass</span>
-                                    <input type="text" class="form-control input_title_content" value="">
+                                    <input type="text" class="form-control input_title_content" value="<%=Base64.base64Decoder(admin.getAdmin_password())%>">
                                 </div>
                                 <hr/>
                                 <div class="edit_buttons">
                                     <input type="submit" value ="OK_Edit"class="btn btn-success input_buttons_submit"/>
                                     <input type="reset" value ="Reset"class="btn btn-primary input_buttons_reset"/>
                                 </div>
+                              <%}else{ %>
+                              <h1>对不起，没有搜索到该id的admin</h1>
+                              <%}%>
                             </div>
                             </form>
                             <!--form end-->

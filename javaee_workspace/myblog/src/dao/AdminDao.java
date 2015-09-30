@@ -42,4 +42,30 @@ public class AdminDao {
 		}
     	return list;
     }
+    
+    /*
+     * 功能:根据admin_id查询出一条Admin记录
+     * sql:select * from wb_admin where admin_id = '0';
+     * 方法名:selectAdminByID
+     * 参数:admin_id
+     * 返回值:Admin admin
+     * null:没查出来任何结果
+     */
+    public static Admin selectAdminByID(int admin_id){
+    	Admin admin = null;
+    	String sql = "select * from wb_admin where admin_id = '"+admin_id+"';";
+    	ResultSet rs;
+		try {
+			rs = stmt.executeQuery(sql);
+	    	while(rs.next()){
+	    		admin = new Admin();
+	    		admin.setAdmin_id(rs.getInt(1));
+	    		admin.setAdmin_username(rs.getString(2));
+	    		admin.setAdmin_password(rs.getString(3));
+	    	}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return admin;
+    }
 }

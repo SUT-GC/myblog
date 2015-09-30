@@ -2,7 +2,7 @@
 <%@page import="empty.Admin"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -145,7 +145,7 @@
                                               <td><%=admin.getAdmin_id()%></td>
                                               <td><%=admin.getAdmin_username()%></td>
                                               <td>******</td>
-                                              <td><a href="back_admin_edit.jsp"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
+                                              <td><a href="back_admin_edit.jsp?editadminid=<%=admin.getAdmin_id()%>"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
                                               <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
                                           </tr>
                                        <%} %>
