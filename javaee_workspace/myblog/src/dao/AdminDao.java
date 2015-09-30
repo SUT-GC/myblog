@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import Encryption.Base64;
 import empty.Admin;
 
 public class AdminDao {
@@ -68,4 +69,44 @@ public class AdminDao {
 		}
     	return admin;
     }
+    
+    /*
+     * 功能:根据admin_id更改表中的一条记录
+     * sql:update wb_admin set admin_username='Tian', admin_password = '123' where admin_id = '0';
+     * 方法名:updateAdminByID
+     * 参数: Admin admin
+     * 返回值: int result /-1:没有执行sql或者执行失败 0:执行sql且记录更新0条 1:更新成功
+     */
+    public static int updateAdminByID(Admin admin){
+    	int result = -1;
+    	String sql = "update wb_admin set "
+    			        + "admin_username = '"+admin.getAdmin_username()+"',"
+    			        + "admin_password = '"+Base64.base64Encoder(admin.getAdmin_password())+"'"
+    			        + "where admin_id = '"+admin.getAdmin_id()+"';";
+    	try {
+			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return result;
+    }
+    
+    /*
+     * 功能:按照传入的admin_id删除相关的记录
+     * sql: delete from wb_admin where admin_id = '0';
+     * 方法名: deleteAdminByID
+     * 参数: int admin_id
+     * 返回值: result /-1:没有执行sql或者执行失败 0:执行sql且记录更新0条 1:更新成功
+     */
+    public static int deleteAdminByID(int admin_id){
+    	int result = -1;
+    	String sql = "delete from wb_admin where admin_id = '"+admin_id+"';";
+    	try {
+			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return result;
+    }
+    
 }

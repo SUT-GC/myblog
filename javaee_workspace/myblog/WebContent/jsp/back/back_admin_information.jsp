@@ -146,7 +146,7 @@
                                               <td><%=admin.getAdmin_username()%></td>
                                               <td>******</td>
                                               <td><a href="back_admin_edit.jsp?editadminid=<%=admin.getAdmin_id()%>"><button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Edit</button></a>
-                                              <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td>
+                                              <a href="/myblog/AdminDo?do=delete&deleteid=<%=admin.getAdmin_id()%>"><button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></td></a>
                                           </tr>
                                        <%} %>
                                       </tbody>

@@ -149,27 +149,27 @@
                                 <div class="text-muted bootstrap-admin-box-title"><a href="back_admin_information.jsp">admin账户管理中心</a> >> <a href="#">edit</a></div>
                             </div>
                             <!--form start-->
-                            <form>
+                            <form method="post" action = "/myblog/AdminDo">
                             <div class="user_edit">
                               <%if(admin != null){ %>
                                 <div class="user_edit_id">
                                     <span class="user_edit_id_label">user_id (can't edit)</span>
-                                    <input type="text" class="form-control input_title_content " readonly value='<%=admin.getAdmin_id()%>'>
+                                    <input name="new_admin_id" type="text" class="form-control input_title_content " readonly value='<%=admin.getAdmin_id()%>'>
                                 </div>
                                 <hr/>
                                 <div class="user_edit_nick">
                                     <span class="user_edit_nick_label">user_nick</span>
-                                    <input type="text" class="form-control input_title_content" value="<%=admin.getAdmin_username()%>">
+                                    <input  name="new_admin_username" type="text" class="form-control input_title_content" value="<%=admin.getAdmin_username()%>">
                                 </div>
                                 <hr/>
                                 <div class="user_edit_pass">
                                     <span class="user_edit_pass_label">user_pass</span>
-                                    <input type="text" class="form-control input_title_content" value="<%=Base64.base64Decoder(admin.getAdmin_password())%>">
+                                    <input  name="new_admin_password" type="text" class="form-control input_title_content" value="<%=Base64.base64Decoder(admin.getAdmin_password())%>">
                                 </div>
                                 <hr/>
                                 <div class="edit_buttons">
-                                    <input type="submit" value ="OK_Edit"class="btn btn-success input_buttons_submit"/>
-                                    <input type="reset" value ="Reset"class="btn btn-primary input_buttons_reset"/>
+                                    <input type="submit" value ="OK_Edit" onclick="return confirm('您确定要提交修改么？')" class="btn btn-success input_buttons_submit"/>
+                                    <input type="reset" value ="Reset" onclick="return confirm('您确定要重置输入的内容么？')" class="btn btn-primary input_buttons_reset"/>
                                 </div>
                               <%}else{ %>
                               <h1>对不起，没有搜索到该id的admin</h1>
