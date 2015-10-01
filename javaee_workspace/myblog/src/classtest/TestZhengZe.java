@@ -12,8 +12,8 @@ public class TestZhengZe {
 		String src;
 		while(sc.hasNextLine()){
 			src = sc.nextLine();
-//			System.out.println(src.matches("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.)(com|cn|org|net|gov)"));
-			System.out.println("~"+(src.split(" ").length == 0 || src.equals(""))+"~");
+			System.out.println(src.matches("^[a-z0-9A-Z]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.)(com|cn|org|net|gov)"));
+//			System.out.println("~"+(src.split(" ").length == 0 || src.equals(""))+"~");
 //			int[] a = new int[0];
 //			System.out.println(a);
 		}

@@ -16,7 +16,26 @@
 	String errmsg = "";
 	System.out.println("~"+request.getParameter("Rm")+"~");
 	if(request.getParameter("Rm")!=null){
-		String errmsgs = request.getParameter("Rm");
+		errmsg = request.getParameter("Rm");
+		String[] errmsga = errmsg.split(" ");
+		errmsg ="";
+		
+		if(errmsga[0].equals("0")){
+			errmsg += "该邮箱已经被注册,请重新填写 \\n";
+		}else{
+			if(errmsga[0].equals("-1"))
+				errmsg += "邮箱格式不符，请重新填写 \\n";
+			if(errmsga[0].equals("-2"))
+				errmsg += "邮箱不能为空 \\n";
+			if(errmsga[1].equals("-2"))
+				errmsg += "昵称不能为空 \\n";
+			if(errmsga[2].equals("-2"))
+				errmsg += "密码需要6-16个字符 \\n";
+			if(errmsga[2].equals("0"))
+				errmsg += "密码不能为空 \\n";
+			if(errmsga[3].equals("-2"))
+				errmsg += "两次密码输入不一致 \\n";
+		}
 	}
 	System.out.print(errmsg);
 %>
@@ -133,26 +152,9 @@ input[type=submit]:disabled {background:#999; cursor:no-drop;}
 
 $(document).ready(
 	function(){
-		var errmsg = <%=errmsg%>;
-		alert(errmsg);
-		/*
-		//根据errmsg的参数验证
-		if(err.charAt(0) == 0){
-			errmsg += "该邮箱已经被注册,请重新填写\n";
-		}else{
-			if(err.charAt(0) == -1)
-				errmsg += "邮箱格式不符，请重新填写\n";
-			if(err.charAt(0) == -2)
-				errmsg += "邮箱不能为空\n";
-			if(err.charAt(1) == -1)
-				errmsg += "昵称不能为空\n";
-			if(err.charAt(2) == -2)
-				errmsg += "密码需要6-16个字符\n";
-			if(err.charAt(2) == -1)
-				errmsg += "密码不能为空\n";
-			if(err.charAt(3) == -1)
-				errmsg += "两次密码输入不一致\n";
-		}*/
+		var err = '<%=errmsg %>';
+		if(err != '')
+			alert(err);
 	}
 );
 function enableSubmit(bool){

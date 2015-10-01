@@ -46,11 +46,11 @@ public class LoginDo extends HttpServlet {
 		 */
 		//-2: 内容为空, -1:email 格式不符合,  0: email冲突
 		int emailresult = -1;
-		//-1: nick 为空
+		//-2: nick 为空, -1:没检测到
 		int nickresult = -1;
-		//-2: pw 为空, -1: 密码没有达到6-16字符的要求 
+		//-2: pw 为空, 0: 密码没有达到6-16字符的要求 , -1:没检测到
 		int pwresult = -1;
-		//-1: rpw 为空
+		//-2: rpw 为空, -1:没检测到
 		int rpwresult = -1;
 		
 		/*
@@ -87,7 +87,7 @@ public class LoginDo extends HttpServlet {
 		if(email.split(" ").length == 0 || email.equals("")){
 			emailresult = -2;
 			erremail += "邮箱不能为空&";
-		}else if(email.matches("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.)(com|cn|org|net|gov)")){
+		}else if(email.matches("^[a-z0-9A-Z]+([._\\-]*[a-z0-9A-Z])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.)(com|cn|org|net|gov)")){
 			if(UserDao.selectUserByEmail(email) == null){
 				emailresult = 1;
 				user = new User();
@@ -104,9 +104,9 @@ public class LoginDo extends HttpServlet {
 		if(nick.split(" ").length != 0 && !nick.equals("") && user != null){
 			user.setUser_nick(nick);
 			nickresult = 1;
-		}else if(nick.split(" ").length == 0 && nick.equals("")){
+		}else if(nick.split(" ").length == 0 || nick.equals("")){
 			errnick += "昵称不能为空&";
-			nickresult = -1;
+			nickresult = -2;
 		}
 		
 		if(password.length() <6 && password.length() > 16){
@@ -115,28 +115,30 @@ public class LoginDo extends HttpServlet {
 		}else if(password.split(" ").length != 0 && !password.equals("") && user != null){
 			user.setUser_pass(Md5.md5Encode(password));
 			pwresult = 1;
-		}else if(password.split(" ").length == 0 && password.equals("")){
+		}else if(password.split(" ").length == 0 || password.equals("")){
 			errpw += "密码不能为空&";
-			pwresult = -1;
+			pwresult = 0;
 		}
 		
 		if(repeat.split(" ").length != 0 && !password.equals("") && repeat.equals(password) && user != null){
 			rpwresult = 1;
-		}else if(repeat.split(" ").length == 0 && password.equals("")){
-			errrpw = "两次密码输入不一致";
-			rpwresult = -1;
+		}else{
+			errrpw += "两次密码输入不一致";
+			rpwresult = -2;
 		}
 		
 		//测试何种报错的数据
 		System.out.println(emailresult+" "+nickresult+" "+pwresult+" "+rpwresult);
+		errall +=erremail+" "+errnick+" "+errpw+" "+errrpw;
+		System.out.println(errall);
+		
+		
 		if((emailresult + nickresult + pwresult + pwresult) == 4){
 			if(UserDao.insertUser(user) == 1){
 				succreg += "恭喜您，注册成功" ;
 				response.sendRedirect("jsp/login/login.jsp?Rm="+succreg);
 			}
 		}else{
-			errall += erremail + errnick + errpw + errrpw;
-			System.out.println("errall=" + errall);
 			response.sendRedirect("jsp/registered/registered.jsp?Rm="+emailresult+" "+nickresult+" "+pwresult+" "+rpwresult);
 		}
 		
