@@ -34,10 +34,9 @@
                 <div>
 					<input type="password" name="password" class="password" placeholder="密码" oncontextmenu="return false" onpaste="return false" />
                 </div>
+                
                 <button id="submit" type="button">登陆</button>
                 
-            </form>
-            <form action="../registered/registered.jsp" method="post">
             	<button id="register" type="button" onclick="toRegister()">注册</button>
             </form>
             <div class="connect">

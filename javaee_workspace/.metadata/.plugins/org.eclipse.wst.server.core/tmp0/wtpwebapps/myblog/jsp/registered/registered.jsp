@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,15 +11,15 @@
 <div class="back">
 <div id="top"><h1>用户注册</h1></div>
 <div class="form-bak">
-<form method="post" action="../login/login.jsp" onsubmit="adaptValue();">
+<form method="post" action="/myblog/LoginDo" >
 <div class="left">
 <div class="line" id="line_account">
 <div class="info">
-<strong>邮箱</strong>
+<strong>邮箱(Email)</strong>
 <span class="tips">邮箱就是账号</span>
 </div>
 <div class="input">
-<input type="text" name="account" id="account" onblur="v_account();" onkeyup="v_account();"/>
+<input type="text" name="email" id="account" onblur="v_account();" onkeyup="v_account();"/>
 <div class="none">
 <span></span>
 </div>
@@ -27,11 +27,11 @@
 </div>
 <div class="line" id="line_name">
 <div class="info">
-<strong>用户名</strong>
+<strong>昵称(Nick)</strong>
 <span class="tips">只能由数字、文字或下划线组成<br />最多32个字符</span>
 </div>
 <div class="input">
-<input type="text" name="name" id="name" onblur="v_name();" onkeyup="v_name();" />
+<input type="text" name="nick" id="name" onblur="v_name();" onkeyup="v_name();" />
 <div class="none">
 <span></span>
 </div>
@@ -39,7 +39,7 @@
 </div>
 <div class="line" id="line_password">
 <div class="info">
-<strong>密码</strong>
+<strong>密码(PassW)</strong>
 <span class="tips">6至16个字符</span>
 </div>
 <div class="input">
@@ -55,7 +55,7 @@
 <span class="tips">再次输入密码</span>
 </div>
 <div class="input">
-<input type="password" name="repeat" id="repeat" onblur="v_repeat();" onkeyup="v_repeat();" />
+<input type="password" name="repeatpassword" id="repeat" onblur="v_repeat();" onkeyup="v_repeat();" />
 <div class="none">
 <span></span>
 </div>
