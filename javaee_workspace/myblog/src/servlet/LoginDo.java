@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Encryption.Md5;
+import dao.UserDao;
+import empty.User;
+
 /**
  * Servlet implementation class LoginDo
  */
@@ -77,20 +81,30 @@ public class LoginDo extends HttpServlet {
 		//测试是否接受到
 		System.out.println(email+" "+nick+" "+password+" "+repeat);
 		
+		//用来存新的User 信息
+		User user = null;
 		//对每个信息进行判断
 		if(email.split(" ").length == 0 || email.equals("")){
 			emailresult = -2;
 			erremail += "邮箱不能为空&";
 		}else if(email.matches("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.)(com|cn|org|net|gov)")){
-			emailresult = 1;
+			if(UserDao.selectUserByEmail(email) == null){
+				emailresult = 1;
+				user = new User();
+				user.setUser_email(email);
+			}else{
+				emailresult = 0;
+				erremail +="该邮箱已经被注册&";
+			}
 		}else{
 			erremail += "email格式不符合&";
 			emailresult = -1;
 		}
 		
-		if(nick.split(" ").length != 0 && !nick.equals("")){
+		if(nick.split(" ").length != 0 && !nick.equals("") && user != null){
+			user.setUser_nick(nick);
 			nickresult = 1;
-		}else{
+		}else if(nick.split(" ").length == 0 && nick.equals("")){
 			errnick += "昵称不能为空&";
 			nickresult = -1;
 		}
@@ -98,28 +112,32 @@ public class LoginDo extends HttpServlet {
 		if(password.length() <6 && password.length() > 16){
 			pwresult = -2;
 			errpw +=  "密码需要6-16个字符&";
-		}else if(password.split(" ").length != 0 && !password.equals("")){
+		}else if(password.split(" ").length != 0 && !password.equals("") && user != null){
+			user.setUser_pass(Md5.md5Encode(password));
 			pwresult = 1;
-		}else{
+		}else if(password.split(" ").length == 0 && password.equals("")){
 			errpw += "密码不能为空&";
 			pwresult = -1;
 		}
 		
-		if(repeat.split(" ").length != 0 && !password.equals("") && repeat.equals(password)){
+		if(repeat.split(" ").length != 0 && !password.equals("") && repeat.equals(password) && user != null){
 			rpwresult = 1;
-		}else{
-			errrpw = "两次密码输入不一致&";
+		}else if(repeat.split(" ").length == 0 && password.equals("")){
+			errrpw = "两次密码输入不一致";
 			rpwresult = -1;
 		}
 		
 		//测试何种报错的数据
 		System.out.println(emailresult+" "+nickresult+" "+pwresult+" "+rpwresult);
 		if((emailresult + nickresult + pwresult + pwresult) == 4){
-			succreg += "恭喜您，注册成功" ;
-			response.sendRedirect("jsp/login/login.jsp?Rm="+succreg);
+			if(UserDao.insertUser(user) == 1){
+				succreg += "恭喜您，注册成功" ;
+				response.sendRedirect("jsp/login/login.jsp?Rm="+succreg);
+			}
 		}else{
 			errall += erremail + errnick + errpw + errrpw;
-			response.sendRedirect("jsp/registered/registered.jsp?Rm="+errall);
+			System.out.println("errall=" + errall);
+			response.sendRedirect("jsp/registered/registered.jsp?Rm="+emailresult+" "+nickresult+" "+pwresult+" "+rpwresult);
 		}
 		
 		

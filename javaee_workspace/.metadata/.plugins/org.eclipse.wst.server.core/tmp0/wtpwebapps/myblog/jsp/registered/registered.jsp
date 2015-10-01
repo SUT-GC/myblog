@@ -1,5 +1,7 @@
+<%@page import="Encryption.Base64"%>
+<%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8" errorPage="../error.jsp"%>
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +10,17 @@
 <script id="jquery_183" type="text/javascript" class="library" src="js/jquery-1.8.3.min.js"></script>
 </head>
 <body>
+<!-- java start -->
+<%
+	request.setCharacterEncoding("utf-8");
+	String errmsg = "";
+	System.out.println("~"+request.getParameter("Rm")+"~");
+	if(request.getParameter("Rm")!=null){
+		String errmsgs = request.getParameter("Rm");
+	}
+	System.out.print(errmsg);
+%>
+<!-- java end -->
 <div class="back">
 <div id="top"><h1>用户注册</h1></div>
 <div class="form-bak">
@@ -116,7 +129,33 @@ input[type=submit]:disabled {background:#999; cursor:no-drop;}
 .agreement .backtotop {display:block; line-height:20px; padding:10px; text-align:center;}
 </style>
 
-<script>function enableSubmit(bool){
+<script>
+
+$(document).ready(
+	function(){
+		var errmsg = <%=errmsg%>;
+		alert(errmsg);
+		/*
+		//根据errmsg的参数验证
+		if(err.charAt(0) == 0){
+			errmsg += "该邮箱已经被注册,请重新填写\n";
+		}else{
+			if(err.charAt(0) == -1)
+				errmsg += "邮箱格式不符，请重新填写\n";
+			if(err.charAt(0) == -2)
+				errmsg += "邮箱不能为空\n";
+			if(err.charAt(1) == -1)
+				errmsg += "昵称不能为空\n";
+			if(err.charAt(2) == -2)
+				errmsg += "密码需要6-16个字符\n";
+			if(err.charAt(2) == -1)
+				errmsg += "密码不能为空\n";
+			if(err.charAt(3) == -1)
+				errmsg += "两次密码输入不一致\n";
+		}*/
+	}
+);
+function enableSubmit(bool){
 if(bool)$("#submit").removeAttr("disabled");
 else $("#submit").attr("disabled","disabled");
 }
