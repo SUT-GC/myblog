@@ -1,0 +1,64 @@
+package filter;
+
+import java.io.IOException;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+
+/**
+ * Servlet Filter implementation class back_fileter
+ */
+@WebFilter(filterName="backFilter", urlPatterns={
+		"jsp/back/back_about.jsp",
+		"jsp/back/back_admin_edit.jsp",
+		"jsp/back/back_admin_information.jsp",
+		"jsp/back/back_help.jsp",
+		"jsp/back/back_image.jsp",
+		"jsp/back/back_index.jsp",
+		"jsp/back/back_journal_admin.jsp",
+		"jsp/back/back_journal_edit.jsp",
+		"jsp/back/back_journal_release.jsp",
+		"jsp/back/back_message_show.jsp",
+		"jsp/back/back_message.jsp",
+		"jsp/back/back_user_eidt.jsp",
+		"jsp/back/back_users.jsp",
+})
+public class back_fileter implements Filter {
+
+    /**
+     * Default constructor. 
+     */
+    public back_fileter() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see Filter#destroy()
+	 */
+	public void destroy() {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+	 */
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		// place your code here
+
+		// pass the request along the filter chain
+		chain.doFilter(request, response);
+	}
+
+	/**
+	 * @see Filter#init(FilterConfig)
+	 */
+	public void init(FilterConfig fConfig) throws ServletException {
+		// TODO Auto-generated method stub
+	}
+
+}
