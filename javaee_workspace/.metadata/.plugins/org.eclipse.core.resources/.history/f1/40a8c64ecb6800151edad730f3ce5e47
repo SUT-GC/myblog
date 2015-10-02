@@ -22,10 +22,7 @@
                 margin: 0 auto 20px;
             }
             .sorrymsgy{
-            	color:#FF9900;
-            }
-            .sorrymsgr{
-            	color: red;
+            	color: yello;
             }
         </style>
 
@@ -72,7 +69,6 @@
                     <button class="btn btn-lg btn-primary" type="submit">提交</button>
                     <%}else{ %>
                     <h2 class="sorrymsgy">对不起，您不是我们的管理员</h2><h1  class="sorrymsgr">您无权登陆</h1><hr/>
-                    <a href="javascript:history.go(-1)">请返回上一个页面~(^_^)~</a>
                     <%} %>
                 </form>
             </div>
