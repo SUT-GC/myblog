@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="javax.print.attribute.standard.JobHoldUntil"/>
-<fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 <fullyQualifiedTypeName name="java.lang.StackOverflowError"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
@@ -27,16 +26,20 @@
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="dao.DB_Data"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="servlet.AdminDo"/>
-<fullyQualifiedTypeName name="empty.Admin"/>
-<fullyQualifiedTypeName name="Encryption.Base64"/>
-<fullyQualifiedTypeName name="dao.AdminDao"/>
 <fullyQualifiedTypeName name="com.oracle.jrockit.jfr.RequestableEvent"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="com.mysql.fabric.xmlrpc.base.Array"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="dao.UserDao"/>
-<fullyQualifiedTypeName name="empty.User"/>
 <fullyQualifiedTypeName name="Encryption.Md5"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="empty.User"/>
+<fullyQualifiedTypeName name="servlet.AdminDo"/>
+<fullyQualifiedTypeName name="dao.AdminDao"/>
+<fullyQualifiedTypeName name="empty.Admin"/>
+<fullyQualifiedTypeName name="Encryption.Base64"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>
