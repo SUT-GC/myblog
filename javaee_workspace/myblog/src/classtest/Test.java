@@ -7,7 +7,7 @@ import empty.User;
 
 public class Test {
 	public static void main(String[] args){
-		String src = "1234";
-		System.out.println(Base64.base64Encoder(src));
+		String src = "123456";
+		System.out.println(Md5.md5Encode(src));
 	}
 }

@@ -1,7 +1,7 @@
 <%@page import="Encryption.Base64"%>
 <%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,7 +43,7 @@
 <div class="back">
 <div id="top"><h1>用户注册</h1></div>
 <div class="form-bak">
-<form method="post" action="/myblog/LoginDo" >
+<form method="post" action="/myblog/RegisteredDo" >
 <div class="left">
 <div class="line" id="line_account">
 <div class="info">

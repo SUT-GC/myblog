@@ -126,6 +126,7 @@ public class UserDao {
 				user = new User();
 				user.setUser_id(rs.getInt(1));
 				user.setUser_email(rs.getString(2));
+				user.setUser_pass(rs.getString(3));
 				user.setUser_nick(rs.getString(4));
 				user.setUser_imagepath(rs.getString(5));
 				user.setUser_isadmin(rs.getInt(6));
