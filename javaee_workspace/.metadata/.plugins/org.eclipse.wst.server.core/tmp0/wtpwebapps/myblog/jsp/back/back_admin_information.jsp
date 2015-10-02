@@ -56,7 +56,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">管理员<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="../nav/index.jsp">退出登录</a></li>
+                  <li><a href="/myblog/AdminSessionLogout">退出登录</a></li>
                 </ul>
               </li>
             </ul>

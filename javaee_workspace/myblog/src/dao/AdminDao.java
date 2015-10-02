@@ -71,6 +71,31 @@ public class AdminDao {
     }
     
     /*
+     * 功能:根据admin_username查询出一条Admin记录
+     * sql:select * from wb_admin where admin_username = 'gc';
+     * 方法名:selectAdminByID
+     * 参数:admin_id
+     * 返回值:Admin admin
+     * null:没查出来任何结果
+     */
+    public static Admin selectAdminByUsername(String username){
+    	Admin admin = null;
+    	String sql = "select * from wb_admin where admin_username = '"+username+"';";
+    	ResultSet rs;
+		try {
+			rs = stmt.executeQuery(sql);
+	    	while(rs.next()){
+	    		admin = new Admin();
+	    		admin.setAdmin_id(rs.getInt(1));
+	    		admin.setAdmin_username(rs.getString(2));
+	    		admin.setAdmin_password(rs.getString(3));
+	    	}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return admin;
+    }
+    /*
      * 功能:根据admin_id更改表中的一条记录
      * sql:update wb_admin set admin_username='Tian', admin_password = '123' where admin_id = '0';
      * 方法名:updateAdminByID

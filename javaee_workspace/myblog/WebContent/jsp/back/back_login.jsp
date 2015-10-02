@@ -1,6 +1,6 @@
 <%@page import="empty.User"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,6 +46,12 @@
 			is_admin = 1;
 		}
 	}
+	
+	//验证登陆回来的信息
+	String msg = "";
+	if(request.getParameter("msg")!=null){
+		msg = request.getParameter("msg");
+	}
 %>
 <!-- java end -->
         <div class="container">
@@ -54,11 +60,11 @@
                     <a class="close" data-dismiss="alert" href="#">&times;</a>
                     请输入正确的管理员用户名和密码！
                 </div>
-                <form method="post" action="back_index.jsp" class="bootstrap-admin-login-form">
+                <form method="post" action="/myblog/AdminSessionDo" class="bootstrap-admin-login-form">
                     <h1>登录</h1>
                     <%if(user != null && user.getUser_isadmin() == 1) {%>
                     <div class="form-group">
-                        <input class="form-control" type="text" name="email" placeholder="邮箱">
+                        <input class="form-control" type="text" name="username" placeholder="账号">
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="password" name="password" placeholder="密码">
@@ -69,7 +75,7 @@
                            记住密码
                         </label>
                     </div>
-                    <button class="btn btn-lg btn-primary" type="submit">提交</button>
+                    <input class="btn btn-lg btn-primary" type="submit" value="提交"/>
                     <%}else{ %>
                     <h2 class="sorrymsgy">对不起，您不是我们的管理员</h2><h1  class="sorrymsgr">您无权登陆</h1><hr/>
                     <a href="javascript:history.go(-1)">请返回上一个页面~(^_^)~</a>
@@ -86,6 +92,16 @@
         	if(isadmin == 0){
         		alert('对不起，您不是我们的管理员');
         	}
+        	
+        	var message = '<%=msg%>';
+        	if(message != ""){
+	        	if(message == 0){
+	        		alert('对不起，用户名错误');
+	        	}else{
+	        		alert('对不起，密码错误');
+	        	}
+        	}
+        	
             $(function() {
                 // Setting focus
                 $('input[name="email"]').focus();
