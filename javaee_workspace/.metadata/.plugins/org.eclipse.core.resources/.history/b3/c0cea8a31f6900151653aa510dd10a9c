@@ -16,7 +16,6 @@ public class MessDao {
 	}
 	
 	/*
-	 * 1
 	 * 功能: 查出所有的留言记录
 	 * sql: select * from wb_messbox;
 	 * 函数名:selectMess
@@ -46,7 +45,6 @@ public class MessDao {
 	}
 	
 	/*
-	 * 2
 	 * 功能: 按照messbox_id搜索留言记录
 	 * sql: select * from wb_messbox where messbox_id = '0';
 	 * 方法名: selectMessByID
@@ -75,7 +73,6 @@ public class MessDao {
 	}
 	
 	/*
-	 * 3
 	 * 功能:根据messbox_id删除留言记录
 	 * sql: delete from wb_messbox where messbox_id = '3';
 	 * 方法名: deleteMessByID
@@ -96,35 +93,5 @@ public class MessDao {
 		return result;
 	}
 	
-	/*
-	 * 4
-	 * 功能: 查询出所有留言为一级留言的记录
-	 * sql: select * from wb_messbox where touser_id = '0';
-	 * 方法名: selectMessTouseridIsFloor
-	 * 参数: 空
-	 * 返回值: ArrayList <Message> list;
-	 * null: 没有记录
-	 */
-	public static ArrayList <Message> selectMessTouseridIsFloor(){
-		ArrayList<Message> list = null;
-		String sql = "select * from wb_messbox where touser_id = '0';";
-		try {
-			ResultSet rs = stmt.executeQuery(sql);
-			list = new ArrayList<>();
-			while(rs.next()){
-				Message message = new Message();
-				message.setMessbox_id(rs.getInt(1));
-				message.setFloor_id(rs.getInt(2));
-				message.setUser_id(rs.getInt(3));
-				message.setTouser_id(rs.getInt(4));
-				message.setMessbox_reply(rs.getString(5));
-				message.setMessbox_date(rs.getTimestamp(6));
-				list.add(message);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
 	
 }

@@ -96,35 +96,5 @@ public class MessDao {
 		return result;
 	}
 	
-	/*
-	 * 4
-	 * 功能: 查询出所有留言为一级留言的记录
-	 * sql: select * from wb_messbox where touser_id = '0';
-	 * 方法名: selectMessTouseridIsFloor
-	 * 参数: 空
-	 * 返回值: ArrayList <Message> list;
-	 * null: 没有记录
-	 */
-	public static ArrayList <Message> selectMessTouseridIsFloor(){
-		ArrayList<Message> list = null;
-		String sql = "select * from wb_messbox where touser_id = '0';";
-		try {
-			ResultSet rs = stmt.executeQuery(sql);
-			list = new ArrayList<>();
-			while(rs.next()){
-				Message message = new Message();
-				message.setMessbox_id(rs.getInt(1));
-				message.setFloor_id(rs.getInt(2));
-				message.setUser_id(rs.getInt(3));
-				message.setTouser_id(rs.getInt(4));
-				message.setMessbox_reply(rs.getString(5));
-				message.setMessbox_date(rs.getTimestamp(6));
-				list.add(message);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
 	
 }

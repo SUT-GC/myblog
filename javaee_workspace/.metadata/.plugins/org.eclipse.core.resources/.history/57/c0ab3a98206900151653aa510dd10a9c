@@ -119,7 +119,6 @@ public class MessDao {
 				message.setTouser_id(rs.getInt(4));
 				message.setMessbox_reply(rs.getString(5));
 				message.setMessbox_date(rs.getTimestamp(6));
-				list.add(message);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
