@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Encryption.Md5;
 import dao.UserDao;
@@ -56,6 +57,10 @@ public class LoginDo extends HttpServlet {
 		 */
 		int Lm = 0;
 		
+		/*
+		 * 创建User 
+		 */
+		User user = null;
 		if(request.getParameter("username") != null){
 			username = request.getParameter("username");
 		}
@@ -67,7 +72,7 @@ public class LoginDo extends HttpServlet {
 			if(UserDao.selectUserByEmail(username) == null){
 				Lm = 2;
 			}else{
-				User user = UserDao.selectUserByEmail(username);
+				user = UserDao.selectUserByEmail(username);
 				//测试
 				System.out.println("out.user.pass = "+user.getUser_pass());
 				System.out.println("~password = "+password +"~ get.userpass = "+Md5.md5Encode(password));
@@ -86,7 +91,11 @@ public class LoginDo extends HttpServlet {
 		 * 对Lm的消息验证结果进行判断与转发
 		 */
 		if(Lm == 1){
-			
+			if(user != null){
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+				response.sendRedirect("jsp/nav/index.jsp");
+			}
 		}else{
 			response.sendRedirect("jsp/login/login.jsp?Lm="+Lm);
 		}

@@ -1,3 +1,4 @@
+<%@page import="empty.User"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -221,14 +222,24 @@
   </style>
 </head>
 <body>
-    <!--导航开始-->
+ <!--导航开始-->
+	<!-- java start -->
+	<%
+		//获取Session user
+		session = request.getSession();
+		User user = null;
+		if(session.getAttribute("user") != null){
+			user = (User)session.getValue("user");
+		}
+	%>
+	<!-- java end -->
   <div id="nav">
     <ul class="nav-menu clearfix unstyled">
-      <li><a href="../nav/index.jsp" class="three-d">
+      <li><a href="../nav/index.jsp" class="three-d ">
         主页
         <span class="three-d-box"><span class="front">主页</span><span class="back">主页</span></span>
       </a></li>
-      <li><a href="../Journal/Journal.jsp" class="three-d">
+      <li><a href="../journal/journal.jsp" class="three-d">
         日志
         <span class="three-d-box"><span class="front">日志</span><span class="back">日志</span></span>
       </a></li>
@@ -236,7 +247,7 @@
         TA
         <span class="three-d-box"><span class="front">TA</span><span class="back">TA</span></span>
       </a></li>
-      <li><a href="../information/information.jsp" class="three-d active">
+      <li><a href="#" class="three-d  active">
         博主
         <span class="three-d-box"><span class="front">博主</span><span class="back">博主</span></span>
       </a></li>
@@ -252,6 +263,9 @@
         后台
         <span class="three-d-box"><span class="front">后台</span><span class="back">后台</span></span>
       </a></li>
+      <%
+      	if(user == null){
+      %>
       <li><a href="#" class="three-d">
         登陆/注册
         <span class="three-d-box"><span class="front">登陆/注册</span><span class="back">登陆/注册</span></span></a>
@@ -266,13 +280,25 @@
           </a></li>
         </ul>
       </li>
+      <%}else{ %>
+      <li><a href="#" class="three-d">
+        登陆成功/登出
+        <span class="three-d-box"><span class="front">登陆成功/登出</span><span class="back"><%=user.getUser_nick()%></span></span></a>
+        <ul class="clearfix unstyled drop-menu">
+          <li><a href="/myblog/SessionDo" class="three-d">
+            登出
+            <span class="three-d-box"><span class="front">登出</span><span class="back">登出</span></span>
+          </a></li>
+        </ul>
+      </li>
+      <%} %>
     </ul>
   </div>
 <!--导航结束-->
 <!--个人信息start-->
     <div class="history">
         <div class="start-history">
-            <p class="cc_history">个人信息</p>
+            <p class="cc_history">博主信息</p>
             <p class="next_history">INFORMATIONS</p>
             <div class="history_left">
                 <p class="history_L year2006">

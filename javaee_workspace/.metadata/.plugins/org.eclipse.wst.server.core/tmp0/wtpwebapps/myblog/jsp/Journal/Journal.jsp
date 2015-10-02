@@ -1,5 +1,6 @@
+<%@page import="empty.User"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -273,7 +274,17 @@
 		<script src="js/modernizr.custom.js"></script>
 	</head>
 	<body>
-	<!--导航开始-->
+<!--导航开始-->
+	<!-- java start -->
+	<%
+		//获取Session user
+		session = request.getSession();
+		User user = null;
+		if(session.getAttribute("user") != null){
+			user = (User)session.getValue("user");
+		}
+	%>
+	<!-- java end -->
   <div id="nav">
     <ul class="nav-menu clearfix unstyled">
       <li><a href="../nav/index.jsp" class="three-d ">
@@ -304,6 +315,9 @@
         后台
         <span class="three-d-box"><span class="front">后台</span><span class="back">后台</span></span>
       </a></li>
+      <%
+      	if(user == null){
+      %>
       <li><a href="#" class="three-d">
         登陆/注册
         <span class="three-d-box"><span class="front">登陆/注册</span><span class="back">登陆/注册</span></span></a>
@@ -318,6 +332,18 @@
           </a></li>
         </ul>
       </li>
+      <%}else{ %>
+      <li><a href="#" class="three-d">
+        登陆成功/登出
+        <span class="three-d-box"><span class="front">登陆成功/登出</span><span class="back"><%=user.getUser_nick()%></span></span></a>
+        <ul class="clearfix unstyled drop-menu">
+          <li><a href="/myblog/SessionDo" class="three-d">
+            登出
+            <span class="three-d-box"><span class="front">登出</span><span class="back">登出</span></span>
+          </a></li>
+        </ul>
+      </li>
+      <%} %>
     </ul>
   </div>
 <!--导航结束-->
