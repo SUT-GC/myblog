@@ -41,21 +41,15 @@
             var $editor = $('#txtDiv').wangEditor();
 
             //显示 html / text
-            var $textarea = $('#textarea'),
-                $btnHtml = $('#btnHtml'),
-                $btnText = $('#btnText'),
-                $btnHide = $('#btnHide');
-            $textarea.hide();
-            $btnHtml.click(function(){
-                $textarea.show();
-                $textarea.val( $editor.jsp() );
+            var $replybutton = $('.reply-button');
+            var $replytextarea = $('#replytextarea');
+            var $teplytexthide = $('#btnhide');
+            $replytextarea.hide();
+            $replybutton.click(function(){
+            	$replytextarea.show();
             });
-            $btnText.click(function(){
-                $textarea.show();
-                $textarea.val( $editor.text() );
-            });
-            $btnHide.click(function(){
-                $textarea.hide();
+            $teplytexthide.click(function(){
+            	$replytextarea.hide();
             });
         });
     </script>
@@ -139,21 +133,19 @@
     <div class="messagebox">
         <h2 class="messgebox-zh">留言板:</h2>
         <div class="messagebox-sendword">
-            <h3 class="messagebox-sendword-title">主人寄语</h3>
-            <p class="messagebox-sendword-content">这是主人寄语的内容（阿迪几啊考虑到加拉看的叫卡拉胶打卡机打卡机都卡死了加大了肯定就爱看劳动局阿卡拉）</p>
+            <h3 class="messagebox-sendword-title" style='margin-left:10px;color:#0000CC'>主人寄语</h3>
+            <p class="messagebox-sendword-content" style='margin-left:10px; color:#0000CC;font-size:17px'>这是主人寄语的内容（阿迪几啊考虑到加拉看的叫卡拉胶打卡机打卡机都卡死了加大了肯定就爱看劳动局阿卡拉）</p>
         </div>
         <!--文本编写框start-->
         <div class="writeword">
-            <div class="send-words-prompt">请填写并您的留言</div>
-            <div id='txtDiv' style='border:1px solid #cccccc; height:150px;'>
-                <p>请输入内容...</p>
-            </div>
-
-            <div style='margin-top:10px;'>
-                <button id='btnHtml'>发表留言</button>
-                <button id='btnText'>清除内容</button>
-                <textarea id='textarea' style='width:100%; height:1000px; margin-top:10px;'></textarea>
-            </div>
+            <div class="send-words-prompt" style='font-size:19px; color:#FF9900'>请填写并发表您的留言</div>
+            <form action="#" method="post">
+	            <div style='margin-top:5px;'>
+	                <textarea id='textarea' style='width:98%; height:130px; margin:10px; font-size:17px; padding:10px;'>请写下您要留言的内容~(^_^)~</textarea>
+	                <input type="submit" id='btnHtml' style='margin-top:5px;' value="发表留言" />
+	                <input type="reset" id='btnText' style='margin-top:5px;' value="清除内容" />
+	            </div>
+            </form>
         </div>
         <!--文本编写框end-->
         <div class="messagebox-message">
@@ -182,180 +174,19 @@
                             <span class="msgtime">2015-09-09 09:26</span>
                             <button class="reply-button">回复</button>
                         </div>
+                        <form action="#" method="post">
+				            <div id="replytextarea" style='margin-top:5px;'>
+				                <textarea id='textarea' style='width:98%; height:100px; margin:10px; font-size:15px; padding:10px;'>请填写您要回复的内容~(^_^)~</textarea>
+				                <input type="submit" id='btnHtml' style='margin-top:5px;' value="回复" />
+				                <input type="reset" id='btnText' style='margin-top:5px;' value="重置" />
+				                <input type="button" id='btnhide' style='margin-top:5px;' value="隐藏" />
+				            </div>
+            			</form>
                         <hr/>
                         <!--回复列表start-->
                         <div class="reply">
                             <div class="reply-left">
-                                <img src="img/02.png">
-                            </div>
-                            <div class="reply-right">
-                                <div class="reply-right-top">
-                                    <a class="reply-username">gc</a>
-                                </div>
-                                <div class="reply-content">
-                                    <pre class="reply-content-text">你好 这是回复
-                                    </pre>
-                                </div>
-                                <div class="reply-time">2015-09-09 09:33</div>
-                            </div>
-                        </div>
-                        <!--回复列表end-->
-                    </div>
-                </div>
-                <hr/>
-                <!--每个人的留言楼层end-->
-                <!--每个人的留言楼层start-->
-                <div class="messagebox-message-content-floor">
-                    <div class="floor-left">
-                        <img src="img/01.png">
-                    </div>
-                    <div class="floor-right">
-                        <div class="floor-username_floor-num">
-                            <a class="username">gc</a>
-                            <span class="floornum">第1080楼</span>
-                        </div>
-                        <div class="floor-content">
-                           <pre>你好 这是一段文章内容
-                                #include "stdio.h"
-                                int main(){
-                                    ******;
-                                }
-                            </pre>
-                        </div>
-                        <div class="floor-right-bottom">
-                            <span class="msgtime">2015-09-09 09:26</span>
-                            <button class="reply-button">回复</button>
-                        </div>
-                        <hr/>
-                        
-                    </div>
-                </div>
-                <hr/>
-                <!--每个人的留言楼层end-->
-                <!--每个人的留言楼层start-->
-                <div class="messagebox-message-content-floor">
-                    <div class="floor-left">
-                        <img src="img/01.png">
-                    </div>
-                    <div class="floor-right">
-                        <div class="floor-username_floor-num">
-                            <a class="username">gc</a>
-                            <span class="floornum">第1079楼</span>
-                        </div>
-                        <div class="floor-content">
-                            <pre class="content">你好 这是一段文章内容
-                                #include &ltiostream>
-                                using namespace std;
-                            </pre>
-                        </div>
-                        <div class="floor-right-bottom">
-                            <span class="msgtime">2015-09-09 09:26</span>
-                            <button class="reply-button">回复</button>
-                        </div>
-                        <hr/>
-                        <!--回复列表start-->
-                        <div class="reply">
-                            <div class="reply-left">
-                                <img src="img/02.png">
-                            </div>
-                            <div class="reply-right">
-                                <div class="reply-right-top">
-                                    <a class="reply-username">gc</a>
-                                </div>
-                                <div class="reply-content">
-                                    <pre class="reply-content-text">你好 这是回复
-                                    </pre>
-                                </div>
-                                <div class="reply-time">2015-09-09 09:33</div>
-                            </div>
-                        </div>
-                        <!--回复列表end-->
-                    </div>
-                </div>
-                <hr/>
-                <!--每个人的留言楼层end-->
-                <!--每个人的留言楼层start-->
-                <div class="messagebox-message-content-floor">
-                    <div class="floor-left">
-                        <img src="img/01.png">
-                    </div>
-                    <div class="floor-right">
-                        <div class="floor-username_floor-num">
-                            <a class="username">gc</a>
-                            <span class="floornum">第1078楼</span>
-                        </div>
-                        <div class="floor-content">
-                            <pre class="content">你好 这是一段文章内容
-                                #include <iostream>
-                                using namespace std;
-                            </pre>
-                        </div>
-                        <div class="floor-right-bottom">
-                            <span class="msgtime">2015-09-09 09:26</span>
-                            <button class="reply-button">回复</button>
-                        </div>
-                        <hr/>
-                        <!--回复列表start-->
-                        <div class="reply">
-                            <div class="reply-left">
-                                <img src="img/02.png">
-                            </div>
-                            <div class="reply-right">
-                                <div class="reply-right-top">
-                                    <a class="reply-username">gc</a>
-                                </div>
-                                <div class="reply-content">
-                                    <pre class="reply-content-text">你好 这是回复
-                                    </pre>
-                                </div>
-                                <div class="reply-time">2015-09-09 09:33</div>
-                            </div>
-                        </div>
-                        <!--回复列表end-->
-                    </div>
-                </div>
-                <hr/>
-                <!--每个人的留言楼层end-->
-                <!--每个人的留言楼层start-->
-                <div class="messagebox-message-content-floor">
-                    <div class="floor-left">
-                        <img src="img/01.png">
-                    </div>
-                    <div class="floor-right">
-                        <div class="floor-username_floor-num">
-                            <a class="username">gc</a>
-                            <span class="floornum">第1077楼</span>
-                        </div>
-                        <div class="floor-content">
-                            <pre class="content">你好 这是一段文章内容
-                                #include <iostream>
-                                using namespace std;
-                            </pre>
-                        </div>
-                        <div class="floor-right-bottom">
-                            <span class="msgtime">2015-09-09 09:26</span>
-                            <button class="reply-button">回复</button>
-                        </div>
-                        <hr/>
-                        <!--回复列表start-->
-                        <div class="reply">
-                            <div class="reply-left">
-                                <img src="img/02.png">
-                            </div>
-                            <div class="reply-right">
-                                <div class="reply-right-top">
-                                    <a class="reply-username">gc</a>
-                                </div>
-                                <div class="reply-content">
-                                    <pre class="reply-content-text">你好 这是回复
-                                    </pre>
-                                </div>
-                                <div class="reply-time">2015-09-09 09:33</div>
-                            </div>
-                        </div>
-                        <div class="reply">
-                            <div class="reply-left">
-                                <img src="img/02.png">
+                                <img src="/myblog/image/user/head/02.png">
                             </div>
                             <div class="reply-right">
                                 <div class="reply-right-top">
