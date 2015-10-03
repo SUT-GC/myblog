@@ -1,0 +1,12 @@
+package classtest;
+
+import dao.MessDao;
+
+public class TestMessDao {
+
+	public static void main(String[] args) {
+		int sum = MessDao.countFirstMess();
+		System.out.println(sum);
+	}
+
+}

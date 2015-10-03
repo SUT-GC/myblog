@@ -1,3 +1,4 @@
+<%@page import="dao.MessDao"%>
 <%@page import="empty.User"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -150,7 +151,7 @@
         <!--文本编写框end-->
         <div class="messagebox-message">
             <div class="messagebox-message-num">
-                留言(<a href="#">1081</a>)
+                留言(<a href="#"><%=MessDao.countFirstMess()%></a>)
             </div>
             <!--留言列表start-->
             <div class="messagebox-message-content">
@@ -208,21 +209,36 @@
                 <div class="messagebox-nav">
                     <nav>
                       <ul class="pagination">
-                        <li>
+                        <%
+                        	//计算需要多少页面按钮
+                        	int sum = MessDao.countFirstMess();
+                        	int pagecount = (sum / 5)+1;
+                        	if(pagecount <= 10){
+                        		for(int i = 1; i <= pagecount; i++){
+                        %>
+                        <li><a href="#"><%=i%></a></li>
+                        <%
+                        		}
+                        	}else{
+						%>  
+						<li>
                           <a href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                           </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        </li>                      
+                        <%		for(int i = 1; i <= 10; i++){
+                        %>
+                        <li><a href="#"><%=i%></a></li>
+                        <%		}
+                        %>
                         <li>
                           <a href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                           </a>
                         </li>
+                        <%	
+                        	}
+                        %>
                       </ul>
                     </nav>
                 </div>

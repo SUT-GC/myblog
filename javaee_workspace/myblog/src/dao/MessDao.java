@@ -127,4 +127,57 @@ public class MessDao {
 		return list;
 	}
 	
+	/*
+	 * 5
+	 * 功能: 计算出所有以及留言的总数
+	 * sql: select count(*) from wb_messbox where touser_id = '0';
+	 * 方法名: countFirstMess
+	 * 参数: 无
+	 * 返回值: int sum;
+	 */
+	public static int countFirstMess(){
+		int sum = 0;
+		String sql = "select count(*) from wb_messbox where touser_id = '0';";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				sum = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return sum;
+	}
+	
+	/*
+	 * 6
+	 * 功能: 根据传入的范围，查询出该范围的记录
+	 * sql : select * from wb_messbox where floor_id limit 0,2;
+	 * 方法名: selectMessByLimit
+	 * 参数 : int start, int end
+	 * 返回值: ArrayList<Message> list
+	 * null: 未查到
+	 */
+	public static ArrayList<Message> selectMessByLimit(int start, int end){
+		ArrayList<Message> list = null;
+		String sql ="select * from wb_messbox where floor_id limit "+start+" , "+end;
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			list = new ArrayList<>();
+			while(rs.next()){
+				Message message = new Message();
+				message.setMessbox_id(rs.getInt(1));
+				message.setFloor_id(rs.getInt(2));
+				message.setUser_id(rs.getInt(3));
+				message.setTouser_id(rs.getInt(4));
+				message.setMessbox_reply(rs.getString(5));
+				message.setMessbox_date(rs.getTimestamp(6));
+				list.add(message);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 }
