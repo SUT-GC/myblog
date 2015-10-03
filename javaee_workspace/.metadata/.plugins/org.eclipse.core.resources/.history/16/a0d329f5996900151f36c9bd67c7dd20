@@ -130,12 +130,12 @@
     </ul>
   </div>
 <!--导航结束-->
-<%
+  <%
     int pagec = 1;
    	if(request.getParameter("page")!=null){
 		pagec = Integer.parseInt(request.getParameter("page"));
 	}
-%>
+   %>
 <!--留言板start-->
     <div class="messagebox">
         <h2 class="messgebox-zh">留言板:</h2>
@@ -161,7 +161,9 @@
             </div>
             <!--留言列表start-->
             <div class="messagebox-message-content">
-            	<div style='text-align: center'><h2>第 <a href="#"><%=pagec%> </a>页</h2></div>
+                        </hr>
+            <h2>第<%=pagec%>页</h2>
+            </hr>
                 <!--每个人的留言楼层start-->
                 <div class="messagebox-message-content-floor">
                     <div class="floor-left">

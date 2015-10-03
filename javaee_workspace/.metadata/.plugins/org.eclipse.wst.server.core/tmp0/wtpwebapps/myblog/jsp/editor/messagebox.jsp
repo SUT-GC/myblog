@@ -130,6 +130,12 @@
     </ul>
   </div>
 <!--导航结束-->
+<%
+    int pagec = 1;
+   	if(request.getParameter("page")!=null){
+		pagec = Integer.parseInt(request.getParameter("page"));
+	}
+%>
 <!--留言板start-->
     <div class="messagebox">
         <h2 class="messgebox-zh">留言板:</h2>
@@ -155,6 +161,7 @@
             </div>
             <!--留言列表start-->
             <div class="messagebox-message-content">
+            	<div style='text-align: center'><h2>第 <a href="#"><%=pagec%> </a>页</h2></div>
                 <!--每个人的留言楼层start-->
                 <div class="messagebox-message-content-floor">
                     <div class="floor-left">
@@ -216,7 +223,7 @@
                         	if(pagecount <= 10){
                         		for(int i = 1; i <= pagecount; i++){
                         %>
-                        <li><a href="#"><%=i%></a></li>
+                        <li <%if(pagec == i){ %>class="active"<%} %>><a href="?page=<%=i%>" ><%=i%></a></li>
                         <%
                         		}
                         	}else{

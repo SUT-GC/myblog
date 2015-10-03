@@ -161,7 +161,7 @@
             </div>
             <!--留言列表start-->
             <div class="messagebox-message-content">
-            	<div style='text-align: center'><h2>第 <a href="#"><%=pagec%> </a>页</h2></div>
+            	<div style='text-align: center'><h2>第<a href="#"><%=pagec%></a>页</h2></div>
                 <!--每个人的留言楼层start-->
                 <div class="messagebox-message-content-floor">
                     <div class="floor-left">
