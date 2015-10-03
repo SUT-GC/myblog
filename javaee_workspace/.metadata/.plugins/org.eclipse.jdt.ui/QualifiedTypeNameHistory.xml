@@ -20,7 +20,6 @@
 <fullyQualifiedTypeName name="sun.misc.BASE64Decoder"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="dao.MessDao"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="dao.DB_Data"/>
@@ -39,7 +38,10 @@
 <fullyQualifiedTypeName name="Encryption.Base64"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="Encryption.Md5"/>
+<fullyQualifiedTypeName name="sun.security.krb5.internal.crypto.RsaMd5CksumType"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="dao.MessDao"/>
 <fullyQualifiedTypeName name="empty.Message"/>
 </qualifiedTypeNameHistroy>
