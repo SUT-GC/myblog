@@ -44,20 +44,17 @@
             //一句话，即可把一个div 变为一个富文本框！o(∩_∩)o 
             var $editor = $('#txtDiv').wangEditor();
 
-            <%for(int i = 1; i <= 10; i++){%>
             //显示 html / text
-            var $replybutton<%=i%> = $('.reply-button<%=i%>');
-            var $replytextarea<%=i%> = $('#replytextarea<%=i%>');
-            var $teplytexthide<%=i%> = $('#btnhide<%=i%>');
-            
-            $replytextarea<%=i%>.hide();
-            $replybutton<%=i%>.click(function(){
-         	 	$replytextarea<%=i%>.show();
+            var $replybutton = $('.reply-button');
+            var $replytextarea = $('#replytextarea');
+            var $teplytexthide = $('#btnhide');
+            $replytextarea.hide();
+            $replybutton.click(function(){
+         	 	$replytextarea.show();
          	 });
-         	$teplytexthide<%=i%>.click(function(){
-         		$replytextarea<%=i%>.hide();
+         	$teplytexthide.click(function(){
+         		$replytextarea.hide();
          	});
-         	<%}%>
         });
     </script>
 </head>
@@ -178,7 +175,7 @@
                 	}else{
                 		pages = Integer.parseInt(request.getParameter("page"));
                 	}
-                	firstlist = MessDao.selectMessByLimit((pages-1)*10+1, (pages)*10);
+                	firstlist = MessDao.selectMessByLimit((pages-1)*5+1, (pages)*5);
                 %>
                 <!-- java end -->
                 <div class="messagebox-message-content-floor">
@@ -207,7 +204,7 @@
 				                <textarea id='textarea' style='width:98%; height:100px; margin:10px; font-size:15px; padding:10px;'>请填写您要回复的内容~(^_^)~</textarea>
 				                <input type="submit" id='btnHtml' style='margin-top:5px;' value="回复" />
 				                <input type="reset" id='btnText' style='margin-top:5px;' value="重置" />
-				                <input type="button" id='btnhide<%=i%>' style='margin-top:5px;' value="隐藏" />
+				                <input type="button" id='btnhide' style='margin-top:5px;' value="隐藏" />
 				            </div>
             			</form>
                         <hr/>
@@ -246,9 +243,9 @@
                         <%
                         	//计算需要多少页面按钮
                         	int sum = MessDao.countFirstMess();
-                        	int pagecount = (sum / 10)+1;
+                        	int pagecount = (sum / 5)+1;
                         	if(pagecount <= 10){
-                        		for(i = 1; i <= pagecount; i++){
+                        		for(int i = 1; i <= pagecount; i++){
                         %>
                         <li <%if(pagec == i){ %>class="active"<%} %>><a href="?page=<%=i%>" ><%=i%></a></li>
                         <%
@@ -260,7 +257,7 @@
                             <span aria-hidden="true">&laquo;</span>
                           </a>
                         </li>                      
-                        <%		for(i = 1; i <= 10; i++){
+                        <%		for(int i = 1; i <= 10; i++){
                         %>
                         <li><a href="#"><%=i%></a></li>
                         <%		}
