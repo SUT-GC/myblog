@@ -214,7 +214,7 @@ public class MessDao {
 	/*
 	 * 8
 	 * 功能: 查出对某一级留言的回复
-	 * sql : select * from wb_messbox where floor_id = '3' and touser_id <> '0' order by messbox_date desc;
+	 * sql : select * from wb_messbox where floor_id = '3' and touser_id <> '0';
 	 * 方法名: selectSecoundMessByFloor
 	 * 参数: int floor_id
 	 * 返回值: ArrayList<Message> list
@@ -222,7 +222,7 @@ public class MessDao {
 	 */
 	public static ArrayList<Message> selectSecoundMessByFloor(int floor_id){
 		ArrayList<Message> list = null;
-		String sql = "select * from wb_messbox where floor_id = '"+floor_id+"' and touser_id <> '0' order by messbox_date desc;";
+		String sql = "select * from wb_messbox where floor_id = '"+floor_id+"' and touser_id <> '0';";
 		try {
 			ResultSet rs = stmt.executeQuery(sql);
 			list = new ArrayList<>();

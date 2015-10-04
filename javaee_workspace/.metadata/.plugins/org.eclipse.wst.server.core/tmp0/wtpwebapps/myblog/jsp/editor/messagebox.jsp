@@ -1,3 +1,6 @@
+<%@page import="dao.UserDao"%>
+<%@page import="empty.Message"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="dao.MessDao"%>
 <%@page import="empty.User"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -163,23 +166,35 @@
             <div class="messagebox-message-content">
             	<div style='text-align: center'><h2>第 <a href="#"><%=pagec%> </a>页</h2></div>
                 <!--每个人的留言楼层start-->
+                <!-- java start -->
+                <%
+                	ArrayList <Message> firstlist = null;
+                	int pages = 1;
+                	if(request.getParameter("page")== null || request.getParameter("page").equals("1")){
+                		pages = 1;
+                	}else{
+                		pages = Integer.parseInt(request.getParameter("page"));
+                	}
+                	firstlist = MessDao.selectMessByLimit((pages-1)*5+1, (pages)*5);
+                %>
+                <!-- java end -->
                 <div class="messagebox-message-content-floor">
+                <%
+                	for(Message message: firstlist){
+                %>
                     <div class="floor-left">
                         <img src="img/01.png">
                     </div>
                     <div class="floor-right">
                         <div class="floor-username_floor-num">
-                            <a class="username">gc</a>
-                            <span class="floornum">第1081楼</span>
+                            <a class="username"><%=UserDao.selectUserByID(message.getUser_id()).getUser_nick()%></a>
+                            <span class="floornum">第<a><%=message.getFloor_id()%></a>楼</span>
                         </div>
                         <div class="floor-content">
-                            <pre class="content">你好 这是一段文章内容
-                                #include <iostream>
-                                using namespace std;
-                            </pre>
+                            <pre class="content"><%=message.getMessbox_reply()%></pre>
                         </div>
                         <div class="floor-right-bottom">
-                            <span class="msgtime">2015-09-09 09:26</span>
+                            <span class="msgtime"><%=message.getMessbox_date()%></span>
                             <button class="reply-button">回复</button>
                         </div>
                         <form action="#" method="post">
@@ -193,22 +208,29 @@
                         <hr/>
                         <!--回复列表start-->
                         <div class="reply">
+                        <%
+                        	ArrayList <Message> secoundlist = null;
+                        	secoundlist = MessDao.selectSecoundMessByFloor(message.getFloor_id());
+                        	
+                        	for(Message secoundmessage:secoundlist){
+                        %>
                             <div class="reply-left">
                                 <img src="/myblog/image/user/head/02.png">
                             </div>
                             <div class="reply-right">
                                 <div class="reply-right-top">
-                                    <a class="reply-username">gc</a>
+                                    <a class="reply-username"><%=UserDao.selectUserByID(message.getTouser_id()).getUser_nick()%></a>
                                 </div>
                                 <div class="reply-content">
-                                    <pre class="reply-content-text">你好 这是回复
-                                    </pre>
+                                    <pre class="reply-content-text"><%=secoundmessage.getMessbox_reply()%></pre>
                                 </div>
-                                <div class="reply-time">2015-09-09 09:33</div>
+                                <div class="reply-time"><%=secoundmessage.getMessbox_date()%></div>
                             </div>
+                            <%} %>
                         </div>
                         <!--回复列表end-->
                     </div>
+                    <%} %>
                 </div>
                 <hr/>
                 <!--每个人的留言楼层end-->

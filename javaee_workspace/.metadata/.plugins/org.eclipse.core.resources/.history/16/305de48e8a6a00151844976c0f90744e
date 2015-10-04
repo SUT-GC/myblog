@@ -39,7 +39,7 @@ public class TestMessDao {
 		 * 测试selectSecoundMessByFloor
 		 */
 		ArrayList<Message> list = new ArrayList<>();
-		list = MessDao.selectSecoundMessByFloor(3);
+		list = MessDao.selectSecoundMessByFloor(3)
 		for(Message message: list){
 			System.out.println(message);
 		}

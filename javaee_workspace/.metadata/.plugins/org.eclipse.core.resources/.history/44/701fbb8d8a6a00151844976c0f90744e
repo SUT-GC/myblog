@@ -14,11 +14,11 @@ public class TestMessDao {
 		/*
 		 * 测试MessDao.selectMessByLimit
 		 */
-//		ArrayList<Message> list = new ArrayList<>();
-//		list = MessDao.selectMessByLimit(0, 5);
-//		for(Message message: list){
-//			System.out.println(message);
-//		}
+		ArrayList<Message> list = new ArrayList<>();
+		list = MessDao.selectMessByLimit(0, 5);
+		for(Message message: list){
+			System.out.println(message);
+		}
 		/*
 		 * 测试MessDao.selectFirstMessByFloor
 		 */
@@ -35,14 +35,6 @@ public class TestMessDao {
 //		for(Message message: list){
 //			System.out.println(message);
 //		}
-		/*
-		 * 测试selectSecoundMessByFloor
-		 */
-		ArrayList<Message> list = new ArrayList<>();
-		list = MessDao.selectSecoundMessByFloor(3);
-		for(Message message: list){
-			System.out.println(message);
-		}
 	}
 
 }

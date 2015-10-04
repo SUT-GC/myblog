@@ -187,7 +187,7 @@
                     </div>
                     <div class="floor-right">
                         <div class="floor-username_floor-num">
-                            <a class="username"><%=UserDao.selectUserByID(message.getUser_id()).getUser_nick()%></a>
+                            <a class="username"><%=UserDao.selectUserByID(message.getUser_id())%></a>
                             <span class="floornum">第<a><%=message.getFloor_id()%></a>楼</span>
                         </div>
                         <div class="floor-content">
@@ -219,14 +219,13 @@
                             </div>
                             <div class="reply-right">
                                 <div class="reply-right-top">
-                                    <a class="reply-username"><%=UserDao.selectUserByID(message.getTouser_id()).getUser_nick()%></a>
+                                    <a class="reply-username"><%=UserDao.selectUserByID(message.getTouser_id())%></a>
                                 </div>
                                 <div class="reply-content">
                                     <pre class="reply-content-text"><%=secoundmessage.getMessbox_reply()%></pre>
                                 </div>
                                 <div class="reply-time"><%=secoundmessage.getMessbox_date()%></div>
                             </div>
-                            <%} %>
                         </div>
                         <!--回复列表end-->
                     </div>
