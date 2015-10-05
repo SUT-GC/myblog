@@ -69,8 +69,10 @@
 		//获取Session user
 		session = request.getSession();
 		User user = null;
+		int userid = -1;
 		if(session.getAttribute("user") != null){
 			user = (User)session.getValue("user");
+			userid = user.getUser_id();
 		}
 	%>
 <!-- java end -->
@@ -152,9 +154,9 @@
         <!--文本编写框start-->
         <div class="writeword">
             <div class="send-words-prompt" style='font-size:19px; color:#FF9900'>请填写并发表您的留言</div>
-            <form action="#" method="post">
+            <form action="/myblog/MessageRelease?userid=<%=userid%>" method="post">
 	            <div style='margin-top:5px;'>
-	                <textarea id='textarea' style='width:98%; height:130px; margin:10px; font-size:17px; padding:10px;'>请写下您要留言的内容~(^_^)~</textarea>
+	                <textarea name = "firstmessage"id='textarea' style='width:98%; height:130px; margin:10px; font-size:17px; padding:10px;' placeholder='请填写您要留言的内容~(^_^)~'></textarea>
 	                <input type="submit" id='btnHtml' style='margin-top:5px;' value="发表留言" />
 	                <input type="reset" id='btnText' style='margin-top:5px;' value="清除内容" />
 	            </div>
@@ -178,7 +180,7 @@
                 	}else{
                 		pages = Integer.parseInt(request.getParameter("page"));
                 	}
-                	firstlist = MessDao.selectMessByLimit((pages-1)*10+1, (pages)*10);
+                	firstlist = MessDao.selectMessByLimit((pages-1)*10, 10);
                 %>
                 <!-- java end -->
                 <div class="messagebox-message-content-floor">

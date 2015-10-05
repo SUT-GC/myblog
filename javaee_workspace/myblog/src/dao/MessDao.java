@@ -3,6 +3,7 @@ package dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import empty.Message;
@@ -240,5 +241,32 @@ public class MessDao {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	/*
+	 * 功能: 插入新的留言记录
+	 * sql: insert into wb_messbox (floor_id,user_id,touser_id,messbox_reply,messbox_date) values ('15','17','0','你好啊','2015-10-5 16:33:20'); 
+	 * 方法名: insertMess
+	 * 参数: Message message
+	 * 返回值: int result;
+	 * -1:没执行sql或者执行sql错误
+	 * 0:数据库受影响0行
+	 * 1:数据库受影响1行
+	 */
+	public static int insertMess(Message message){
+		int result =-1;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String sql = "insert into wb_messbox (floor_id,user_id,touser_id,messbox_reply,messbox_date) values ('"
+						+message.getFloor_id()+"', '"
+						+message.getUser_id()+"', '"
+						+message.getTouser_id()+"', '"
+						+message.getMessbox_reply()+"','"
+						+sdf.format(message.getMessbox_date())+"');";
+		try {
+			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }
