@@ -1,7 +1,0 @@
-package Encryption;
-
-public class Base64 {
-	public static String base64Encoder(String src){
-		String result = null;
-	}
-}

@@ -1,9 +1,0 @@
-package Encryption;
-
-public class Md5 {
-	public static String md5Encode(String src){
-		String result = "";
-		
-		return result;
-	}
-}

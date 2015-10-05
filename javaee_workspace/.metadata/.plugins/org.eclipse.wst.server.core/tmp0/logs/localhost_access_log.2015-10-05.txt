@@ -427,3 +427,5 @@
 0:0:0:0:0:0:0:1 - - [05/Oct/2015:17:17:06 +0800] "GET /myblog/jsp/editor/img/01.png HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [05/Oct/2015:17:17:30 +0800] "POST /myblog/MessageRelease?userid=0 HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [05/Oct/2015:17:17:30 +0800] "GET /myblog/jsp/editor/messagebox.jsp HTTP/1.1" 200 28334
+0:0:0:0:0:0:0:1 - - [05/Oct/2015:17:20:57 +0800] "POST /myblog/MessageRelease?userid=0 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [05/Oct/2015:17:20:57 +0800] "GET /myblog/jsp/editor/messagebox.jsp HTTP/1.1" 200 28374

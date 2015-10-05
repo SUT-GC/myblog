@@ -244,7 +244,7 @@ public class MessDao {
 	}
 	
 	/*
-	 * 功能: 插入新的一级留言记录
+	 * 功能: 插入新的留言记录
 	 * sql: insert into wb_messbox (floor_id,user_id,touser_id,messbox_reply,messbox_date) values ('15','17','0','你好啊','2015-10-5 16:33:20'); 
 	 * 方法名: insertMess
 	 * 参数: Message message
