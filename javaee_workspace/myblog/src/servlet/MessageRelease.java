@@ -52,6 +52,18 @@ public class MessageRelease extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
+		/*
+		 * 变量errmsg返回发布留言的后台验证信息
+		 * 0:用户未登录，不能进行留言
+		 * 1:request中的留言内容参数未找到
+		 * 2:留言内容不能为空
+		 * 3:用户留言成功
+		 */
+		int errmsg = -1;
+		
+		/*
+		 * 进行检验
+		 */
 		int maxfloorid = -1;
 		String firstMessContent = "";
 		Message message = new Message();
@@ -59,7 +71,8 @@ public class MessageRelease extends HttpServlet {
 			maxfloorid = MessDao.countFirstMess();
 			if(request.getParameter("firstmessage")!=null){
 				firstMessContent = request.getParameter("firstmessage");
-				if(firstMessContent.split(" ").length != 0){
+				System.out.println("~"+firstMessContent+"~");
+				if(firstMessContent.split(" ").length != 0 && !firstMessContent.equals("")){
 					firstMessContent = firstMessContent.replaceAll("<", "&lt");
 					message.setFloor_id(maxfloorid+1);
 					message.setUser_id(Integer.parseInt(request.getParameter("userid")));
@@ -67,11 +80,19 @@ public class MessageRelease extends HttpServlet {
 					message.setMessbox_reply(firstMessContent);
 					message.setMessbox_date(new Date());
 					if(MessDao.insertMess(message) == 1){
-						response.sendRedirect("jsp/editor/messagebox.jsp");
-					};
+						errmsg = 3;
+					}
+				}else{
+					errmsg = 2;
 				}
+			}else{
+				errmsg = 1;
 			}
+		}else{
+			errmsg = 0;
 		}
+		
+		response.sendRedirect("jsp/editor/messagebox.jsp?errmsg="+errmsg);
 		
 		out.println(maxfloorid);
 		out.println(firstMessContent);

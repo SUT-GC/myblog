@@ -74,6 +74,11 @@
 			user = (User)session.getValue("user");
 			userid = user.getUser_id();
 		}
+		
+		String errmsg = "";
+		if(request.getParameter("errmsg")!=null){
+			errmsg = request.getParameter("errmsg");
+		}
 	%>
 <!-- java end -->
   <div id="nav">
@@ -157,8 +162,8 @@
             <form action="/myblog/MessageRelease?userid=<%=userid%>" method="post">
 	            <div style='margin-top:5px;'>
 	                <textarea name = "firstmessage"id='textarea' style='width:98%; height:130px; margin:10px; font-size:17px; padding:10px;' placeholder='请填写您要留言的内容~(^_^)~'></textarea>
-	                <input type="submit" id='btnHtml' style='margin-top:5px;' value="发表留言" />
-	                <input type="reset" id='btnText' style='margin-top:5px;' value="清除内容" />
+	                <button type="submit" id='btnHtml' style='margin-top:5px;'  >发表留言</button>
+	                <button type="reset" id='btnText' style='margin-top:5px;' >清除内容</button>
 	            </div>
             </form>
         </div>
@@ -206,10 +211,10 @@
                         </div>
                         <form action="#" method="post">
 				            <div id="replytextarea<%=i%>" style='margin-top:5px;'>
-				                <textarea id='textarea' style='width:98%; height:100px; margin:10px; font-size:15px; padding:10px;'>请填写您要回复的内容~(^_^)~</textarea>
-				                <input type="submit" id='btnHtml' style='margin-top:5px;' value="回复" />
-				                <input type="reset" id='btnText' style='margin-top:5px;' value="重置" />
-				                <input type="button" id='btnhide<%=i%>' style='margin-top:5px;' value="隐藏" />
+				                <textarea id='textarea' style='width:98%; height:100px; margin:10px; font-size:15px; padding:10px;' placeholder='请填写您要回复的内容~(^_^)~'></textarea>
+				                <button type="submit" id='btnHtml' style='margin-top:5px;' >回复</button>
+				                <button type="reset" id='btnText' style='margin-top:5px;' >重置</button>
+				                <button type="button" id='btnhide<%=i%>' style='margin-top:5px;'>隐藏</button>
 				            </div>
             			</form>
                         <hr/>
@@ -286,4 +291,27 @@
 <!--留言板end-->
 </div>
 </body>
+<script type="text/javascript">
+
+//  变量err返回发布留言的后台验证信息
+//  0:用户未登录，不能进行留言
+//  1:request中的留言内容参数未找到
+//  2:留言内容不能为空
+//  3:用户留言成功
+ 
+	var err = '<%=errmsg%>';
+	var errmsg = "";
+	if(err != ""){
+		if(err == "0"){
+			errmsg += "只有登陆之后才能发表留言，请您先进行登陆~(^_^)~";
+		}
+		if(err == "2"){
+			errmsg += "对不起，留言内容不能为空 !";
+		}
+		if(err == "3"){
+			errmsg +="恭喜您， 留言成功 ！ ";
+		}
+		alert(errmsg);
+	}
+</script>
 </html>
