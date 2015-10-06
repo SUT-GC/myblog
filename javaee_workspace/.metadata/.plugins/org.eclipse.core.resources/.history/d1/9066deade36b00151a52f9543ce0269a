@@ -235,7 +235,7 @@
                             </div>
                             <div class="reply-right">
                                 <div class="reply-right-top">
-                                    <a class="reply-username"><%=UserDao.selectUserByID(secoundmessage.getUser_id()).getUser_nick()%></a>
+                                    <a class="reply-username"><%=UserDao.selectUserByID(message.getUser_id()).getUser_nick()%></a>
                                 </div>
                                 <div class="reply-content">
                                     <pre class="reply-content-text"><%=secoundmessage.getMessbox_reply()%></pre>
