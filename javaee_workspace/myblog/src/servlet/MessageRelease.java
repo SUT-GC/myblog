@@ -59,7 +59,16 @@ public class MessageRelease extends HttpServlet {
 		 * 2:留言内容不能为空
 		 * 3:用户留言成功
 		 */
+		/*
+		 * 变量errrep 返回发布回复的后台验证信息
+		 * 0: 用户未登录
+		 * 1: floorid未检查到
+		 * 2: touserid未检查到
+		 * 3: 回复内容不能为空
+		 * 4: 恭喜您，回复成功
+		 */
 		int errmsg = -1;
+		int errrep = -1;
 		
 		/*
 		 * 进行检验
@@ -92,11 +101,48 @@ public class MessageRelease extends HttpServlet {
 			errmsg = 0;
 		}
 		
-		response.sendRedirect("jsp/editor/messagebox.jsp?errmsg="+errmsg);
+		if(!request.getParameter("userid").equals("-1")){
+			if(request.getParameter("floorid")!=null){
+				if(request.getParameter("touserid") != null){
+					String replytextcontent = request.getParameter("replytextarea");
+					if(replytextcontent.split(" ").length!=0 && !replytextcontent.equals("")){
+						replytextcontent = replytextcontent.replaceAll("<", "&lt");
+						Message secoundmessage = new Message();
+						secoundmessage.setFloor_id(Integer.parseInt(request.getParameter("floorid")));
+						secoundmessage.setTouser_id(Integer.parseInt(request.getParameter("touserid")));
+						secoundmessage.setUser_id(Integer.parseInt(request.getParameter("userid")));
+						secoundmessage.setMessbox_reply(replytextcontent);
+						secoundmessage.setMessbox_date(new Date());
+						if(MessDao.insertMess(secoundmessage) == 1){
+							errrep = 4;
+						}
+					}else{
+						errrep = 3;
+					}
+				}else{
+					errrep = 2;
+				}
+			}else{
+				errrep = 1;
+			}
+		}else{
+			errrep = 0;
+		}
 		
+		System.out.println(errrep);
+		if(errrep != -1 && request.getParameter("touserid")!=null && request.getParameter("floorid")!=null){
+			System.out.println("reply");
+			response.sendRedirect("jsp/editor/messagebox.jsp?errrep="+errrep);
+		}else if(errmsg != -1 && request.getParameter("firstmessage")!=null){
+			System.out.println("message");
+			response.sendRedirect("jsp/editor/messagebox.jsp?errmsg="+errmsg);	
+		}
+				
 		out.println(maxfloorid);
 		out.println(firstMessContent);
 		out.print(message);
+		out.print("</hr>");
+		out.println(errrep);
 	}
 
 }

@@ -79,6 +79,10 @@
 		if(request.getParameter("errmsg")!=null){
 			errmsg = request.getParameter("errmsg");
 		}
+		String errrep = "";
+		if(request.getParameter("errrep")!=null){
+			errrep = request.getParameter("errrep");
+		}
 	%>
 <!-- java end -->
   <div id="nav">
@@ -209,9 +213,9 @@
                             <span class="msgtime"><%=message.getMessbox_date()%></span>
                             <button class="reply-button<%=i%>">回复</button>
                         </div>
-                        <form action="#" method="post">
+                        <form action="/myblog/MessageRelease?floorid=<%=message.getFloor_id()%>&userid=<%=userid%>&touserid=<%=message.getUser_id()%>" method="post">
 				            <div id="replytextarea<%=i%>" style='margin-top:5px;'>
-				                <textarea id='textarea' style='width:98%; height:100px; margin:10px; font-size:15px; padding:10px;' placeholder='请填写您要回复的内容~(^_^)~'></textarea>
+				                <textarea name='replytextarea' id='textarea' style='width:98%; height:100px; margin:10px; font-size:15px; padding:10px;' placeholder='请填写您要回复的内容~(^_^)~'></textarea>
 				                <button type="submit" id='btnHtml' style='margin-top:5px;' >回复</button>
 				                <button type="reset" id='btnText' style='margin-top:5px;' >重置</button>
 				                <button type="button" id='btnhide<%=i%>' style='margin-top:5px;'>隐藏</button>
@@ -231,7 +235,7 @@
                             </div>
                             <div class="reply-right">
                                 <div class="reply-right-top">
-                                    <a class="reply-username"><%=UserDao.selectUserByID(message.getTouser_id()).getUser_nick()%></a>
+                                    <a class="reply-username"><%=UserDao.selectUserByID(message.getUser_id()).getUser_nick()%></a>
                                 </div>
                                 <div class="reply-content">
                                     <pre class="reply-content-text"><%=secoundmessage.getMessbox_reply()%></pre>
@@ -299,20 +303,47 @@
 //  2:留言内容不能为空
 //  3:用户留言成功
  
-	var err = '<%=errmsg%>';
+	var err1 = '<%=errmsg%>';
+	/*
+	 * 变量errrep 返回发布回复的后台验证信息
+	 * 0: 用户未登录
+	 * 1: floorid未检查到
+	 * 2: touserid未检查到
+	 * 3: 回复内容不能为空
+	 * 4: 恭喜您，回复成功
+	 */
+	var err2 = '<%=errrep%>';
 	var errmsg = "";
-	if(err != ""){
-		if(err == "0"){
+	if(err1 != ""){
+		if(err1 == "0"){
 			errmsg += "只有登陆之后才能发表留言，请您先进行登陆~(^_^)~";
 		}
-		if(err == "1"){
+		if(err1 == "1"){
 			errmsg += "request中的留言内容参数未找到";
 		}		
-		if(err == "2"){
+		if(err1 == "2"){
 			errmsg += "对不起，留言内容不能为空 !";
 		}
-		if(err == "3"){
+		if(err1 == "3"){
 			errmsg +="恭喜您， 留言成功 ！ ";
+		}
+		alert(errmsg);
+	}
+	if(err2 !=""){
+		if(err2 == "0"){
+			errmsg += "只有登陆之后才能回复留言，请您先进行登陆~(^_^)~";
+		}
+		if(err2 == "1"){
+			errmsg += "系统错误1";
+		}
+		if(err2 == "2"){
+			errmsg += "系统错误2";
+		}
+		if(err2 == "3"){
+			errmsg += "回复的内容不能为空"
+		}
+		if(err2 == "4"){
+			errmsg += "恭喜您，回复成功";
 		}
 		alert(errmsg);
 	}
