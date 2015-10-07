@@ -281,8 +281,6 @@
 <!--导航开始-->
 	<!-- java start -->
 	<%
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
 		//获取Session user
 		session = request.getSession();
 		User user = null;
@@ -365,7 +363,7 @@
 		<a href="?cfy=8"><button class="btn btn-info cif" type="rese3" disabled>预留</button></a>
 		<form action="Journal.jsp" method="post" class="form">
 		   	<input name="liketitle" type="text" class="form-control" placeholder="输入可能存在的标题">
-			<button type="submit" class="btn btn-default form-submit" > Select! </button>
+			<inpute type="submit" class="btn btn-default form-submit">Select!</button>
 		</form>
 		<!--
 		<form class="navbar-form navbar-right" role="search">
@@ -385,14 +383,10 @@
 			if(request.getParameter("liketitle")== null){
 				list = JournalDao.journalSelect();	
 			}else{
-				list = JournalDao.selectJournalLikeTitle(request.getParameter("liketitle"));
+				list = JournalDao.selectJournalLikeTitle(request.getParameter("liketitle"))
 			}
 		}else{
-			if(request.getParameter("liketitle")== null){
-				list = JournalDao.selectJournalByClassify(Integer.parseInt(request.getParameter("cfy")));	
-			}else{
-				list = JournalDao.selectJournalLikeTitle(request.getParameter("liketitle"));
-			}
+			list = JournalDao.selectJournalByClassify(Integer.parseInt(request.getParameter("cfy")));
 		}
 	%>
 <!-- java end -->

@@ -281,6 +281,8 @@
 <!--导航开始-->
 	<!-- java start -->
 	<%
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		//获取Session user
 		session = request.getSession();
 		User user = null;

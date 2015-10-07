@@ -281,8 +281,6 @@
 <!--导航开始-->
 	<!-- java start -->
 	<%
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
 		//获取Session user
 		session = request.getSession();
 		User user = null;
@@ -379,6 +377,8 @@
 <!--分类按钮end-->
 <!-- java start -->
 	<%
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		ArrayList <Journal> list = new ArrayList();
 		System.out.print("~"+request.getParameter("cfy")+"~");
 		if(request.getParameter("cfy")==null){
