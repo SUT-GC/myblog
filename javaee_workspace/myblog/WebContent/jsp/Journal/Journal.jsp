@@ -1,3 +1,4 @@
+<%@page import="com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingParameterStyle"%>
 <%@page import="dao.JournalDao"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="empty.Journal"%>
@@ -294,7 +295,7 @@
         主页
         <span class="three-d-box"><span class="front">主页</span><span class="back">主页</span></span>
       </a></li>
-      <li><a href="#" class="three-d active">
+      <li><a href="Journal.jsp" class="three-d active">
         日志
         <span class="three-d-box"><span class="front">日志</span><span class="back">日志</span></span>
       </a></li>
@@ -352,33 +353,17 @@
 <!--导航结束-->
 <!--分类按钮start-->
 	<div class="classification">
-		<button class="btn btn-primary cif" id="java" type="button">
-	  		Java
-		</button>
-		<button class="btn btn-success cif" id="algo" type="button">
-	  		算法
-		</button>
-		<button class="btn btn-info cif" id="hcj" type="button">
-	  		Html/css/js
-		</button>
-		<button class="btn btn-warning cif" id="life" type="button">
-	  		生活随笔
-		</button>
-		<button class="btn btn-danger cif" id="other" type="button">
-	  		读书笔记
-		</button>
-		<button class="btn btn-primary cif" id="rese1" type="button">
-	  		其他
-		</button>
-		<button class="btn btn-success cif" type="rese2">
-	  		预留
-		</button>
-		<button class="btn btn-info cif" type="rese3">
-	  		预留
-		</button>
-		<form class="form">
-		   	<input type="text" class="form-control" placeholder="输入可能存在的标题">
-			<inpute type="submit" class="btn btn-default form-submit">Select!</button>
+		<a href="?cfy=1"><button id="javabtn" class="btn btn-primary cif" id="java" type="button">Java</button></a>
+		<a href="?cfy=2"><button id="algobtn" class="btn btn-success cif" id="algo" type="button">算法</button></a>
+		<a href="?cfy=3"><button id="hcjbtn" class="btn btn-info cif" id="hcj" type="button">Html/css/js</button></a>
+		<a href="?cfy=4"><button id="lifebtn" class="btn btn-warning cif" id="life" type="button">生活随笔</button></a>
+		<a href="?cfy=5"><button id="reselbtn" class="btn btn-danger cif" id="other" type="button">读书笔记</button></a>
+		<a href="?cfy=6"><button class="btn btn-primary cif" id="rese1" type="button">其他</button></a>
+		<a href="?cfy=7"><button class="btn btn-success cif" type="rese2" disabled>预留</button></a>
+		<a href="?cfy=8"><button class="btn btn-info cif" type="rese3" disabled>预留</button></a>
+		<form action="Journal.jsp" method="post" class="form">
+		   	<input name="liketitle" type="text" class="form-control" placeholder="输入可能存在的标题">
+			<button type="submit" class="btn btn-default form-submit" > Select! </button>
 		</form>
 		<!--
 		<form class="navbar-form navbar-right" role="search">
@@ -392,8 +377,21 @@
 <!--分类按钮end-->
 <!-- java start -->
 	<%
-		ArrayList <Journal> list = null;
-		list = JournalDao.journalSelect();
+		ArrayList <Journal> list = new ArrayList();
+		System.out.print("~"+request.getParameter("cfy")+"~");
+		if(request.getParameter("cfy")==null){
+			if(request.getParameter("liketitle")== null){
+				list = JournalDao.journalSelect();	
+			}else{
+				list = JournalDao.selectJournalLikeTitle(request.getParameter("liketitle"));
+			}
+		}else{
+			if(request.getParameter("liketitle")== null){
+				list = JournalDao.selectJournalByClassify(Integer.parseInt(request.getParameter("cfy")));	
+			}else{
+				list = JournalDao.selectJournalLikeTitle(request.getParameter("liketitle"));
+			}
+		}
 	%>
 <!-- java end -->
 		<div class="container">
@@ -415,11 +413,16 @@
 		<script src="js/classie.js"></script>
 		<script src="js/colorfinder-1.1.js"></script>
 		<script src="js/gridScrollFx.js"></script>
-		<script>
+		<script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript">
 			new GridScrollFx( document.getElementById( 'grid' ), {
 				viewportFactor : 0.4
 			} );
+			$(document).ready(function(){
+				$("#javabtn").click(function(){
+					$(".classify1").hide();
+				});
+			});
 		</script>
-		<script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
 	</body>
 </html>

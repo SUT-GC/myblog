@@ -1,0 +1,7 @@
+package classtest;
+
+public class TestJournalDao {
+	public static void main(String[] args) {
+		
+	}
+}

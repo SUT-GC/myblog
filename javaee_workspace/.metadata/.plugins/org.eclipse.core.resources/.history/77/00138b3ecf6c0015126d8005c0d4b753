@@ -1,0 +1,11 @@
+package classtest;
+
+import java.util.ArrayList;
+
+import dao.JournalDao;
+
+public class TestJournalDao {
+	public static void main(String[] args) {
+		ArrayList<Journal> list = JournalDao.selectJournalByClassify(1);
+	}
+}

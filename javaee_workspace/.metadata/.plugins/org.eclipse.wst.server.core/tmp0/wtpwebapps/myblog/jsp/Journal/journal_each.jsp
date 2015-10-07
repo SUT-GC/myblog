@@ -60,7 +60,7 @@
         <div class="journal_nav">
             <a href="Journal.jsp">日志页</a>
             <span class="journal_nav_1">>></span>
-            <a href="Journal.jsp"><%=classifyS%></a>
+            <a href="Journal.jsp?cfy=<%=journal.getClassify()%>"><%=classifyS%></a>
             <span class="journal_nav_2">>></span>
             <a href="#"><%=journal.getTitle()%></a>
         </div>

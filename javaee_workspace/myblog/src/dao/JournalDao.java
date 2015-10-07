@@ -79,12 +79,73 @@ public class JournalDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		for (Journal a : list) {
-			System.out.println(a);
-		}
 		return list;
 	}
 
+	/*
+	 * 功能: 根据classify查询不同类型的Journal
+	 * sql: select * from wb_article where article_classify = '1';
+	 * 方法名: selectJournalByClassify
+	 * 参数名: int classify
+	 * 返回值: ArrayList <Journal> list
+	 */
+	public static ArrayList<Journal> selectJournalByClassify(int classify){
+		ArrayList<Journal> list =new ArrayList<Journal>();
+		String sql = "select * from wb_article where article_classify = '"+classify+"';";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				Journal journal = new Journal();
+				journal.setJournal_id(rs.getInt(1));
+				journal.setTitle(rs.getString(2));
+				journal.setAuthor(rs.getString(3));
+				journal.setContent(rs.getString(4));
+				journal.setSummary(rs.getString(5));
+				journal.setClassify(rs.getInt(6));
+				journal.setImgpath(rs.getString(7));
+				journal.setDatetime(rs.getTimestamp(8));
+				journal.setPrivate_is(rs.getInt(9));
+				journal.setPrivate_pass(rs.getInt(10));
+				list.add(journal);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	/*
+	 * 功能: 模糊查询文章标题
+	 * sql: select * from wb_article where article_title like '%s%';
+	 * 方法名: selectJournalLikeTitle
+	 * 参数:String title;
+	 * 返回值: ArrayList <Journal>
+	 */
+	public static ArrayList<Journal> selectJournalLikeTitle(String title){
+		ArrayList<Journal> list = new ArrayList<>();
+		String sql = "select * from wb_article where article_title like '%"+title+"%';";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				Journal journal = new Journal();
+				journal.setJournal_id(rs.getInt(1));
+				journal.setTitle(rs.getString(2));
+				journal.setAuthor(rs.getString(3));
+				journal.setContent(rs.getString(4));
+				journal.setSummary(rs.getString(5));
+				journal.setClassify(rs.getInt(6));
+				journal.setImgpath(rs.getString(7));
+				journal.setDatetime(rs.getTimestamp(8));
+				journal.setPrivate_is(rs.getInt(9));
+				journal.setPrivate_pass(rs.getInt(10));
+				list.add(journal);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	/*
 	 * sql: select * from wb_article where article_id = id; 
 	 * 函数名 selectByID 参数int
