@@ -1,5 +1,7 @@
+<%@page import="dao.JournalDao"%>
+<%@page import="empty.Journal"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -31,92 +33,50 @@
 
 </head>
 <body >
+<!-- java start -->
+<%
+	int id = -1;
+	String classifyS = "";
+	Journal journal = null;
+	if(request.getParameter("id")!= null){
+		id = Integer.parseInt(request.getParameter("id"));
+		journal = JournalDao.selectByID(id);
+		switch (journal.getClassify()){
+		case 1: classifyS = "java"; break;
+		case 2: classifyS = "算法"; break;
+		case 3: classifyS = "Html/css/js"; break;
+		case 4: classifyS = "生活随笔"; break;
+		case 5: classifyS = "读书笔记"; break;
+		case 6: classifyS = "其他"; break;
+		}
+	}
+%>
+<!-- java end -->
     <div class="all">
     <div class="journal_each_all">
+    	<%
+    		if(id != -1 && journal != null && !classifyS.equals("")){
+    	%>
         <div class="journal_nav">
             <a href="Journal.jsp">日志页</a>
             <span class="journal_nav_1">>></span>
-            <a href="Journal.jsp">歌词</a>
+            <a href="Journal.jsp"><%=classifyS%></a>
             <span class="journal_nav_2">>></span>
-            <a href="#">我的未来不是梦</a>
+            <a href="#"><%=journal.getTitle()%></a>
         </div>
         <div class="journal_each_article">
-            <div class="title">我的未来不是梦
+            <div class="title"><%=journal.getTitle()%>
             </div>
             <div class="author_data">
                 <span  class="author">
                     <span class="author_label">作者:</span>
-                    <span class="author_content">张雨生</span>
+                    <span class="author_content"><%=journal.getAuthor()%></span>
                 </span>
                 <span class="date_label">创建时间:</span>
-                <span class="date_data">2015-09-09</span>
+                <span class="date_data"><%=journal.getDatetime()%></span>
             </div>
-            <div class="content">
-                <pre class="content_text">
-
-    你是不是像我在太阳下低头
-    流着汗水默默辛苦的工作
-    你是不是像我就算受了冷漠
-    也不放弃自己想要的生活
-
-    你是不是像我整天忙着追求
-    追求一种意想不到的温柔
-    你是不是像我曾经茫然失措
-    一次一次徘徊在十字街头
-
-    因为我不在乎 别人怎么说
-    我从来没有忘记我
-    对自己的承诺 对爱的执著
-
-    我知道我的未来不是梦
-    我认真的过每一分钟
-    我的未来不是梦
-    我的心跟着希望在动
-    我的未来不是梦
-    我认真的过每一分钟
-    我的未来不是梦
-    我的心跟着希望在动
-    跟着希望在动
-    {Music}
-    你是不是像我整天忙着追求
-    追求一种意想不到的温柔
-    你是不是像我曾经茫然失措
-    一次一次徘徊在十字街头
-
-    因为我不在乎 别人怎么说
-    我从来没有忘记我
-    对自己的承诺 对爱的执著
-
-    我知道我的未来不是梦
-    我认真的过每一分钟
-    我的未来不是梦
-    我的心跟着希望在动
-    我的未来不是梦
-    我认真的过每一分钟
-    我的未来不是梦
-    我的心跟着希望在动
-    跟着希望在动 
-    #include &ltiostream>
-    using namespace std;
-
-    int main(){
-        int n;
-        int sum;
-        int m;
-        while(cin>>n){
-            sum = 0;
-            for(int i = 0; i < n; i++){
-                cin>>m;
-                sum += m;   
-            }
-            if(sum%4 == 0){
-                cout&lt&ltsum/4&lt&ltendl;
-            }else{
-                cout&lt&lt(sum/4)+1&lt&ltendl;
-            }
-        }
-    }
-                </pre>
+            <div class="content" readonly>
+                <pre class="content_text" ><%=journal.getContent()%></pre>
                 <div class="reply">
                     <!--文本编写框start-->
                     <div class="reply-editor">
@@ -188,6 +148,13 @@ cout&lt&lt(sum/4)+1&lt&ltendl;
             </div>
         </div>
     </div>
+    <%
+    		}else{
+    %>
+    <h1 style='color:red'>对不起 ,  没有搜到日志 ......</h1>
+    <%
+    		}
+    %>
     </div>
     <!--引入 jquery.js-->
             <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
