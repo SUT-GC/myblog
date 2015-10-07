@@ -239,7 +239,7 @@
         主页
         <span class="three-d-box"><span class="front">主页</span><span class="back">主页</span></span>
       </a></li>
-      <li><a href="../Journal/Journal.jsp" class="three-d">
+      <li><a href="../journal/journal.jsp" class="three-d">
         日志
         <span class="three-d-box"><span class="front">日志</span><span class="back">日志</span></span>
       </a></li>
