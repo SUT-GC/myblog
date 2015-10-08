@@ -137,7 +137,7 @@
                     	 <% if(request.getParameter("ilr") != null){
                     		 		if(request.getParameter("ilr").equals("1")){
                     		 			if(request.getParameter("fn")!=null && !Base64.base64Decoder(request.getParameter("fn")).equals("")){
-                    		 				out.print("<h3 style='color:#00FF00'>上传成功:"+Base64.base64Decoder(request.getParameter("fn"))+"</h3>");
+                    		 				out.print("<h3 style='color:#00FF00'>上传成功:${fn}</h3>");
                     		 			}else{
                     		 				out.print("<h3 style='color:#00FF00'>上传成功</h3>");                    		 				
                     		 			}

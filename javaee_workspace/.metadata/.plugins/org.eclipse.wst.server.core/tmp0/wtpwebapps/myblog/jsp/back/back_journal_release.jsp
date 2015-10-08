@@ -1,3 +1,4 @@
+<%@page import="Encryption.Base64"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -135,13 +136,19 @@
                     	 <input class="uploadfile" type="file" name="file"/>
                     	 <% if(request.getParameter("ilr") != null){
                     		 		if(request.getParameter("ilr").equals("1")){
-                    		 			out.print("<h3 style='color:#00FF00'>上传成功</h3>");
+                    		 			if(request.getParameter("fn")!=null && !Base64.base64Decoder(request.getParameter("fn")).equals("")){
+                    		 				out.print("<h3 style='color:#00FF00'>上传成功:"+Base64.base64Decoder(request.getParameter("fn"))+"</h3>");
+                    		 			}else{
+                    		 				out.print("<h3 style='color:#00FF00'>上传成功</h3>");                    		 				
+                    		 			}
                     		 		}else if(request.getParameter("ilr").equals("2")){
                     		 			out.print("<h3 style='color:#FF0000'>上传失败</h3>");
                     		 		}else if(request.getParameter("ilr").equals("2.1")){
                     		 			out.print("<h3 style='color:#FF0000'>上传失败,格式不正确</h3>");
                     		 		}else if(request.getParameter("ilr").equals("2.2")){
                     		 			out.print("<h3 style='color:#FF0000'>上传失败,大小超过10M</h3>");
+                    		 		}else if(request.getParameter("ilr").equals("3")){
+                    		 			out.print("<h3 style='color:#FF0000'>上传失败,已经有该文件</h3>");
                     		 		}
                     	 		}
                     	 %>

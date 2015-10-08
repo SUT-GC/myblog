@@ -123,7 +123,7 @@ public class JournalDao {
 	 */
 	public static ArrayList<Journal> selectJournalLikeTitle(String title){
 		ArrayList<Journal> list = new ArrayList<>();
-		String sql = "select * from wb_article where article_title like '%"+title+"%' order by article_id desc;";
+		String sql = "select * from wb_article where article_title like '%"+title+"%';";
 		try {
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {

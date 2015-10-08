@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.jspsmart.upload.SmartUpload;
 import com.jspsmart.upload.SmartUploadException;
 
-import Encryption.Base64;
-
 /**
  * Servlet implementation class FileUpload
  */
@@ -77,6 +75,6 @@ public class FileUpload extends HttpServlet {
 			else imageuplodrelease = "2";
 		}
 		
-		response.sendRedirect("jsp/back/back_journal_release.jsp?ilr="+imageuplodrelease+"&fn="+Base64.base64Encoder(filename));
+		response.sendRedirect("jsp/back/back_journal_release.jsp?ilr="+imageuplodrelease);
 	}
 }

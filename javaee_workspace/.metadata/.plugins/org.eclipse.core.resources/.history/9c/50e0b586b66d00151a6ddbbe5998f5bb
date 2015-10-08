@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.jspsmart.upload.SmartUpload;
 import com.jspsmart.upload.SmartUploadException;
 
-import Encryption.Base64;
-
 /**
  * Servlet implementation class FileUpload
  */
@@ -53,19 +51,13 @@ public class FileUpload extends HttpServlet {
 		su.setAllowedFilesList("jpg,png,gif,jpeg");
 		
 		String imageuplodrelease = "";
-		String filename = "";
+		
 		try {
 			su.setDeniedFilesList("rar,exe,txt,jsp,js");
 			su.upload();
 			com.jspsmart.upload.File tempfile = su.getFiles().getFile(0);
-			filename = tempfile.getFileName();
-			File selectoldfile = new File(filepath+java.io.File.separator+filename);
-			if(selectoldfile.exists()){
-				imageuplodrelease = "3";
-			}else{
-				su.save(filepath);
-				imageuplodrelease = "1";
-			}
+			su.save(filepath);
+			imageuplodrelease = "1";
 		} catch (Exception e) {
 			if(e.getMessage().indexOf("1015") != -1){
 				imageuplodrelease = "2.1";
@@ -77,6 +69,8 @@ public class FileUpload extends HttpServlet {
 			else imageuplodrelease = "2";
 		}
 		
-		response.sendRedirect("jsp/back/back_journal_release.jsp?ilr="+imageuplodrelease+"&fn="+Base64.base64Encoder(filename));
+		com.jspsmart.upload.File tempfile = su.getFiles().getFile(0);
+		System.out.println(tempfile.getFileName());
+		response.sendRedirect("jsp/back/back_journal_release.jsp?ilr="+imageuplodrelease);
 	}
 }
