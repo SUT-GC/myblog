@@ -16,5 +16,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="bcprov-jdk16-146.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/bcprov-jdk16-146.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jspsmartupload.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jspsmartupload.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

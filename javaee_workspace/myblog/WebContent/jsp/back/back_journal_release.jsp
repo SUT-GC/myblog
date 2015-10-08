@@ -129,6 +129,26 @@
                     </div>
                     <h3 class="journal_release_title">Please input informations of the article:</h3>
                     <hr/>
+                    <div class="image_upload">
+                    <form action="/myblog/FileUpload" method="post" enctype="multipart/form-data">
+                    	 <span class="is_private uploadlabel">Please upload a image for this article</span>
+                    	 <input class="uploadfile" type="file" name="file"/>
+                    	 <% if(request.getParameter("ilr") != null){
+                    		 		if(request.getParameter("ilr").equals("1")){
+                    		 			out.print("<h3 style='color:#00FF00'>上传成功</h3>");
+                    		 		}else if(request.getParameter("ilr").equals("2")){
+                    		 			out.print("<h3 style='color:#FF0000'>上传失败</h3>");
+                    		 		}else if(request.getParameter("ilr").equals("2.1")){
+                    		 			out.print("<h3 style='color:#FF0000'>上传失败,格式不正确</h3>");
+                    		 		}else if(request.getParameter("ilr").equals("2.2")){
+                    		 			out.print("<h3 style='color:#FF0000'>上传失败,大小超过10M</h3>");
+                    		 		}
+                    	 		}
+                    	 %>
+                    	 <input type="submit"  name="fileupload" value ="UpLoad"class=" uploadbtn btn btn-primary input_buttons_submit"/>
+                    </form>
+                    </div>
+                    <hr/>
                     <form id="journal_release_form_id" class="journal_release_form_class" method="post" action="/myblog/ReleaseJournal">
                         <div class="input_title">
                             <span class="input_title_label">the title of your article:</span>
@@ -167,17 +187,14 @@
                             <span class="is_private">if this is private, please input your password !</span>
                             <input name="private_pass" class="input_password" type="text">
                         </div>
-                         
-                        <hr/>
-                        <div>
-                            <span class="input_title_label">The location of the file upload.....</span>
-                        </div>
                         <hr/>
                         <div class="input_buttons">
                             <input type="submit" onclick="return confirm('是否发布该文章？');" value ="Release"class="btn btn-success input_buttons_submit"/>
                             <input type="reset"  onclick="return confirm('是否清空您输入的所有？');"value ="Reset"class="btn btn-primary input_buttons_reset"/>
                         </div>
+                        <hr style="margin-top:80px;"/>
                     </form>
+                    
                 </div>
                 <!-- content end -->
             </div>
@@ -200,5 +217,7 @@
         <script type="text/javascript" src="vendors/bootstrap-wysihtml5-rails-b3/vendor/assets/javascripts/bootstrap-wysihtml5/core-b3.js"></script>
         <script type="text/javascript" src="vendors/twitter-bootstrap-wizard/jquery.bootstrap.wizard-for.bootstrap3.js"></script>
         <script type="text/javascript" src="vendors/boostrap3-typeahead/bootstrap3-typeahead.min.js"></script>
+        <script type="text/javascript">
+        </script>
     </body>
 </html>

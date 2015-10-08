@@ -37,3 +37,12 @@
 .input_buttons_reset{
 	margin-left: 20px;
 }
+.uploadlabel{
+	float:left;
+}
+.uploadfile{
+	float:left; 
+}
+.uploadbtn{
+	margin-left: 80%;
+}
