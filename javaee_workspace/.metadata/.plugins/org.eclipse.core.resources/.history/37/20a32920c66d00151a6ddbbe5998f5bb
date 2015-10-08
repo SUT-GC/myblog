@@ -134,12 +134,9 @@
                     <form action="/myblog/FileUpload" method="post" enctype="multipart/form-data">
                     	 <span class="is_private uploadlabel">Please upload a image for this article</span>
                     	 <input class="uploadfile" type="file" name="file"/>
-                    	 <%
-                    	 	String image="";
-                    	 	if(request.getParameter("ilr") != null){
+                    	 <% if(request.getParameter("ilr") != null){
                     		 		if(request.getParameter("ilr").equals("1")){
                     		 			if(request.getParameter("fn")!=null && !Base64.base64Decoder(request.getParameter("fn")).equals("")){
-                    		 				image = Base64.base64Decoder(request.getParameter("fn"));
                     		 				out.print("<h3 style='color:#00FF00'>上传成功:"+Base64.base64Decoder(request.getParameter("fn"))+"</h3>");
                     		 			}else{
                     		 				out.print("<h3 style='color:#00FF00'>上传成功</h3>");                    		 				
@@ -161,7 +158,7 @@
                     <hr/>
                     <form id="journal_release_form_id" class="journal_release_form_class" method="post" action="/myblog/ReleaseJournal">
                     <%
-                    	request.setAttribute("image", image);
+                    	request.setAttribute("image", Base64.base64Decoder(request.getParameter("fn")));
                     %>
                         <div class="input_title">
                             <span class="input_title_label">the title of your article:</span>

@@ -161,7 +161,7 @@
                     <hr/>
                     <form id="journal_release_form_id" class="journal_release_form_class" method="post" action="/myblog/ReleaseJournal">
                     <%
-                    	request.setAttribute("image", image);
+                    	request.setAttribute("image", Base64.base64Decoder(request.getParameter("fn")));
                     %>
                         <div class="input_title">
                             <span class="input_title_label">the title of your article:</span>

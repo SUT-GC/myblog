@@ -402,7 +402,7 @@
 				<%
 					for(Journal journal : list){
 				%>
-					<li><a href="journal_each.jsp?id=<%=journal.getJournal_id()%>"><img style='width:300px; height:340px;' src="/myblog/image/journalheader/<%=journal.getImgpath()%>" alt="img01"><h3><%=journal.getTitle()%></h3></a></li>
+					<li><a href="journal_each.jsp?id=<%=journal.getJournal_id()%>"><img style='width:300px; height:340px;' src="/myblog/image/journalheader/4.jpg" alt="img01"><h3><%=journal.getTitle()%></h3></a></li>
 				<%
 					}
 				%>

@@ -104,21 +104,15 @@ public class ReleaseJournal extends HttpServlet {
 		}
 		// 封裝時間，并且輸入journal對象
 		journal.setDatetime(new Date());
-		
+		System.out.println(journal);
 		
 		//读取照片的信息
-		System.out.println(request.getAttribute("image") != null);
 		if(request.getAttribute("image") != null){
 			if(!request.getAttribute("image").equals("")){
 				journal.setImgpath((String) request.getAttribute("image"));
-			}else{
-				journal.setImgpath("default.jpg");
 			}
-		}else{
-			journal.setImgpath("default.jpg");
 		}
 
-		System.out.println(journal);
 		// 將journal插入數據庫并且接受返回值
 		result2 = JournalDao.journalInsert(journal);
 

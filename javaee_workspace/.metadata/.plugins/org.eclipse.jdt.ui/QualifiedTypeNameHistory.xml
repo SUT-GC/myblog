@@ -36,7 +36,6 @@
 <fullyQualifiedTypeName name="sun.security.krb5.internal.crypto.RsaMd5CksumType"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
-<fullyQualifiedTypeName name="Encryption.Base64"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="servlet.MessageRelease"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
@@ -45,4 +44,8 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="dao.MessDao"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.jspsmart.upload.SmartUpload"/>
+<fullyQualifiedTypeName name="com.jspsmart.upload.File"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="Encryption.Base64"/>
 </qualifiedTypeNameHistroy>
