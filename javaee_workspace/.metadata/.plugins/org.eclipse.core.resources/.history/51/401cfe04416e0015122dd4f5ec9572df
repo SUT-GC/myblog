@@ -135,7 +135,7 @@
                     	 <span class="is_private uploadlabel">Please upload a image for this article</span>
                     	 <input class="uploadfile" type="file" name="file"/>
                     	 <%
-                    	 	String image="defualt.jpg";
+                    	 	String image="";
                     	 	if(request.getParameter("ilr") != null){
                     		 		if(request.getParameter("ilr").equals("1")){
                     		 			if(request.getParameter("fn")!=null && !Base64.base64Decoder(request.getParameter("fn")).equals("")){
@@ -160,11 +160,9 @@
                     </div>
                     <hr/>
                     <form id="journal_release_form_id" class="journal_release_form_class" method="post" action="/myblog/ReleaseJournal">
-                        <div class="input_title">
-                            <span class="input_title_label">the image of your article:</span>
-                            <input name="article_image" type="text" value="<%=image%>" readonly class="form-control article_image input_title_content"  />
-                        </div>
-                        <hr/>
+                    <%
+                    	request.setAttribute("image", image);
+                    %>
                         <div class="input_title">
                             <span class="input_title_label">the title of your article:</span>
                             <input name="article_title" type="text" class="form-control input_title_content" placeholder="title...">
@@ -201,6 +199,11 @@
                             <input class="is_private_check"type="checkbox" name="isprivate" value="1"/>
                             <span class="is_private">if this is private, please input your password !</span>
                             <input name="private_pass" class="input_password" type="text">
+                        </div>
+                        <hr/>
+                         <div class="input_title">
+                            <span class="input_title_label">the image of your article:</span>
+                            <input name="article_author" type="text" class="form-control input_title_content" placeholder="author...">
                         </div>
                         <hr/>
                         <div class="input_buttons">

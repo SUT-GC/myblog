@@ -107,9 +107,9 @@ public class ReleaseJournal extends HttpServlet {
 		
 		
 		//读取照片的信息
-		if(request.getParameter("article_image")!= null){
-			if(!request.getParameter("article_image").equals("")){
-				journal.setImgpath(request.getParameter("article_image"));
+		if(request.getAttribute("image") != null){
+			if(!request.getAttribute("image").equals("")){
+				journal.setImgpath((String) request.getAttribute("image"));
 			}else{
 				journal.setImgpath("default.jpg");
 			}
