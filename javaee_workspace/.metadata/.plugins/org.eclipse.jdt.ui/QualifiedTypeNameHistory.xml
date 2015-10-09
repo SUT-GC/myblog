@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="empty.Journal"/>
 <fullyQualifiedTypeName name="sun.awt.dnd.SunDragSourceContextPeer"/>
 <fullyQualifiedTypeName name="com.sun.crypto.provider.RSACipher"/>
 <fullyQualifiedTypeName name="dao.JournalDao"/>
@@ -48,4 +47,5 @@
 <fullyQualifiedTypeName name="com.jspsmart.upload.File"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="Encryption.Base64"/>
+<fullyQualifiedTypeName name="empty.Journal"/>
 </qualifiedTypeNameHistroy>
