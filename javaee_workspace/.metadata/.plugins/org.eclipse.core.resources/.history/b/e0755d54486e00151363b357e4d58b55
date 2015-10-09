@@ -50,7 +50,7 @@ public class JournalEditOrDelete extends HttpServlet {
 			response.sendRedirect("jsp/back/back_journal_edit.jsp?id="+journalID);
 		}else if(journalDo.equals("delete")){
 			Journal journal = JournalDao.selectByID(Integer.parseInt(journalID));
-			if(!journal.getImgpath().equals("default.jpg")){
+			if(!journal.getImgpath().equals("defualt.jpg")){
 				String imagepath = getServletContext().getRealPath("/")+"image"
 						+java.io.File.separator+"journalheader"
 						+java.io.File.separator+journal.getImgpath();

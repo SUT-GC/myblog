@@ -135,7 +135,7 @@
                     	 <span class="is_private uploadlabel">Please upload a image for this article</span>
                     	 <input class="uploadfile" type="file" name="file"/>
                     	 <%
-                    	 	String image="defualt.jpg";
+                    	 	String image="default.jpg";
                     	 	if(request.getParameter("ilr") != null){
                     		 		if(request.getParameter("ilr").equals("1")){
                     		 			if(request.getParameter("fn")!=null && !Base64.base64Decoder(request.getParameter("fn")).equals("")){

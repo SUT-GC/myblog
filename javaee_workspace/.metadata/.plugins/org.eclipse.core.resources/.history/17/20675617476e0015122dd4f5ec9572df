@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.JournalDao;
-import empty.Journal;
 
 /**
  * Servlet implementation class JournalEditOrDelete
@@ -49,14 +48,8 @@ public class JournalEditOrDelete extends HttpServlet {
 		if(journalDo.equals("edit")){
 			response.sendRedirect("jsp/back/back_journal_edit.jsp?id="+journalID);
 		}else if(journalDo.equals("delete")){
-			Journal journal = JournalDao.selectByID(Integer.parseInt(journalID));
-			if(!journal.getImgpath().equals("default.jpg")){
-				String imagepath = getServletContext().getRealPath("/")+"image"
-						+java.io.File.separator+"journalheader"
-						+java.io.File.separator+journal.getImgpath();
-				File imagefile = new File(imagepath);
-				imagefile.delete();
-			}
+			String imagepath = getServletContext().getRealPath("/")+"image"+java.io.File.separator+"journalheader";
+			File imagefile = new File(imagepath);
 			r = JournalDao.deleteJournal(Integer.parseInt(journalID));
 			if(r == 1){
 				response.sendRedirect("jsp/back/back_journal_admin.jsp");

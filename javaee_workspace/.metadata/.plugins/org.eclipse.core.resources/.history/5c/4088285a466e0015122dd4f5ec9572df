@@ -76,7 +76,7 @@ public class EditJournalRelease extends HttpServlet {
 		System.out.println(article_content);
 		journal.setContent(article_content);
 		journal.setClassify(Integer.parseInt(request.getParameter("new_classify")));
-		journal.setImgpath(request.getParameter("article_image"));
+		journal.setImgpath("111");
 		// 判斷isprivate的值，如果值為1，則private_pass有效，否則無效
 		if (request.getParameter("isprivate") != null && request.getParameter("isprivate").equals("1")) {
 			journal.setPrivate_is(1);
