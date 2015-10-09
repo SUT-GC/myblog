@@ -39,7 +39,7 @@ public class FileUpload extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String filepath = getServletContext().getRealPath("/")+"image"+java.io.File.separator+"journalheader";
+		String filepath = getServletContext().getRealPath(File.separator)+"image"+java.io.File.separator+"journalheader";
 		System.out.println(filepath);
 		File file = new File(filepath);
 		

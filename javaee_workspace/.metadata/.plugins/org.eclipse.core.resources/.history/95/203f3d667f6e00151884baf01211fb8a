@@ -1,0 +1,10 @@
+package classtest;
+
+import file.ImageDo;
+
+public class ImageDoTest {
+	public static void main(String[] args) {
+		String url = "d:\\"
+		ImageDo.selectImages(url);
+	}
+}

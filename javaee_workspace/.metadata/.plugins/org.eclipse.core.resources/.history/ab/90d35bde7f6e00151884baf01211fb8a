@@ -1,0 +1,16 @@
+package classtest;
+
+
+import java.io.File;
+
+import file.ImageDo;
+
+public class ImageDoTest {
+	public static void main(String[] args) {
+		String url = "d:"+File.separator;
+		File[] files = ImageDo.selectImages(url);
+		for(File file: files){
+			System.out.println(file.getName());
+		}
+	}
+}

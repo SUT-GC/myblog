@@ -1,3 +1,5 @@
+<%@page import="java.io.File"%>
+<%@page import="file.ImageDo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -141,109 +143,28 @@
                             </div>
                             <div class="bootstrap-admin-panel-content">
                                 <div>
+                                	<!-- java start -->
+                                	<%
+                                		File[] files = null;
+                                		String imagepath = application.getRealPath(File.separator)+"image"+File.separator+"journalheader";
+                                		files = ImageDo.selectImages(imagepath);
+                                	%>
+                                	<!-- java end -->
                                     <!--一个img元素start-->
+                                    <% 
+                                    	if(files != null){
+                                    		for(File file : files){
+                                    %>
                                     <div class="img">
-                                        <img class="img_border" src="../Journal/img/1.jpg">
-                                      
-                                        <div class="img_id_journal_id">img_id<span>1</span>-- journal_id<span>1</span></div>
+                                        <img class="img_border" src="../../image/journalheader/<%=file.getName()%>">
+                                        <div class="img_id_journal_id"><span><%=file.getName()%></span></div>
                                         <div class="img_button">
                                             <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
                                             <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
                                         </div>
                                     </div>
+                                    <%}}%>
                                     <!--一个img元素end-->
-                                    <!--一个img元素start-->
-                                    <div class="img">
-                                        <img class="img_border" src="../Journal/img/2.jpg">
-                                        <div class="img_id_journal_id">img_id<span>2</span>-- journal_id<span>2</span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <!--一个img元素end-->
-                                    <!--一个img元素start-->
-                                    <div class="img">
-                                        <img class="img_border" src="../Journal/img/3.jpg">
-                                        <div class="img_id_journal_id">img_id<span>3</span>-- journal_id<span>3</span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <!--一个img元素end-->
-                                    <!--一个img元素start-->
-                                    <div class="img">
-                                        <img class="img_border" src="../Journal/img/4.jpg">
-                                        <div class="img_id_journal_id">img_id<span>4</span>-- journal_id<span>4</span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <!--一个img元素end-->
-                                    <!--一个img元素start-->
-                                    <div class="img">
-                                        <img class="img_border" src="../Journal/img/5.jpg">
-                                        <div class="img_id_journal_id">img_id<span>5</span>-- journal_id<span>5</span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <!--一个img元素end-->
-                                    <!--一个img元素start-->
-                                    <div class="img">
-                                        <img class="img_border" src="../Journal/img/6.jpg">
-                                        <div class="img_id_journal_id">img_id<span>6</span>-- journal_id<span>6</span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <!--一个img元素end-->
-                                    <!--一个img元素start-->
-                                    <div class="img">
-                                        <img class="img_border" src="../Journal/img/7.jpg">
-                                        <div class="img_id_journal_id">img_id<span>7</span>-- journal_id<span>7</span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <!--一个img元素end-->
-                                    <!--一个img元素start-->
-                                    <div class="img">
-                                        <img class="img_border" src="../Journal/img/8.jpg">
-                                        <div class="img_id_journal_id">img_id<span>8</span>-- journal_id<span>8</span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <!--一个img元素end-->
-                                    <!--一个img元素start-->
-                                    <div class="img">
-                                        <img class="img_border" src="../Journal/img/9.jpg">
-                                        <div class="img_id_journal_id">img_id<span>9</span>-- journal_id<span>9</span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <!--一个img元素end-->
-                                    <!--一个img元素start-->
-                                    <div class="img">
-                                        <img class="img_border" src="../Journal/img/10.jpg">
-                                        <div class="img_id_journal_id">img_id<span>10</span>-- journal_id<span>10</span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <!--一个img元素end-->
-
-
                                     <!--撑开背面标签用start-->
                                     <div class="img_end"></div> 
                                     <!--撑开背面标签用end-->                                   
