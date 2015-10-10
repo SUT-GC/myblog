@@ -1,0 +1,15 @@
+package dao;
+
+import java.sql.Statement;
+
+public class ReplyDao {
+	private static Statement stmt;
+
+	/*
+	 * 静态初始化框
+	 */
+	static {
+		stmt = new DB_Data("wb").getStmt();
+	}
+
+}

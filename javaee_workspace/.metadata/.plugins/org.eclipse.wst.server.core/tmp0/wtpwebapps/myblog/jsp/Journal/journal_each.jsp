@@ -1,3 +1,8 @@
+<%@page import="dao.UserDao"%>
+<%@page import="dao.ReplyDao"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="empty.Reply"%>
+<%@page import="empty.User"%>
 <%@page import="dao.JournalDao"%>
 <%@page import="empty.Journal"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -50,6 +55,18 @@
 		case 6: classifyS = "其他"; break;
 		}
 	}
+	
+	int userid = -1;
+	User user = null;
+	if(session.getAttribute("user")!=null){
+		user = (User)session.getAttribute("user");
+		userid = user.getUser_id();
+	}
+	
+	String replyerr = "";
+	if(request.getParameter("errmsg")!=null){
+		replyerr = request.getParameter("errmsg");
+	}
 %>
 <!-- java end -->
     <div class="all">
@@ -80,70 +97,36 @@
                 <div class="reply">
                     <!--文本编写框start-->
                     <div class="reply-editor">
-                        <h1>填写评论</h1>
-
-                        <div id='txtDiv' style='border:1px solid #cccccc; height:240px;'>
-                            <p>请输入内容...</p>
-                        </div>
-
-                        <div style='margin-top:10px;'>
-                            <textarea id='textarea' style='width:100%; height:100px; margin-top:10px;'></textarea>
-                        </div>
+                        <h3 >填写评论</h3>
+						<form action="/myblog/ReplyRelease?uid=<%=userid%>&aid=<%=journal.getJournal_id()%>" method="post">
+						 <textarea name="replycontent" rows="5" cols="93" style="font-size:18px; padding-right:20px; padding-left:20px; padding-bottom:10px; padding-top: 10px;" placeholder='请填写您要回复的内容~(^_^)~'></textarea>
+						 <div class="btn-group" style="margin-top:10px;">
+                        	<button  type="submit" class="btn btn-primary">对文章进行评论</button>
+                    	</div>
+						</form>
                     </div>
-                    <!--文本编写框end-->
-                    <div class="btn-group">
-                        <button class="btn btn-primary">对文章进行评论</button>
-                    </div>
+                     <!--文本编写框end-->
+                     <%
+                     	ArrayList<Reply> list = null;
+                     	list = ReplyDao.selectReply(journal.getJournal_id());
+                     	for(Reply reply: list){
+                     %>
                     <!--回复start-->
                     <hr/>
                     <div class="reply_top">
-                        <img src="img/01.png">
+                        <img src="../../image/user/head/01.png">
                     </div>
                     <div class="reply_bottom">
-                        <a href="#" class="reply_user_name">Gc</a>
-                        <span class="reply_date">2015-09-09 8:29</span>
-                        <pre class="reply_content">if(sum%4 == 0){
-                cout&lt&ltsum/4&lt&ltendl;
-}else{
-cout&lt&lt(sum/4)+1&lt&ltendl;
-}
-这是什么意思？
-            </pre>
+                        <div>
+	                        <a href="#" class="reply_user_name"><%=UserDao.selectUserByID(reply.getUserid()).getUser_nick()%></a>
+	                        <span class="reply_date"><%=reply.getReplydate()%></span>
+                     	</div>
+                     	<div>
+                     		<pre class="reply_content"><%=reply.getReplycontent()%></pre>
+                     	</div>
                     </div>
                     <!--回复end-->
-                    <!--回复start-->
-                    <hr/>
-                    <div class="reply_top">
-                        <img src="img/01.png">
-                    </div>
-                    <div class="reply_bottom">
-                        <a href="#" class="reply_user_name">Gc</a>
-                        <span class="reply_date">2015-09-09 8:29</span>
-                        <pre class="reply_content">这个文章很好</pre>
-                    </div>
-                    <!--回复end-->
-                    <!--回复start-->
-                    <hr/>
-                    <div class="reply_top">
-                        <img src="img/02.png">
-                    </div>
-                    <div class="reply_bottom">
-                        <a href="#" class="reply_user_name">Gc</a>
-                        <span class="reply_date">2015-09-09 8:29</span>
-                        <pre class="reply_content">这个文章很好</pre>
-                    </div>
-                    <!--回复end-->
-                    <!--回复start-->
-                    <hr/>
-                    <div class="reply_top">
-                        <img src="img/01.png">
-                    </div>
-                    <div class="reply_bottom">
-                        <a href="#" class="reply_user_name">Gc</a>
-                        <span class="reply_date">2015-09-09 8:29</span>
-                        <pre class="reply_content">这个文章很好</pre>
-                    </div>
-                    <!--回复end-->
+                    <%} %>
                 </div>
             </div>
         </div>
@@ -162,6 +145,32 @@ cout&lt&lt(sum/4)+1&lt&ltendl;
             <!--引入 wangEditor.js-->
             <script type="text/javascript" src='js/wangEditor-1.1.0-min.js'></script>
             <script type="text/javascript">
+            /*
+    		 * -1: 未执行检查代码
+    		 * 0: 用户未登录
+    		 * 1: 未检查到article_id
+    		 * 2: 未检查到article_content
+    		 * 3：数据库插入失败
+    		 * 4：发表成功
+    		 */
+    		 var replyerrI = '<%=replyerr%>';
+    		 var replyerrmsg = "";
+    		 if(replyerrI!=""){
+    			 if(replyerrI == "-1"){
+    				 replyerrmsg = "未执行检查代码";
+    			 }else if(replyerrI == "0"){
+    				 replyerrmsg = "用户未登录";
+    			 }else if(replyerrI == "1"){
+    				 replyerrmsg = "未检查到article_id";
+    			 }else if(replyerrI == "2"){
+    				 replyerrmsg = "未检查到article_content";
+    			 }else if(replyerrI == "3"){
+    				 replyerrmsg = "数据库插入失败";
+    			 }else if(replyerrI == "4"){
+    				 replyerrmsg = "发表成功";
+    			 }
+    			 alert(replyerrmsg);
+    		 }
                 $(function(){
                     $('#spanTime').text((new Date()).toString());
 

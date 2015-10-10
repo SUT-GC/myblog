@@ -1,0 +1,18 @@
+package classtest;
+
+import java.util.ArrayList;
+
+import dao.ReplyDao;
+import empty.Reply;
+
+public class ReplyDaoTest {
+
+	public static void main(String[] args) {
+		ArrayList<Reply> list = null;
+		list = ReplyDao.selectReply(28);
+		for(Reply reply: list){
+			System.out.println(reply);
+		}
+	}
+
+}

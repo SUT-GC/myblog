@@ -1,0 +1,39 @@
+package dao;
+
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import empty.Reply;
+
+public class ReplyDao {
+	private static Statement stmt;
+
+	/*
+	 * 静态初始化框
+	 */
+	static {
+		stmt = new DB_Data("wb").getStmt();
+	}
+	
+	/*
+	 * 1
+	 * 功能: 向wb_reply中插入Reply
+	 * sql: insert wb_reply (reply_content, article_id, user_id, reply_date) values('sada', '4', '17', '2015-02-12 13:22:00');
+	 * 返回值 int result
+	 * 1:插入成功
+	 * 0:插入失败
+	 */
+	public static int insertReply(Reply reply){
+		int result = 0;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String sql = "insert wb_reply (reply_content, article_id, user_id, reply_date) values ('"
+							+reply.getReplycontent()+"','"
+							+reply.getArticleid()+"','"
+							+reply.getUserid()+"','"
+							+sdf.format(new Date())+"');";
+		result = stmt.executeUpdate(sql);
+		return result;
+	}
+
+}

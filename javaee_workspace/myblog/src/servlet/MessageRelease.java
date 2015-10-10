@@ -88,6 +88,7 @@ public class MessageRelease extends HttpServlet {
 					message.setTouser_id(0);
 					message.setMessbox_reply(firstMessContent);
 					message.setMessbox_date(new Date());
+					System.out.println("您发表的留言内容为"+message.getMessbox_reply());
 					if(MessDao.insertMess(message) == 1){
 						errmsg = 3;
 					}
