@@ -1,0 +1,13 @@
+package other;
+
+public class Tool {
+	
+	/*
+	 * 1
+	 * 功能: 将日志中的classify数字转换为汉字
+	 */
+	public static String ClassifyNumToClassify(int classifynum){
+		String result = "";
+		return result;
+	}
+}

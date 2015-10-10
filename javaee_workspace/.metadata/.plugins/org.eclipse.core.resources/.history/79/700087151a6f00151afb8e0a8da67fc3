@@ -1,0 +1,21 @@
+package other;
+
+public class Tool {
+	
+	/*
+	 * 1
+	 * 功能: 将日志中的classify数字转换为汉字
+	 */
+	public static String ClassifyNumToClassify(int classifynum){
+		String result = "";
+		switch (classifynum){
+		case 1: result = "java"; break;
+		case 2: result = "算法"; break;
+		case 3: result = "Html/css/js"; break;
+		case 4: result = "生活随笔"; break;
+		case 5: result = "读书笔记"; break;
+		case 6: result = "其他"; break;
+		}
+		return result;
+	}
+}

@@ -256,4 +256,34 @@ public class JournalDao {
 		}
 		return imageset;
 	}
+	/*
+	 * 9
+	 * select *from wb_article 查询函数
+	 * 返回ArrayList<Journal> list 返回查询的结果
+	 */
+	public static ArrayList SelectTopJournal5() {
+		ArrayList<Journal> list = new ArrayList<>();
+		String sql = "select * from wb_article order by article_id desc limit 0,5;";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				Journal journal = new Journal();
+				journal.setJournal_id(rs.getInt(1));
+				journal.setTitle(rs.getString(2));
+				journal.setAuthor(rs.getString(3));
+				journal.setContent(rs.getString(4));
+				journal.setSummary(rs.getString(5));
+				journal.setClassify(rs.getInt(6));
+				journal.setImgpath(rs.getString(7));
+				journal.setDatetime(rs.getTimestamp(8));
+				journal.setPrivate_is(rs.getInt(9));
+				journal.setPrivate_pass(rs.getInt(10));
+				list.add(journal);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 }
