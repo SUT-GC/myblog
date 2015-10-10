@@ -36,8 +36,7 @@ import empty.User;
 		"/ReleaseJournal",
 		"/UserEditOrDelete",
 		"/MessageDo",
-		"/ImageDelete",
-		"/FileUpload"
+		"/ImageDelete"
 })
 public class back_fileter implements Filter {
 
