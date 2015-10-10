@@ -1,3 +1,6 @@
+<%@page import="dao.JournalDao"%>
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="java.io.File"%>
 <%@page import="file.ImageDo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -132,8 +135,13 @@
                             <a href="#"><i class="glyphicon glyphicon-chevron-right"></i> 留白4</a>
                         </li>
                     </ul>
-                </div>
-
+                </div>	
+                <%
+                	String delimg = "";
+        		  	if(request.getParameter("delimgp")!=null){
+        		  		delimg = request.getParameter("delimgp");
+        		  	}
+                %>
                 <!-- content -->
                 <div class="col-md-10">
                     <div class="row">
@@ -148,6 +156,9 @@
                                 		File[] files = null;
                                 		String imagepath = application.getRealPath(File.separator)+"image"+File.separator+"journalheader";
                                 		files = ImageDo.selectImages(imagepath);
+                                		
+                                		HashSet <String> imageset = null;
+                                		imageset = JournalDao.getImageSet();
                                 	%>
                                 	<!-- java end -->
                                     <!--一个img元素start-->
@@ -155,15 +166,39 @@
                                     	if(files != null){
                                     		for(File file : files){
                                     %>
-                                    <div class="img">
+                                     <div class="img">
                                         <img class="img_border" src="../../image/journalheader/<%=file.getName()%>">
-                                        <div class="img_id_journal_id"><span><%=file.getName()%></span></div>
-                                        <div class="img_button">
-                                            <button class="btn btn-primary button_edit"><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
-                                            <button class="btn btn-danger button_delete"><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
-                                        </div>
-                                    </div>
-                                    <%}}%>
+                                    <%
+                                    			if(!file.getName().equals("default.jpg") && imageset.contains(file.getName())){
+                                    %>
+	                                    <div class="img_id_journal_id"><span><%=file.getName()%></span><span style='color:#FF0000'>   (Can't do)</span></div>
+	                                        <div class="img_button">
+                                            <button class="btn btn-primary button_edit" disabled><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
+                                           <button class="btn btn-danger button_delete" disabled><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button>
+
+                                    <%
+                                    				}else if(file.getName().equals("default.jpg")){
+                                     %>
+	                                     <div class="img_id_journal_id"><span style='color:#FF0000'><%=file.getName()%></span><span style='color:#00FF00'>   (do)</span></div>
+	                                        <div class="img_button">
+                                              <button class="btn btn-primary button_edit" ><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
+                                            <a onclick="return confirm('这是缺省图片\n您确定要删除default.jpg吗 \n!!!!!!!!!!!!!!!!!!!!!!')" href="/myblog/ImageDelete?imgp=<%=file.getName()%>"> <button class="btn btn-danger button_delete" ><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></a>
+                                    <%					
+                                    				}else{
+                                 	 %>
+                	                   <div class="img_id_journal_id"><span><%=file.getName()%></span><span style='color:#00FF00'>   (do)</span></div>
+                	                    	<div class="img_button">
+                                          		<button class="btn btn-primary button_edit" ><i class="glyphicon glyphicon-pencil glyphicon-white"></i>Reset</button>
+                                             <a href="/myblog/ImageDelete?imgp=<%=file.getName()%>"> <button class="btn btn-danger button_delete" ><i class="glyphicon glyphicon-remove glyphicon-white"></i> Delete</button></a>
+                                   	 <% 
+                                    				}
+                                   	 %>
+                                           </div>
+                                   	 </div>
+                                    <%
+                                    			}
+                                    		}
+                                    %>
                                     <!--一个img元素end-->
                                     <!--撑开背面标签用start-->
                                     <div class="img_end"></div> 
@@ -190,6 +225,28 @@
         <script type="text/javascript" src="vendors/jGrowl/jquery.jgrowl.js"></script>
 
         <script type="text/javascript">
+        /*
+		 * 定义删除之后返回的变量 del
+		 * 0: Servlet中imgp参数未找到
+		 * 1: 删除成功
+		 * 2: 文件未找到
+		 * 3: 执行文件创建报错或者为执行ImageDo.deleteImage;
+		 */
+        	var del= '<%=delimg%>';
+
+        	if(del != ""){
+        		var altmsg = "";
+        		if(del == "0"){
+        			altmsg += " Servlet中imgp参数未找到";
+        		}else if(del == "1"){
+        			altmsg += " 删除成功";
+        		}else if(del == "2"){
+        			altmsg += " 文件未找到";
+        		}else if(del == "3"){
+        			altmsg += " 执行文件创建报错或者为执行ImageDo.deleteImage";
+        		}
+        		alert(altmsg);
+        	}
             $(function() {
                 $('.tooltip').tooltip();
                 $('.tooltip-left').tooltip({placement: 'left'});

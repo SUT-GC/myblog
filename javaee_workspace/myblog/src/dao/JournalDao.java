@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import empty.Journal;
@@ -22,6 +24,7 @@ public class JournalDao {
 	}
 
 	/*
+	 * 1
 	 * 插入wb_article表函数 接受journal参数，把journal相关数据插入到数据库里
 	 * 插入之间判断journal里title属性，summary属性，content属性是否为空 如果为空，分别返回2,3,4
 	 * 如果插入成功，会返回有效插入的条数 如果插入故障，返回5
@@ -55,6 +58,7 @@ public class JournalDao {
 	}
 
 	/*
+	 * 2
 	 * select *from wb_article 查询函数
 	 * 返回ArrayList<Journal> list 返回查询的结果
 	 */
@@ -83,6 +87,7 @@ public class JournalDao {
 	}
 
 	/*
+	 * 3
 	 * 功能: 根据classify查询不同类型的Journal
 	 * sql: select * from wb_article where article_classify = '1';
 	 * 方法名: selectJournalByClassify
@@ -115,6 +120,7 @@ public class JournalDao {
 	}
 	
 	/*
+	 * 4
 	 * 功能: 模糊查询文章标题
 	 * sql: select * from wb_article where article_title like '%s%';
 	 * 方法名: selectJournalLikeTitle
@@ -147,6 +153,7 @@ public class JournalDao {
 	}
 	
 	/*
+	 * 5
 	 * sql: select * from wb_article where article_id = id; 
 	 * 函数名 selectByID 参数int
 	 * id 返回值 Journal的一个对象
@@ -156,7 +163,6 @@ public class JournalDao {
 		String sql = "select * from wb_article where article_id = " + id;
 		try {
 			ResultSet rs = stmt.executeQuery(sql);
-
 			while (rs.next()) {
 				journal = new Journal();
 				journal.setJournal_id(id);
@@ -178,6 +184,7 @@ public class JournalDao {
 	}
 
 	/*
+	 * 6
 	 * sql: delete from wb_article where article_id = id; 
 	 * 函数名字 deleteJournal 参数
 	 * int id 返回值，删除之后的结果 1
@@ -194,6 +201,7 @@ public class JournalDao {
 	}
 	
 	/*
+	 * 7
 	 * 作用:根据article_id 来更新wb_article中的数据
 	 * sql:update wb_article set article_title = '123', article_author = '123', article_content = '123', article_summary = '123', article_classify = '123', article_image='123', article_date='2015-01-01 23:20', article_private_is ='1', article_private_pass='123' where article_id = '0';
 	 * 函数名: updateJournal
@@ -225,5 +233,27 @@ public class JournalDao {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	/*
+	 * 8
+	 * 功能: 把所有journal的imagepath放入HashSet 中
+	 * 方法名: getImageSet
+	 * 参数: 空
+	 * 返回值: HashSet <String> 
+	 */
+	public static HashSet<String > getImageSet(){
+		HashSet <String> imageset = new HashSet<>();
+		String sql = "select * from wb_article;";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				String imagepath = rs.getString("article_image");
+				imageset.add(imagepath);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return imageset;
 	}
 }
