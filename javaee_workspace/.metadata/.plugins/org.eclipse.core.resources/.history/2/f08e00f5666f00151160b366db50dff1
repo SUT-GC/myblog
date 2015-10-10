@@ -7,7 +7,7 @@
 .topnews h1 span a:hover { color: #000 }
 .blogs { padding: 10px 0; position: relative; border-bottom: #CCC 1px solid; overflow: hidden }
 .blogs h3 { font-size: 17px; font-weight: bold; transition: all .5s; margin-bottom: 10px }
-.blogs h3 a { color: #474645;margin-right:10%;}
+.blogs h3 a { color: #474645; }
 .blogs ul {padding-top: 5px;}
 .blogs ul p {font-size: 15px;}
 .blogs h3 a:hover { color: #066; text-decoration: underline }
