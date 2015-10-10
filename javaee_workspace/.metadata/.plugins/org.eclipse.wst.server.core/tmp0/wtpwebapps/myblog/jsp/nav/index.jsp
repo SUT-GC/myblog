@@ -1,3 +1,4 @@
+<%@page import="dao.ReplyDao"%>
 <%@page import="other.Tool"%>
 <%@page import="dao.JournalDao"%>
 <%@page import="empty.Journal"%>
@@ -125,7 +126,7 @@
             <div class="journal_summary">
             	<p><%=journal.getSummary()%></p>
             </div>
-            <p class="autor"><span class="lm f_l"><a href="../Journal/Journal.jsp?cfy=<%=journal.getClassify()%>"><%=Tool.ClassifyNumToClassify(journal.getClassify())%></a></span><span class="dtime f_l"><%=Tool.changDateTile(journal.getDatetime())%></span><span class="viewnum f_r">浏览（<a href="#">459</a>）</span><span class="pingl f_r">评论（<a href="#">30</a>）</span></p>
+            <p class="autor"><span class="lm f_l"><a href="../Journal/Journal.jsp?cfy=<%=journal.getClassify()%>"><%=Tool.ClassifyNumToClassify(journal.getClassify())%></a></span><span class="dtime f_l"><%=Tool.changDateTile(journal.getDatetime())%></span><span class="viewnum f_r">浏览（<a href="#">很多</a>）</span><span class="pingl f_r">评论（<a href="#"><%=ReplyDao.countReplyByArticleID(journal.getJournal_id())%></a>）</span></p>
           </ul>
         </div>
          <%

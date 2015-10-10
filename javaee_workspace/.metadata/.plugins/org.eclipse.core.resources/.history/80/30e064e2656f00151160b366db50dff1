@@ -72,26 +72,4 @@ public class ReplyDao {
 		}
 		return list;
 	}
-	
-	/*
-	 * 3
-	 * 功能: 根据article_id 计算出该article的回复数量
-	 * sql: select count(*) from wb_reply where article_id = '28'; 
-	 * 方法名: countReplyByArticleID
-	 * 参数: int articleid
-	 * 返回值: int result;
-	 */
-	public static int countReplyByArticleID(int articleid){
-		int result = 0;
-		String sql = "select count(*) from wb_reply where article_id = '"+articleid+"'; ";
-		 try {
-			ResultSet rs  = stmt.executeQuery(sql);
-			while(rs.next()){
-				result = rs.getInt(1);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
 }
