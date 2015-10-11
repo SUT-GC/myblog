@@ -29,6 +29,7 @@ import empty.User;
 		"/jsp/back/back_journal_edit.jsp",
 		"/jsp/back/back_journal_release.jsp",
 		"/jsp/back/back_message_show.jsp",
+		"/jsp/back/back_admin_add.jsp",
 		"/jsp/back/back_message.jsp",
 		"/jsp/back/back_user_eidt.jsp",
 		"/jsp/back/back_users.jsp",
@@ -37,7 +38,8 @@ import empty.User;
 		"/UserEditOrDelete",
 		"/MessageDo",
 		"/ImageDelete",
-		"/FileUpload"
+		"/FileUpload",
+		"/AddBackAdmin"
 })
 public class back_fileter implements Filter {
 

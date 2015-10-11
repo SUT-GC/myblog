@@ -126,8 +126,9 @@
                 <div class="col-md-10">
                     <div class="row">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel-heading" >
                                 <div class="text-muted bootstrap-admin-box-title"><a href="#">admin账户管理中心</a></div>
+                                <a href="back_admin_add.jsp" ><button class="btn btn-success" style="margin-left: 70%;">增加管理员</button></a>
                             </div>
                               <div class="bootstrap-admin-panel-content">
                                 <table class="table table-hover">

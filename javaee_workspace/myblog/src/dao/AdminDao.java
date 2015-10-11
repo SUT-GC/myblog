@@ -95,6 +95,27 @@ public class AdminDao {
 		}
     	return admin;
     }
+    
+    /*
+     * 功能: 插入一个Admin用户
+     * sql: insert wb_admin (admin_username, admin_password) values('tian', 'tian');
+     * 方法名: insertAdmin
+     * 参数: Admin admin
+     * 返回值 int result
+     * 0:插入失败
+     * 1:插入成功
+     */
+    public static int insertAdmin(Admin admin){
+    	int result = 0;
+    	String sql = "insert wb_admin (admin_username, admin_password) values('"+admin.getAdmin_username()+"', '"+admin.getAdmin_password()+"');";
+    	try {
+			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return result;
+    }
+    
     /*
      * 功能:根据admin_id更改表中的一条记录
      * sql:update wb_admin set admin_username='Tian', admin_password = '123' where admin_id = '0';
