@@ -2,17 +2,17 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="page" key="selection"/>
+		<item value=".jsp" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value=".html"/>
 			<item value="page"/>
 			<item value="adaptValue"/>
 			<item value="form"/>
 			<item value="example"/>
-			<item value=".html"/>
 			<item value="/journal/img/"/>
 			<item value="ISO-8859-1"/>
 			<item value=".jsp"/>

@@ -199,7 +199,7 @@
                 		i++;
                 %>
                     <div class="floor-left">
-                        <img src="img/01.png">
+                        <img style="width: 52px; height: 52px;" src="../../image/user/head/<%=UserDao.selectUserByID(message.getUser_id()).getUser_imagepath()%>">
                     </div>
                     <div class="floor-right">
                         <div class="floor-username_floor-num">
@@ -231,7 +231,7 @@
                         	for(Message secoundmessage:secoundlist){
                         %>
                             <div class="reply-left">
-                                <img src="/myblog/image/user/head/02.png">
+                                <img style="width: 40px; height: 40px;" src="/myblog/image/user/head/<%=UserDao.selectUserByID(secoundmessage.getUser_id()).getUser_imagepath()%>">
                             </div>
                             <div class="reply-right">
                                 <div class="reply-right-top">

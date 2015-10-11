@@ -9,14 +9,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!--java 绝对地址 start  -->
+<%
+	String urlp = application.getContextPath()+"/jsp/";
+	System.out.println(urlp);
+%>
+<!-- java 绝对地址 end -->
   <meta charset="UTF-8">
-  <link href="css/news.css" rel="stylesheet">
-  <link href="css/nav.css" rel="stylesheet">
+  <link href="<%=urlp%>nav/css/news.css" rel="stylesheet">
+  <link href="<%=urlp%>nav/css/nav.css" rel="stylesheet">
   <title>GC的博客</title>
   <style type="text/css">
         body {
           background-color:#edecec;
-          background-image: url('img/1.jpg');
+          background-image: url('<%=urlp%>nav/img/1.jpg');
           background-position: center;
           background-repeat:repeat;
           background-attachment: fixed;
@@ -50,7 +56,7 @@
         主页
         <span class="three-d-box"><span class="front">主页</span><span class="back">主页</span></span>
       </a></li>
-      <li><a href="../Journal/Journal.jsp" class="three-d">
+      <li><a href="<%=urlp%>Journal/Journal.jsp" class="three-d">
         日志
         <span class="three-d-box"><span class="front">日志</span><span class="back">日志</span></span>
       </a></li>
@@ -58,7 +64,7 @@
         TA
         <span class="three-d-box"><span class="front">TA</span><span class="back">TA</span></span>
       </a></li>
-      <li><a href="../information/information.jsp" class="three-d">
+      <li><a href="<%=urlp%>information/information.jsp" class="three-d">
         博主
         <span class="three-d-box"><span class="front">博主</span><span class="back">博主</span></span>
       </a></li>
@@ -66,11 +72,11 @@
         空间
         <span class="three-d-box"><span class="front">空间</span><span class="back">空间</span></span>
       </a></li>
-      <li><a href="../editor/messagebox.jsp" class="three-d">
+      <li><a href="<%=urlp%>editor/messagebox.jsp" class="three-d">
         留言板
         <span class="three-d-box"><span class="front">留言板</span><span class="back">留言板</span></span>
       </a></li>
-      <li><a href="../back/back_login.jsp" class="three-d">
+      <li><a href="<%=urlp%>back/back_login.jsp" class="three-d">
         后台
         <span class="three-d-box"><span class="front">后台</span><span class="back">后台</span></span>
       </a></li>
@@ -81,11 +87,11 @@
         登陆/注册
         <span class="three-d-box"><span class="front">登陆/注册</span><span class="back">登陆/注册</span></span></a>
         <ul class="clearfix unstyled drop-menu">
-          <li><a href="../login/login.jsp" class="three-d">
+          <li><a href="<%=urlp%>/login/login.jsp" class="three-d">
               登陆
               <span class="three-d-box"><span class="front">登陆</span><span class="back">登陆</span></span>
           </a></li>
-          <li><a href="../registered/registered.jsp" class="three-d">
+          <li><a href="<%=urlp%>registered/registered.jsp" class="three-d">
             注册
             <span class="three-d-box"><span class="front">注册</span><span class="back">注册</span></span>
           </a></li>
@@ -120,13 +126,13 @@
         	for(Journal journal:list){
         %>
         <div class="blogs">
-          <figure><img style='width:180px; height:180px;' src="../../image/journalheader/<%=journal.getImgpath()%>"></figure>
+          <figure><img style='width:180px; height:180px;' src="<%=urlp%>../image/journalheader/<%=journal.getImgpath()%>"></figure>
           <ul>
-            <h3><a href="../Journal/journal_each.jsp?id=<%=journal.getJournal_id()%>"><%=journal.getTitle()%></a></h3>
+            <h3><a href="<%=urlp%>/Journal/journal_each.jsp?id=<%=journal.getJournal_id()%>"><%=journal.getTitle()%></a></h3>
             <div class="journal_summary">
             	<p><%=journal.getSummary()%></p>
             </div>
-            <p class="autor"><span class="lm f_l"><a href="../Journal/Journal.jsp?cfy=<%=journal.getClassify()%>"><%=Tool.ClassifyNumToClassify(journal.getClassify())%></a></span><span class="dtime f_l"><%=Tool.changDateTile(journal.getDatetime())%></span><span class="viewnum f_r">浏览（<a href="#">很多</a>）</span><span class="pingl f_r">评论（<a href="#"><%=ReplyDao.countReplyByArticleID(journal.getJournal_id())%></a>）</span></p>
+            <p class="autor"><span class="lm f_l"><a href="<%=urlp%>/Journal/Journal.jsp?cfy=<%=journal.getClassify()%>"><%=Tool.ClassifyNumToClassify(journal.getClassify())%></a></span><span class="dtime f_l"><%=Tool.changDateTile(journal.getDatetime())%></span><span class="viewnum f_r">浏览（<a href="#">很多</a>）</span><span class="pingl f_r">评论（<a href="#"><%=ReplyDao.countReplyByArticleID(journal.getJournal_id())%></a>）</span></p>
           </ul>
         </div>
          <%

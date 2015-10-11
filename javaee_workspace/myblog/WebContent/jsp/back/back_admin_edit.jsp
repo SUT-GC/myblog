@@ -6,18 +6,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!--java 绝对地址 start  -->
+<%
+	String urlp = application.getContextPath()+"/jsp/back/";
+	System.out.println(urlp);
+%>
+<!-- java 绝对地址 end -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>admin账户编辑界面</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-        <link rel="stylesheet" type="text/css" href="css/back_user_edit.css">
+        <link href="<%=urlp%>css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="<%=urlp%>css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="<%=urlp%>css/back_user_edit.css">
         <!-- Bootstrap Admin Theme -->
-        <link href="css/bootstrap-admin-theme.css" rel="stylesheet" media="screen">
-        <link rel="stylesheet" type="text/css" href="css/back_journal_admin.css">
+        <link href="<%=urlp%>css/bootstrap-admin-theme.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="<%=urlp%>css/back_journal_admin.css">
         <!-- Custom styles -->
         <style type="text/css">
             .buttons-title{
@@ -61,7 +67,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">首页</a></li>
-              <li ><a href="back_help.jsp">使用介绍</a></li>             
+              <li ><a href="<%=urlp%>back_help.jsp">使用介绍</a></li>             
             </ul>
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
@@ -88,10 +94,10 @@
                 <div class="col-md-2 bootstrap-admin-col-left">
                      <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                          <li >
-                            <a href="back_index.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 首页</a>
+                            <a href="<%=urlp%>back_index.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 首页</a>
                         </li>
                         <li >
-                            <a href="back_about.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 关于我们</a>
+                            <a href="<%=urlp%>back_about.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 关于我们</a>
                         </li>                       
                         <li class="disabled">
                             <a href="#"><i class="glyphicon glyphicon-chevron-right"></i> 日历</a><!-- calendar.jsp -->
@@ -100,22 +106,22 @@
                             <a href="#"><i class="glyphicon glyphicon-chevron-right"></i> 统计图表</a><!-- stats.jsp -->
                         </li>
                         <li>
-                            <a href="back_journal_release.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 日志发布</a>
+                            <a href="<%=urlp%>back_journal_release.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 日志发布</a>
                         </li>
                         <li >
-                            <a href="back_journal_admin.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 日志管理</a>
+                            <a href="<%=urlp%>back_journal_admin.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 日志管理</a>
                         </li>
                         <li>
-                            <a href="back_users.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
+                            <a href="<%=urlp%>back_users.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
                         </li>
                         <li>
-                            <a href="back_message.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 留言管理</a>
+                            <a href="<%=urlp%>back_message.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 留言管理</a>
                         </li>
                         <li>
-                            <a href="back_image.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图片管理</a>
+                            <a href="<%=urlp%>back_image.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图片管理</a>
                         </li>
                         <li class="active">
-                            <a href="back_admin_information.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 账户中心</a>
+                            <a href="<%=urlp%>back_admin_information.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 账户中心</a>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-chevron-right"></i> 留白1</a>
@@ -146,7 +152,7 @@
                     <div class="row">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <div class="text-muted bootstrap-admin-box-title"><a href="back_admin_information.jsp">admin账户管理中心</a> >> <a href="#">edit</a></div>
+                                <div class="text-muted bootstrap-admin-box-title"><a href="<%=urlp%>back_admin_information.jsp">admin账户管理中心</a> >> <a href="#">edit</a></div>
                             </div>
                             <!--form start-->
                             <form method="post" action = "/myblog/AdminDo">
@@ -193,9 +199,9 @@
         </div>
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/twitter-bootstrap-hover-dropdown.min.js"></script>
-        <script type="text/javascript" src="vendors/datatables/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="js/DT_bootstrap.js"></script>
+        <script type="text/javascript" src="<%=urlp%>js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<%=urlp%>js/twitter-bootstrap-hover-dropdown.min.js"></script>
+        <script type="text/javascript" src="<%=urlp%>vendors/datatables/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="<%=urlp%>js/DT_bootstrap.js"></script>
     </body>
 </html>

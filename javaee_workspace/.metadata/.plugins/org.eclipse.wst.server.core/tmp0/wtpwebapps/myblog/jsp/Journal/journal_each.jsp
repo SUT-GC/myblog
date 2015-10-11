@@ -114,7 +114,7 @@
                     <!--回复start-->
                     <hr/>
                     <div class="reply_top">
-                        <img src="../../image/user/head/01.png">
+                        <img style="width:52px; height:52px;" src="../../image/user/head/<%=UserDao.selectUserByID(reply.getUserid()).getUser_imagepath()%>">
                     </div>
                     <div class="reply_bottom">
                         <div>
