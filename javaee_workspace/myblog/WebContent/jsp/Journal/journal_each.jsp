@@ -108,7 +108,7 @@
                      <!--文本编写框end-->
                      <%
                      	ArrayList<Reply> list = null;
-                     	list = ReplyDao.selectReply(journal.getJournal_id());
+                     	list = ReplyDao.selectReplyByArticleID(journal.getJournal_id());
                      	for(Reply reply: list){
                      %>
                     <!--回复start-->

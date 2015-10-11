@@ -129,10 +129,11 @@
                     <div class="row">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <div class="text-muted bootstrap-admin-box-title"><a href="#">留言管理</a></div>
+                                <div class="text-muted bootstrap-admin-box-title"><a href="#">留言板留言管理</a>&nbsp&nbsp&nbsp&nbsp<a href="back_reply.jsp">日志页留言管理</a></div>
                             </div>
                             <div class="bootstrap-admin-panel-content">
-
+								<h4 style="text-align: center;">您整处于 &nbsp&nbsp<a style="color:#0000CC;">留言板</a>&nbsp&nbsp 留言管理界面</h4>
+								<hr/>
                                 <table class="table table-striped table-bordered" id="example">
                                     <thead>
                                         <tr>

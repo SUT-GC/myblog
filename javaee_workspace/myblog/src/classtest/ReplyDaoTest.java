@@ -8,7 +8,7 @@ import empty.Reply;
 public class ReplyDaoTest {
 
 	public static void main(String[] args) {
-		System.out.println(ReplyDao.countReplyByArticleID(28));
+		System.out.println(ReplyDao.selectReplyByReplyID(1));
 	}
 
 }

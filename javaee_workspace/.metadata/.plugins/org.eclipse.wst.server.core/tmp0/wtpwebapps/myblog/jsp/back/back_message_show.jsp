@@ -144,7 +144,7 @@
                     <div class="row">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <div class="text-muted bootstrap-admin-box-title"><a href="back_message.jsp">留言管理</a> >> <a href="#">show</a></div>
+                                <div class="text-muted bootstrap-admin-box-title"><a href="back_message.jsp">留言板留言管理</a> >> <a href="#">show</a></div>
                             </div>
                             <div class="message_show">
                             <%if(message != null) {%>

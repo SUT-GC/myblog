@@ -53,7 +53,7 @@ public class ReplyDao {
 	 * 参数: int articleid
 	 * 返回值: ArrayList <Reply> list
 	 */
-	public static ArrayList<Reply> selectReply(int articleid){
+	public static ArrayList<Reply> selectReplyByArticleID(int articleid){
 		ArrayList<Reply> list = null;
 		String sql = "select * from wb_reply where article_id = '"+articleid+"';";
 		try {
@@ -89,6 +89,81 @@ public class ReplyDao {
 			while(rs.next()){
 				result = rs.getInt(1);
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/*
+	 * 4
+	 * 功能: 查询出所有的reply
+	 * sql: select * from wb_reply
+	 * 方法名: selectReply
+	 * 参数: 无
+	 * 返回值:ArrayList <Reply> list
+	 */
+	public static ArrayList<Reply> selectReply(){
+		ArrayList<Reply> list = null;
+		String sql = "select * from wb_reply;";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			list = new ArrayList<>();
+			while(rs.next()){
+				Reply reply = new Reply();
+				reply.setReplyid(rs.getInt(1));
+				reply.setReplycontent(rs.getString(2));
+				reply.setUserid(rs.getInt(4));
+				reply.setArticleid(rs.getInt(3));
+				reply.setReplydate(rs.getTimestamp(5));
+				list.add(reply);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	/*
+	 * 功能: 根据reply_id查询出Reply
+	 * sql: select * from wb_reply where reply_id = '1';
+	 * 方法名:selectReplyByReplyID
+	 * 参数名:int reply_id
+	 * 返回值:Reply reply
+	 */
+	public static Reply selectReplyByReplyID(int replyid){
+		Reply reply = null;
+			String sql = "select * from wb_reply where reply_id = '"+replyid+"';";
+			try {
+				ResultSet rs = stmt.executeQuery(sql);
+				while(rs.next()){
+					reply = new Reply();
+					reply.setReplyid(rs.getInt(1));
+					reply.setReplycontent(rs.getString(2));
+					reply.setUserid(rs.getInt(4));
+					reply.setArticleid(rs.getInt(3));
+					reply.setReplydate(rs.getTimestamp(5));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return reply;
+	}
+	
+	/*
+	 * 功能: 根据reply_id删除reply
+	 * sql: delete from wb_reply where reply_id = '2';
+	 * 方法名: deleteReplyByReplyID
+	 * 参数:int replyid
+	 * 返回值: int result;
+	 * 0:执行失败
+	 * 1:执行成功
+	 */
+	public static int deleteReplyByReplyID(int replyid){
+		int result = 0;
+		String sql = "delete from wb_reply where reply_id = '"+replyid+"';";
+		try {
+			result = stmt.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
